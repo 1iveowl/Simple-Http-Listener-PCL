@@ -336,11 +336,23 @@
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.dll">
+      <PackagePath>ISimpleHttpServer.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Linq.dll">
+      <PackagePath>System.Reactive.Linq.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Core.dll">
+      <PackagePath>System.Reactive.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Interfaces.dll">
+      <PackagePath>System.Reactive.Interfaces.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>

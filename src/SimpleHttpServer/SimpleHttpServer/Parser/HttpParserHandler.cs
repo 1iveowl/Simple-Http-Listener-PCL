@@ -1,20 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HttpMachine;
+using ISimpleHttpServer.Model;
 
 namespace SimpleHttpServer.Parser
 {
-    internal class HttpParserHandler : IHttpRequestParserDelegate
+    internal class HttpParserHandler : IHttpRequestParserDelegate, IHttpRequest
     {
         public string Method { get; private set; }
-        public string RequstUri { get; set; }
+        public string RequstUri { get; private set; }
+        public string Path { get; private set; }
+        public string QueryString { get; private set; }
 
-        public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
+        public string Fragment { get; private set; }
 
-        public bool IsEndOfRequest { get; set; }
+        public IDictionary<string, string> Headers { get; private set; } = new Dictionary<string, string>();
+
+        public MemoryStream Body { get; private set; } = new MemoryStream();
+
+        public bool IsEndOfRequest { get; private set; }
 
 
         public void OnMessageBegin(HttpParser parser)
@@ -26,42 +34,37 @@ namespace SimpleHttpServer.Parser
         public void OnMethod(HttpParser parser, string method)
         {
             Method = method;
-            //throw new NotImplementedException();
         }
 
         public void OnRequestUri(HttpParser parser, string requestUri)
         {
             RequstUri = requestUri;
-            //throw new NotImplementedException();
         }
 
         public void OnPath(HttpParser parser, string path)
         {
-            //throw new NotImplementedException();
+            Path = path;
         }
 
         public void OnFragment(HttpParser parser, string fragment)
         {
-
-            //throw new NotImplementedException();
+            Fragment = fragment;
         }
 
         public void OnQueryString(HttpParser parser, string queryString)
         {
-            //throw new NotImplementedException();
+            QueryString = queryString;
         }
 
         private string _headerName = null; 
         public void OnHeaderName(HttpParser parser, string name)
         {
             _headerName = name;
-            //throw new NotImplementedException();
         }
 
         public void OnHeaderValue(HttpParser parser, string value)
         {
             Headers[_headerName] = value;
-            //throw new NotImplementedException();
         }
 
         public void OnHeadersEnd(HttpParser parser)
@@ -71,7 +74,7 @@ namespace SimpleHttpServer.Parser
 
         public void OnBody(HttpParser parser, ArraySegment<byte> data)
         {
-            //throw new NotImplementedException();
+            Body.Write(data.Array, 0, data.Array.Length);
         }
 
         public void OnMessageEnd(HttpParser parser)

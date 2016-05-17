@@ -33,8 +33,8 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
-            var listener = new Listener();
-            await listener.Start();
+            var httpListener = new HttpListener();
+            await httpListener.Start(port:8000);
         }
     }
 }

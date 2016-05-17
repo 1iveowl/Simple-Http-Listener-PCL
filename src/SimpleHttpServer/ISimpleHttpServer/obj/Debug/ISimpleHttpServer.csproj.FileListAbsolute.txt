@@ -1,0 +1,4 @@
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.dll
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.pdb
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\obj\Debug\ISimpleHttpServer.dll
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\obj\Debug\ISimpleHttpServer.pdb
