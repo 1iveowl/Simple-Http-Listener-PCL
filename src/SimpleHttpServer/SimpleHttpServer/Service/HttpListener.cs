@@ -51,8 +51,8 @@ namespace SimpleHttpServer.Service
 
                 return requestHandler;
             })
-            .ObserveOn(Scheduler.Default)
-            .SubscribeOn(Scheduler.CurrentThread);
+            .ObserveOn(Scheduler.CurrentThread)
+            .SubscribeOn(Scheduler.Default);
 
         public async Task Start(int port)
         {
