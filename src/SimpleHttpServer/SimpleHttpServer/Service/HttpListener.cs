@@ -20,7 +20,7 @@ namespace SimpleHttpServer.Service
     {
         private TcpSocketListener _tcpListener;
 
-        private IObservable<IHttpRequest> HttpRequest => 
+        public IObservable<IHttpRequest> HttpRequest => 
             Observable.FromEventPattern<TcpSocketListenerConnectEventArgs>(
             c => _tcpListener.ConnectionReceived += c,
             c => _tcpListener.ConnectionReceived -= c)
@@ -56,13 +56,7 @@ namespace SimpleHttpServer.Service
 
         public async Task Start(int port)
         {
-            //var listenPort = 8000;
             _tcpListener = new TcpSocketListener(port);
-
-            HttpRequest.Subscribe(x =>
-            {
-                
-            });
 
             await _tcpListener.StartListeningAsync(port);
         }

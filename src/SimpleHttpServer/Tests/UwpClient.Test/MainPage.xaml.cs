@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Reactive.Linq;
+using System.Reactive;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -35,6 +38,11 @@ namespace UwpClient.Test
         {
             var httpListener = new HttpListener();
             await httpListener.Start(port:8000);
+
+            httpListener.HttpRequest.Subscribe(x =>
+            {
+                var request = x;
+            });
         }
     }
 }

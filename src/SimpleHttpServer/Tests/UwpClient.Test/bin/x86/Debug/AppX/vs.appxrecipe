@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-17T19:10:50.329</Modified>
+      <Modified>2016-05-17T21:18:22.554</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\UwpClient.Test.exe">
       <PackagePath>entrypoint\UwpClient.Test.exe</PackagePath>
-      <Modified>2016-05-17T19:10:48.435</Modified>
+      <Modified>2016-05-17T21:18:19.861</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -101,6 +101,22 @@
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
       <Modified>2016-02-21T20:35:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Rx-Core\2.2.5\lib\windows8\System.Reactive.Core.dll">
+      <PackagePath>System.Reactive.Core.dll</PackagePath>
+      <Modified>2016-03-06T22:18:51.029</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Rx-Interfaces\2.2.5\lib\windows8\System.Reactive.Interfaces.dll">
+      <PackagePath>System.Reactive.Interfaces.dll</PackagePath>
+      <Modified>2016-03-06T22:18:50.811</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Rx-Linq\2.2.5\lib\windows8\System.Reactive.Linq.dll">
+      <PackagePath>System.Reactive.Linq.dll</PackagePath>
+      <Modified>2016-03-06T22:18:51.257</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Rx-PlatformServices\2.2.5\lib\windows8\System.Reactive.PlatformServices.dll">
+      <PackagePath>System.Reactive.PlatformServices.dll</PackagePath>
+      <Modified>2016-03-06T22:18:50.971</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\System.AppContext\4.0.0\lib\netcore50\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -452,27 +468,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.dll">
       <PackagePath>ISimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-17T19:10:45.637</Modified>
+      <Modified>2016-05-17T21:18:16.488</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-17T19:10:46.024</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Linq.dll">
-      <PackagePath>System.Reactive.Linq.dll</PackagePath>
-      <Modified>2016-03-06T22:18:51.149</Modified>
+      <Modified>2016-05-17T21:18:16.889</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>
       <Modified>2016-05-17T16:43:42.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Core.dll">
-      <PackagePath>System.Reactive.Core.dll</PackagePath>
-      <Modified>2016-03-06T22:18:50.919</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Interfaces.dll">
-      <PackagePath>System.Reactive.Interfaces.dll</PackagePath>
-      <Modified>2016-03-06T22:18:50.740</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -522,11 +526,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-17T19:10:50.038</Modified>
+      <Modified>2016-05-17T21:18:22.171</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Core\UwpClient.Test.exe">
       <PackagePath>UwpClient.Test.exe</PackagePath>
-      <Modified>2016-05-17T19:10:50.320</Modified>
+      <Modified>2016-05-17T21:18:22.546</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
