@@ -35,11 +35,6 @@ namespace UwpClient.Test
         {
             var listener = new Listener();
             await listener.Start();
-
-            //while (true)
-            //{
-            //    await Task.Delay(TimeSpan.FromSeconds(10)).ConfigureAwait(false);
-            //}
         }
     }
 }

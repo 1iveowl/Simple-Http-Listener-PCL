@@ -7,14 +7,14 @@ using HttpMachine;
 
 namespace SimpleHttpServer.Parser
 {
-    internal class HttpParserHandler : IHttpParserHandler
+    internal class HttpParserHandler : IHttpRequestParserDelegate
     {
         public string Method { get; private set; }
         public string RequstUri { get; set; }
 
         public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
 
-        public bool HasRequestEnded { get; set; }
+        public bool IsEndOfRequest { get; set; }
 
 
         public void OnMessageBegin(HttpParser parser)
@@ -32,6 +32,11 @@ namespace SimpleHttpServer.Parser
         public void OnRequestUri(HttpParser parser, string requestUri)
         {
             RequstUri = requestUri;
+            //throw new NotImplementedException();
+        }
+
+        public void OnPath(HttpParser parser, string path)
+        {
             //throw new NotImplementedException();
         }
 
@@ -71,7 +76,7 @@ namespace SimpleHttpServer.Parser
 
         public void OnMessageEnd(HttpParser parser)
         {
-            HasRequestEnded = true;
+            IsEndOfRequest = true;
         }
     }
 }

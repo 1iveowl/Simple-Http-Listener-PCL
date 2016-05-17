@@ -27,16 +27,13 @@ namespace SimpleHttpServer.Service
 
                 var bytesRead = 1;
 
-                //TODO Add resonse code to client to that connection can close!
-
-                while ((bytesRead = client.ReadStream.Read(buffer, 0, buffer.Length)) > 0)
+                while ((bytesRead = await client.ReadStream.ReadAsync(buffer, 0, buffer.Length)) != 0)
                 {
-                    await Task.Delay(TimeSpan.FromMilliseconds(10));
-                    //if (bytesRead != parser.Execute(new ArraySegment<byte>(buffer, 0, bytesRead)))
-                    //{
-                    //    //throw new Exception("Argh");
-                    //}
-                    //if (handler.HasRequestEnded) break;
+                    if (bytesRead != parser.Execute(new ArraySegment<byte>(buffer, 0, bytesRead)))
+                    {
+                        //throw new Exception("Argh");
+                    }
+                    if (handler.IsEndOfRequest) break;
                 }
 
                 // ensure you get the last callbacks.

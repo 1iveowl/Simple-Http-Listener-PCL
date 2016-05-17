@@ -9,3 +9,5 @@ C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServ
 C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\Sockets.Plugin.Abstractions.xml
 C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\obj\Debug\SimpleHttpServer.dll
 C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\obj\Debug\SimpleHttpServer.pdb
+C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.pdb
+C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\obj\Debug\SimpleHttpServer.csprojResolveAssemblyReference.cache

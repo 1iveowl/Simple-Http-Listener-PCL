@@ -452,11 +452,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-16T22:15:00.246</Modified>
+      <Modified>2016-05-17T14:26:58.967</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>
-      <Modified>2011-05-29T16:23:52.000</Modified>
+      <Modified>2016-05-17T08:21:51.384</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
