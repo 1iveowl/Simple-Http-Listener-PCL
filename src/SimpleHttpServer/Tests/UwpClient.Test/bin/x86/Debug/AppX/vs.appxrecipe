@@ -452,7 +452,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-17T14:26:58.967</Modified>
+      <Modified>2016-05-17T15:00:21.964</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\Github_1iveowl\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>

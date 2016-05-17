@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using HttpMachine;
 using SimpleHttpServer.Parser;
@@ -9,7 +11,7 @@ namespace SimpleHttpServer.Service
 {
     public class Listener
     {
-        private const int BufferSize = 256;
+        private const int BufferSize = 1;
         public async Task Start()
         {
             var listenPort = 8000;
@@ -27,8 +29,23 @@ namespace SimpleHttpServer.Service
 
                 var bytesRead = 1;
 
-                while ((bytesRead = await client.ReadStream.ReadAsync(buffer, 0, buffer.Length)) != 0)
+                //using (var binaryReader = new BinaryReader(client.ReadStream))
+                //{
+                //    while (true)
+                //    {
+                //        bytesRead = binaryReader.Read(buffer, 0, buffer.Length);
+                //        if (bytesRead != parser.Execute(new ArraySegment<byte>(buffer, 0, bytesRead)))
+                //        {
+                //            throw new Exception("Argh");
+                //        }
+                //        if (handler.IsEndOfRequest) break;
+                //    }
+                //}
+
+                while (bytesRead != 0)
                 {
+                    bytesRead = await client.ReadStream.ReadAsync(buffer, 0, buffer.Length);
+
                     if (bytesRead != parser.Execute(new ArraySegment<byte>(buffer, 0, bytesRead)))
                     {
                         //throw new Exception("Argh");
