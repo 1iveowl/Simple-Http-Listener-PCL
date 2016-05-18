@@ -18,7 +18,7 @@ To use Http Requests all you need to do is something like this:
             httpListener.HttpRequest.Subscribe(
                 request =>
                 {
-                    //Enter Request handling code here
+                    //Enter your code handling each incoming Http request here.
                 });
         }
 
