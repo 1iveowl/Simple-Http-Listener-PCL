@@ -1,5 +1,5 @@
 ## Simple Http Listener##
-A simple Http Listener that is created as a Portable Class Library and to works with Xamarin Forms across Windows, iOS and Android.
+A simple Http Listener that is created as a Portable Class Library and to works with Xamarin Forms across Windows 10, iOS and Android.
 
 This project is based on [Sockets for PCL](https://github.com/1iveowl/sockets-for-pcl/) for cross platform TCP sockets support. 
 
