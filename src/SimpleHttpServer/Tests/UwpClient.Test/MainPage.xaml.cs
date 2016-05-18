@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SimpleHttpServer.Service;
+using UwpClient.Test.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -40,15 +41,20 @@ namespace UwpClient.Test
             var httpListener = new HttpListener(timeout:TimeSpan.FromSeconds(3));
             await httpListener.Start(port:8000);
 
-            httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(
+            httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async 
                 request =>
                 {
                     Method.Text = request.Method;
                     Path.Text = request.Path;
+                    var response = new HttpReponse
+                    {
+                        SocketClient = request.SocketClient
+                    };
+                    await httpListener.HttpReponse(response);
                 },
                 ex =>
                 {
-                    var e = ex.Message;
+
                 });
         }
     }

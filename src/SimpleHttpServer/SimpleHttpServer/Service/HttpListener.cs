@@ -26,10 +26,16 @@ namespace SimpleHttpServer.Service
             .Select(
                 tcpListener =>
                 {
-                    var requestHandler = new HttpParserHandler();
-                    var parser = new HttpParser(requestHandler);
-
                     var client = tcpListener.EventArgs.SocketClient;
+
+                    var requestHandler = new HttpParserHandler
+                    {
+                        RemoteAddress = client.RemoteAddress,
+                        RemotePort = client.RemotePort,
+                        SocketClient = client,
+                    };
+
+                    var parser = new HttpParser(requestHandler);
 
                     var observeRequstStream = Observable.Create<byte[]>(
                         obs =>
@@ -51,7 +57,7 @@ namespace SimpleHttpServer.Service
                             }
 
                             obs.OnCompleted();
-                            return Disposable.Create(() => client = null);
+                            return Disposable.Create(() => oneByteBuffer = null);
 
                         })
                         .Timeout(TimeOut);
@@ -61,6 +67,7 @@ namespace SimpleHttpServer.Service
                         {
                             if (parser.Execute(new ArraySegment<byte>(bArray, 0, bArray.Length)) <= 0)
                             {
+                                client.DisconnectAsync();
                                 requestHandler = new HttpParserHandler
                                 {
                                     IsUnableToParseHttpRequest = true
@@ -71,6 +78,7 @@ namespace SimpleHttpServer.Service
                         {
                             if (ex is TimeoutException)
                             {
+                                client.DisconnectAsync();
                                 requestHandler = new HttpParserHandler
                                 {
                                     IsRequestTimedOut = true
@@ -105,6 +113,11 @@ namespace SimpleHttpServer.Service
         public async Task Stop()
         {
             await _tcpListener.StopListeningAsync();
+        }
+
+        public async Task HttpReponse(IHttpResponse reponse)
+        {
+            await reponse.SocketClient.DisconnectAsync();
         }
 
     }

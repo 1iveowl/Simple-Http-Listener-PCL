@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using HttpMachine;
 using ISimpleHttpServer.Model;
+using Sockets.Plugin.Abstractions;
 
 namespace SimpleHttpServer.Parser
 {
     internal class HttpParserHandler : IHttpRequestParserDelegate, IHttpRequest
     {
+        public ITcpSocketClient SocketClient { get; internal set; }
         public string Method { get; private set; }
         public string RequstUri { get; private set; }
         public string Path { get; private set; }
@@ -19,11 +21,15 @@ namespace SimpleHttpServer.Parser
 
         public MemoryStream Body { get; private set; } = new MemoryStream();
 
+        public string RemoteAddress { get; internal set; }
+
+        public int RemotePort { get; internal set; }
+
         public bool IsEndOfRequest { get; private set; }
 
-        public bool IsRequestTimedOut { get; set; } = false;
+        public bool IsRequestTimedOut { get; internal set; } = false;
 
-        public bool IsUnableToParseHttpRequest { get; set; } = false;
+        public bool IsUnableToParseHttpRequest { get; internal set; } = false;
 
 
         public void OnMessageBegin(HttpParser parser)

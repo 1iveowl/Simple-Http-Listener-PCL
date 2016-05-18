@@ -4,11 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sockets.Plugin.Abstractions;
 
 namespace ISimpleHttpServer.Model
 {
     public interface IHttpRequest
     {
+        ITcpSocketClient SocketClient { get; }
         string Method { get;}
         string RequstUri { get; }
         string Path { get; }
@@ -16,15 +18,19 @@ namespace ISimpleHttpServer.Model
 
         string Fragment { get;}
 
+        int RemotePort { get; }
+
+        string RemoteAddress { get;}
+
         IDictionary<string, string> Headers { get; }
 
         MemoryStream Body { get;}
 
         bool IsEndOfRequest { get;}
 
-        bool IsRequestTimedOut { get; set; }
+        bool IsRequestTimedOut { get; }
 
-        bool IsUnableToParseHttpRequest { get; set; }
+        bool IsUnableToParseHttpRequest { get; }
 
     }
 }

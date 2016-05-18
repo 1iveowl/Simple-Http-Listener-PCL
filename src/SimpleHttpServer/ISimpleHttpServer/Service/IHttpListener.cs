@@ -11,7 +11,9 @@ namespace ISimpleHttpServer.Service
     {
         TimeSpan TimeOut { get; set; }
         IObservable<IHttpRequest> HttpRequest { get; }
+        Task HttpReponse(IHttpResponse response);
         Task Start(int port);
         Task Stop();
+     
     }
 }
