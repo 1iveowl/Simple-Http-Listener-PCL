@@ -19,6 +19,8 @@ namespace SimpleHttpServer.Service
     public class HttpListener : IHttpListener
     {
         private TcpSocketListener _tcpListener;
+        
+        public TimeSpan TimeOut { get; set; }
 
         public IObservable<IHttpRequest> HttpRequest => 
             Observable.FromEventPattern<TcpSocketListenerConnectEventArgs>(
