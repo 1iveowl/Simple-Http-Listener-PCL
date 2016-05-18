@@ -87,6 +87,9 @@
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Rx-PlatformServices\2.2.5\lib\windows8\System.Reactive.PlatformServices.dll">
       <PackagePath>System.Reactive.PlatformServices.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Rx-Xaml\2.2.5\lib\windows8\System.Reactive.Windows.Threading.dll">
+      <PackagePath>System.Reactive.Windows.Threading.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\System.AppContext\4.0.0\lib\netcore50\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
     </AppxPackagedFile>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Reactive.Linq;
 using System.Reactive;
+using System.Reactive.Concurrency;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -36,13 +37,19 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
-            var httpListener = new HttpListener();
+            var httpListener = new HttpListener(timeout:TimeSpan.FromSeconds(3));
             await httpListener.Start(port:8000);
 
-            httpListener.HttpRequest.Subscribe(x =>
-            {
-                var request = x;
-            });
+            httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(
+                request =>
+                {
+                    Method.Text = request.Method;
+                    Path.Text = request.Path;
+                },
+                ex =>
+                {
+                    var e = ex.Message;
+                });
         }
     }
 }

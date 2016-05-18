@@ -9,9 +9,9 @@ namespace ISimpleHttpServer.Service
 {
     public interface IHttpListener
     {
+        TimeSpan TimeOut { get; set; }
         IObservable<IHttpRequest> HttpRequest { get; }
         Task Start(int port);
         Task Stop();
-
     }
 }

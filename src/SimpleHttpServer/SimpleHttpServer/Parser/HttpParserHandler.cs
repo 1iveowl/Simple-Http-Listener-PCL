@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HttpMachine;
 using ISimpleHttpServer.Model;
 
@@ -23,6 +20,10 @@ namespace SimpleHttpServer.Parser
         public MemoryStream Body { get; private set; } = new MemoryStream();
 
         public bool IsEndOfRequest { get; private set; }
+
+        public bool IsRequestTimedOut { get; set; } = false;
+
+        public bool IsUnableToParseHttpRequest { get; set; } = false;
 
 
         public void OnMessageBegin(HttpParser parser)

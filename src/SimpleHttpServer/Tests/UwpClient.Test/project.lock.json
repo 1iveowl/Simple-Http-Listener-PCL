@@ -323,6 +323,17 @@
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
         }
       },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "4.0.0",
@@ -2161,6 +2172,17 @@
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
         }
       },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "4.0.0",
@@ -3836,6 +3858,17 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
+        }
+      },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5525,6 +5558,17 @@
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
         }
       },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "4.0.0",
@@ -7200,6 +7244,17 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
+        }
+      },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -8889,6 +8944,17 @@
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
         }
       },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "4.0.0",
@@ -10564,6 +10630,17 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
+        }
+      },
+      "Rx-Xaml/2.2.5": {
+        "dependencies": {
+          "Rx-Main": "2.2.5"
+        },
+        "compile": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
+        },
+        "runtime": {
+          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -12781,6 +12858,28 @@
         "lib/windowsphone71/System.Reactive.PlatformServices.dll",
         "lib/windowsphone8/System.Reactive.PlatformServices.XML",
         "lib/windowsphone8/System.Reactive.PlatformServices.dll"
+      ]
+    },
+    "Rx-Xaml/2.2.5": {
+      "sha512": "RzA/HcKP1U44i7ZchRdR3v3GdepNmr/93ydyixV+LwZs++Yxo13fsODRTqGIyz11ERSIKgnnSs6tbJUys4qRSw==",
+      "type": "package",
+      "files": [
+        "Rx-Xaml.2.2.5.nupkg.sha512",
+        "Rx-Xaml.nuspec",
+        "lib/net40/System.Reactive.Windows.Threading.XML",
+        "lib/net40/System.Reactive.Windows.Threading.dll",
+        "lib/net45/System.Reactive.Windows.Threading.XML",
+        "lib/net45/System.Reactive.Windows.Threading.dll",
+        "lib/portable-win81+wpa81/System.Reactive.Windows.Threading.XML",
+        "lib/portable-win81+wpa81/System.Reactive.Windows.Threading.dll",
+        "lib/sl5/System.Reactive.Windows.Threading.XML",
+        "lib/sl5/System.Reactive.Windows.Threading.dll",
+        "lib/windows8/System.Reactive.Windows.Threading.XML",
+        "lib/windows8/System.Reactive.Windows.Threading.dll",
+        "lib/windowsphone71/System.Reactive.Windows.Threading.XML",
+        "lib/windowsphone71/System.Reactive.Windows.Threading.dll",
+        "lib/windowsphone8/System.Reactive.Windows.Threading.XML",
+        "lib/windowsphone8/System.Reactive.Windows.Threading.dll"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -15387,6 +15486,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Rx-Main >= 2.2.5",
+      "Rx-Xaml >= 2.2.5",
       "rda.SocketsForPCL >= 1.2.2"
     ],
     "UAP,Version=v10.0": []

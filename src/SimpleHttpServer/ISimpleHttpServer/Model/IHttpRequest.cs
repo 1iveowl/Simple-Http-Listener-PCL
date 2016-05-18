@@ -22,5 +22,9 @@ namespace ISimpleHttpServer.Model
 
         bool IsEndOfRequest { get;}
 
+        bool IsRequestTimedOut { get; set; }
+
+        bool IsUnableToParseHttpRequest { get; set; }
+
     }
 }

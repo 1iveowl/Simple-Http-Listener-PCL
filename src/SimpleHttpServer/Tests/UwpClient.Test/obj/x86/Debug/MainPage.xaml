@@ -8,6 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <!--<TextBox x:Name="Method" Header="Method:"></TextBox>
+            <TextBox x:Name="Path"
+                     Header="Path:"></TextBox>-->
+            <TextBlock Margin="12">
+                <Run Text="Method:"/>
+                <Run x:ConnectionId='1' x:Name="Method"/>
+                <LineBreak></LineBreak>
+                <Run Text="Path:" />
+                <Run x:ConnectionId='2' x:Name="Path" />
+                <LineBreak></LineBreak>
+            </TextBlock>
+        </StackPanel>
 
     </Grid>
 </Page>

@@ -71,9 +71,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ISimpleHttpServer\ISimpleHttpServer.csproj">
       <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>
