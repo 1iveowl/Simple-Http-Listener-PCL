@@ -9,11 +9,15 @@ namespace ISimpleHttpServer.Service
 {
     public interface IHttpListener
     {
-        TimeSpan TimeOut { get; set; }
+        TimeSpan Timeout { get; set; }
         IObservable<IHttpRequest> HttpRequest { get; }
+        IObservable<IHttpRequest> UdpHttpRequest { get; } 
         Task HttpReponse(IHttpResponse response);
         Task Start(int port);
         Task Stop();
-     
+
+        Task StartUdp(int port);
+        Task StopUdp();
+
     }
 }

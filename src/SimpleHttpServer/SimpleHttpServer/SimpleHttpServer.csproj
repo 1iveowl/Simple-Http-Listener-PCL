@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Parser\HttpParserHandler.cs" />
+    <Compile Include="Parser\StreamParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\HttpListener.cs" />
   </ItemGroup>

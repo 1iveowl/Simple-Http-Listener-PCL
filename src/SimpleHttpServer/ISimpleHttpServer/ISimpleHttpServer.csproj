@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="Model\IHttpRequest.cs" />
     <Compile Include="Model\IHttpResponse.cs" />
+    <Compile Include="Model\RequestType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IHttpListener.cs" />
   </ItemGroup>

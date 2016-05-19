@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-18T22:31:24.308</Modified>
+      <Modified>2016-05-19T20:37:09.277</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\UwpClient.Test.exe">
       <PackagePath>entrypoint\UwpClient.Test.exe</PackagePath>
-      <Modified>2016-05-18T22:31:22.968</Modified>
+      <Modified>2016-05-19T20:37:08.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -472,11 +472,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.dll">
       <PackagePath>ISimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-18T22:31:20.956</Modified>
+      <Modified>2016-05-19T20:22:46.617</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-18T22:31:21.140</Modified>
+      <Modified>2016-05-19T20:37:05.971</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>
@@ -530,11 +530,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-18T22:31:23.956</Modified>
+      <Modified>2016-05-19T20:22:51.848</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Core\UwpClient.Test.exe">
       <PackagePath>UwpClient.Test.exe</PackagePath>
-      <Modified>2016-05-18T22:31:24.303</Modified>
+      <Modified>2016-05-19T20:37:09.265</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

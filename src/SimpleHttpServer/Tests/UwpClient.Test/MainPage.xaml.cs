@@ -38,24 +38,43 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
-            var httpListener = new HttpListener(timeout:TimeSpan.FromSeconds(3));
-            await httpListener.Start(port:8000);
+            var httpUdpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
+            await httpUdpListener.StartUdp(1900);
 
-            httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async 
+            httpUdpListener.UdpHttpRequest.ObserveOnDispatcher().Subscribe(
                 request =>
                 {
                     Method.Text = request.Method;
                     Path.Text = request.Path;
-                    var response = new HttpReponse
-                    {
-                        SocketClient = request.SocketClient
-                    };
-                    await httpListener.HttpReponse(response);
+                    //var response = new HttpReponse
+                    //{
+                    //    SocketClient = request.TcpSocketClient
+                    //};
+                    //await httpUdpListener.HttpReponse(response);
                 },
                 ex =>
                 {
 
                 });
+
+            //var httpListener = new HttpListener(timeout:TimeSpan.FromSeconds(3));
+            //await httpListener.Start(port:8000);
+
+            //httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async 
+            //    request =>
+            //    {
+            //        Method.Text = request.Method;
+            //        Path.Text = request.Path;
+            //        var response = new HttpReponse
+            //        {
+            //            SocketClient = request.TcpSocketClient
+            //        };
+            //        await httpListener.HttpReponse(response);
+            //    },
+            //    ex =>
+            //    {
+
+            //    });
         }
     }
 }

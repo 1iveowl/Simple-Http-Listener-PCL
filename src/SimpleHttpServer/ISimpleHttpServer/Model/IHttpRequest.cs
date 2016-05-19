@@ -10,7 +10,10 @@ namespace ISimpleHttpServer.Model
 {
     public interface IHttpRequest
     {
-        ITcpSocketClient SocketClient { get; }
+        ITcpSocketClient TcpSocketClient { get; }
+
+        RequestType RequestType { get; }
+
         string Method { get;}
         string RequstUri { get; }
         string Path { get; }

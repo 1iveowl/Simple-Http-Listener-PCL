@@ -9,7 +9,8 @@ namespace SimpleHttpServer.Parser
 {
     internal class HttpParserHandler : IHttpRequestParserDelegate, IHttpRequest
     {
-        public ITcpSocketClient SocketClient { get; internal set; }
+        public ITcpSocketClient TcpSocketClient { get; internal set; }
+        public RequestType RequestType { get; internal set; }
         public string Method { get; private set; }
         public string RequstUri { get; private set; }
         public string Path { get; private set; }
