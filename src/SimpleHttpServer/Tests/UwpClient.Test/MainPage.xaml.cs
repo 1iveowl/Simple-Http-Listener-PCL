@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ISimpleHttpServer.Model;
 using SimpleHttpServer.Service;
 using UwpClient.Test.Model;
 
@@ -38,43 +39,35 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
-            var httpUdpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
-            await httpUdpListener.StartUdp(1900);
+            var httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
+            await httpListener.StartTcp(port: 8000);
+            await httpListener.StartUdpMulticast(ipAddr:"239.255.255.250", port: 1900);
 
-            httpUdpListener.UdpHttpRequest.ObserveOnDispatcher().Subscribe(
+            var observeHttpRequests = httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async
                 request =>
                 {
-                    Method.Text = request.Method;
-                    Path.Text = request.Path;
-                    //var response = new HttpReponse
-                    //{
-                    //    SocketClient = request.TcpSocketClient
-                    //};
-                    //await httpUdpListener.HttpReponse(response);
+                    if (!request.IsUnableToParseHttpRequest)
+                    {
+                        Method.Text = request?.Method ?? "N/A";
+                        Path.Text = request?.Path ?? "N/A";
+                        if (request.RequestType == RequestType.Tcp)
+                        {
+                            var response = new HttpReponse
+                            {
+                                SocketClient = request.TcpSocketClient
+                            };
+                            await httpListener.HttpReponse(response);
+                        }
+                    }
+                    else
+                    {
+                        Method.Text = "Unable to parse request";
+                    }
                 },
+                // Exception
                 ex =>
                 {
-
                 });
-
-            //var httpListener = new HttpListener(timeout:TimeSpan.FromSeconds(3));
-            //await httpListener.Start(port:8000);
-
-            //httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async 
-            //    request =>
-            //    {
-            //        Method.Text = request.Method;
-            //        Path.Text = request.Path;
-            //        var response = new HttpReponse
-            //        {
-            //            SocketClient = request.TcpSocketClient
-            //        };
-            //        await httpListener.HttpReponse(response);
-            //    },
-            //    ex =>
-            //    {
-
-            //    });
         }
     }
 }

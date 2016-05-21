@@ -5,7 +5,5 @@ C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimp
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.Abstractions.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.pdb
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.xml
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.Abstractions.pdb
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.Abstractions.xml
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\obj\Debug\ISimpleHttpServer.csprojResolveAssemblyReference.cache
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\Sockets.Plugin.pri

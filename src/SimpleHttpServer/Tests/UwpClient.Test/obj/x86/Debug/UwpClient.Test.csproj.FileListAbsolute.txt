@@ -317,7 +317,6 @@ C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\SimpleHttpServer.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\HttpMachine.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\SimpleHttpServer.pdb
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\HttpMachine.pdb
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\UwpClient.Test.csprojResolveAssemblyReference.cache
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\App.g.i.cs
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\App.g.cs
@@ -409,3 +408,5 @@ C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\System.Reactive.PlatformServices\en-US\System.Reactive.Strings_PlatformServices.resw
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\System.Reactive.Windows.Threading.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\System.Reactive.Windows.Threading\en-US\System.Reactive.Strings_WindowsThreading.resw
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Sockets.Plugin.pri
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\Sockets.Plugin.pri.xml

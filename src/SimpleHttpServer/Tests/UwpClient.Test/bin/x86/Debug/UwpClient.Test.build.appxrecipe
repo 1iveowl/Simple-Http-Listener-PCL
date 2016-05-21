@@ -66,12 +66,6 @@
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\rda.SocketsForPCL\1.2.2\lib\win8\Sockets.Plugin.Abstractions.dll">
-      <PackagePath>Sockets.Plugin.Abstractions.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\rda.SocketsForPCL\1.2.2\lib\win8\Sockets.Plugin.dll">
-      <PackagePath>Sockets.Plugin.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
     </AppxPackagedFile>
@@ -351,13 +345,19 @@
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.dll">
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\x86\Debug\ISimpleHttpServer.dll">
       <PackagePath>ISimpleHttpServer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\x86\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.Abstractions.dll">
+      <PackagePath>Sockets.Plugin.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.dll">
+      <PackagePath>Sockets.Plugin.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\x86\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\Properties\Default.rd.xml">

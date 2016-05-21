@@ -23,9 +23,7 @@ C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Simpl
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.PlatformServices.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\ISimpleHttpServer.pdb
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\Sockets.Plugin.pdb
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\Sockets.Plugin.xml
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\Sockets.Plugin.Abstractions.pdb
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\Sockets.Plugin.Abstractions.xml
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Core.xml
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Interfaces.xml
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\System.Reactive.Linq.xml
@@ -33,3 +31,4 @@ C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Simpl
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\obj\Debug\SimpleHttpServer.csprojResolveAssemblyReference.cache
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\obj\Debug\SimpleHttpServer.dll
 C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\obj\Debug\SimpleHttpServer.pdb
+C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\Sockets.Plugin.pri

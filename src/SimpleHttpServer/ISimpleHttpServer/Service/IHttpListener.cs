@@ -11,13 +11,13 @@ namespace ISimpleHttpServer.Service
     {
         TimeSpan Timeout { get; set; }
         IObservable<IHttpRequest> HttpRequest { get; }
-        IObservable<IHttpRequest> UdpHttpRequest { get; } 
+        //IObservable<IHttpRequest> UdpHttpRequest { get; } 
         Task HttpReponse(IHttpResponse response);
-        Task Start(int port);
-        Task Stop();
+        Task StartTcp(int port);
+        Task StopTcp();
 
-        Task StartUdp(int port);
-        Task StopUdp();
+        Task StartUdpMulticast(string ipAddr, int port);
+        Task StopUdpMultiCast();
 
     }
 }

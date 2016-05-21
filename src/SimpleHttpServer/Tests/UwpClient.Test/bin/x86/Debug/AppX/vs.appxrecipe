@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>3aad8149-b38a-4637-b368-fc3ffab766c5</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>1C389F257A658E9EF8AA40924E528FED42BA7B7D63B9D5CB61442C701C311B8C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>A4B9669E7F50EEAF3C379F4BE0F5EB0C1DE297D12E3B4403BDBF7AB64CE5678E</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>3aad8149-b38a-4637-b368-fc3ffab766c5_1.0.0.0_x86__ndk7ypv5e5wqt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>3aad8149-b38a-4637-b368-fc3ffab766c5_ndk7ypv5e5wqt!App</RegisteredUserModeAppID>
     <RegisteredPackageID>3aad8149-b38a-4637-b368-fc3ffab766c5</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-19T20:37:09.277</Modified>
+      <Modified>2016-05-20T23:58:58.186</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\UwpClient.Test.exe">
       <PackagePath>entrypoint\UwpClient.Test.exe</PackagePath>
-      <Modified>2016-05-19T20:37:08.393</Modified>
+      <Modified>2016-05-20T23:58:57.651</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -89,14 +89,6 @@
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
       <Modified>2016-03-06T22:18:17.320</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\rda.SocketsForPCL\1.2.2\lib\win8\Sockets.Plugin.Abstractions.dll">
-      <PackagePath>Sockets.Plugin.Abstractions.dll</PackagePath>
-      <Modified>2015-07-27T20:38:10.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\rda.SocketsForPCL\1.2.2\lib\win8\Sockets.Plugin.dll">
-      <PackagePath>Sockets.Plugin.dll</PackagePath>
-      <Modified>2015-07-27T20:38:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
@@ -470,15 +462,23 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-03-06T22:18:18.460</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\Debug\ISimpleHttpServer.dll">
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\ISimpleHttpServer\bin\x86\Debug\ISimpleHttpServer.dll">
       <PackagePath>ISimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-19T20:22:46.617</Modified>
+      <Modified>2016-05-20T23:03:40.602</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\SimpleHttpServer.dll">
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\x86\Debug\SimpleHttpServer.dll">
       <PackagePath>SimpleHttpServer.dll</PackagePath>
-      <Modified>2016-05-19T20:37:05.971</Modified>
+      <Modified>2016-05-20T23:57:29.558</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\Debug\HttpMachine.dll">
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.Abstractions.dll">
+      <PackagePath>Sockets.Plugin.Abstractions.dll</PackagePath>
+      <Modified>2016-05-20T14:33:01.232</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.dll">
+      <PackagePath>Sockets.Plugin.dll</PackagePath>
+      <Modified>2016-05-20T14:33:02.007</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\bin\x86\Debug\HttpMachine.dll">
       <PackagePath>HttpMachine.dll</PackagePath>
       <Modified>2016-05-17T16:43:42.000</Modified>
     </AppxPackagedFile>
@@ -530,11 +530,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-19T20:22:51.848</Modified>
+      <Modified>2016-05-20T16:31:42.048</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\bin\x86\Debug\Core\UwpClient.Test.exe">
       <PackagePath>UwpClient.Test.exe</PackagePath>
-      <Modified>2016-05-19T20:37:09.265</Modified>
+      <Modified>2016-05-20T23:58:58.181</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

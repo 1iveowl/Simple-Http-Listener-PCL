@@ -262,16 +262,6 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        }
-      },
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "2.2.5"
@@ -2061,16 +2051,6 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        }
-      },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -3768,16 +3748,6 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        }
-      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -5442,16 +5412,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -7154,16 +7114,6 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        }
-      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -8828,16 +8778,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -10538,16 +10478,6 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "rda.SocketsForPCL/1.2.2": {
-        "compile": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
-        },
-        "runtime": {
-          "lib/win8/Sockets.Plugin.Abstractions.dll": {},
-          "lib/win8/Sockets.Plugin.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -12585,76 +12515,6 @@
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
-      ]
-    },
-    "rda.SocketsForPCL/1.2.2": {
-      "sha512": "S47/AfJhwJmy9+HEx6xo3KtvnXEJxF7aSRJzV4CMLUZJratVY81xkWh3ZKSUrIhEojiVTKTAlcf//pjmnStTVg==",
-      "type": "package",
-      "files": [
-        "lib/MonoAndroid10/Sockets.Plugin.Abstractions.dll",
-        "lib/MonoAndroid10/Sockets.Plugin.Abstractions.pdb",
-        "lib/MonoAndroid10/Sockets.Plugin.Abstractions.xml",
-        "lib/MonoAndroid10/Sockets.Plugin.dll",
-        "lib/MonoAndroid10/Sockets.Plugin.pdb",
-        "lib/MonoAndroid10/Sockets.Plugin.xml",
-        "lib/MonoMac/Sockets.Plugin.Abstractions.dll",
-        "lib/MonoMac/Sockets.Plugin.Abstractions.xml",
-        "lib/MonoMac/Sockets.Plugin.dll",
-        "lib/MonoMac/Sockets.Plugin.xml",
-        "lib/MonoTouch10/Sockets.Plugin.Abstractions.dll",
-        "lib/MonoTouch10/Sockets.Plugin.Abstractions.xml",
-        "lib/MonoTouch10/Sockets.Plugin.dll",
-        "lib/MonoTouch10/Sockets.Plugin.xml",
-        "lib/Xamarin.Mac.Classic/Sockets.Plugin.Abstractions.dll",
-        "lib/Xamarin.Mac.Classic/Sockets.Plugin.Abstractions.xml",
-        "lib/Xamarin.Mac.Classic/Sockets.Plugin.dll",
-        "lib/Xamarin.Mac.Classic/Sockets.Plugin.xml",
-        "lib/Xamarin.Mac/Sockets.Plugin.Abstractions.dll",
-        "lib/Xamarin.Mac/Sockets.Plugin.Abstractions.xml",
-        "lib/Xamarin.Mac/Sockets.Plugin.dll",
-        "lib/Xamarin.Mac/Sockets.Plugin.xml",
-        "lib/Xamarin.iOS10/Sockets.Plugin.Abstractions.dll",
-        "lib/Xamarin.iOS10/Sockets.Plugin.Abstractions.xml",
-        "lib/Xamarin.iOS10/Sockets.Plugin.dll",
-        "lib/Xamarin.iOS10/Sockets.Plugin.xml",
-        "lib/net45/Sockets.Plugin.Abstractions.dll",
-        "lib/net45/Sockets.Plugin.Abstractions.pdb",
-        "lib/net45/Sockets.Plugin.Abstractions.xml",
-        "lib/net45/Sockets.Plugin.dll",
-        "lib/net45/Sockets.Plugin.pdb",
-        "lib/net45/Sockets.Plugin.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.Abstractions.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.Abstractions.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.Abstractions.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.dll",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.pdb",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Sockets.Plugin.xml",
-        "lib/win8/Sockets.Plugin.Abstractions.dll",
-        "lib/win8/Sockets.Plugin.Abstractions.pdb",
-        "lib/win8/Sockets.Plugin.Abstractions.xml",
-        "lib/win8/Sockets.Plugin.dll",
-        "lib/win8/Sockets.Plugin.pdb",
-        "lib/win8/Sockets.Plugin.xml",
-        "lib/wp8/Sockets.Plugin.Abstractions.dll",
-        "lib/wp8/Sockets.Plugin.Abstractions.pdb",
-        "lib/wp8/Sockets.Plugin.Abstractions.xml",
-        "lib/wp8/Sockets.Plugin.dll",
-        "lib/wp8/Sockets.Plugin.pdb",
-        "lib/wp8/Sockets.Plugin.xml",
-        "lib/wpa81/Sockets.Plugin.Abstractions.dll",
-        "lib/wpa81/Sockets.Plugin.Abstractions.pdb",
-        "lib/wpa81/Sockets.Plugin.Abstractions.xml",
-        "lib/wpa81/Sockets.Plugin.dll",
-        "lib/wpa81/Sockets.Plugin.pdb",
-        "lib/wpa81/Sockets.Plugin.xml",
-        "linqpad-samples/Tcp/FileOrder.txt",
-        "linqpad-samples/Tcp/Objects.linq",
-        "linqpad-samples/Tcp/Strings.linq",
-        "linqpad-samples/Tcp/TcpSocketClient.linq",
-        "linqpad-samples/Tcp/TcpSocketListener.linq",
-        "linqpad-samples/Udp/Basics.linq",
-        "rda.SocketsForPCL.1.2.2.nupkg.sha512",
-        "rda.SocketsForPCL.nuspec"
       ]
     },
     "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -15486,8 +15346,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Rx-Main >= 2.2.5",
-      "Rx-Xaml >= 2.2.5",
-      "rda.SocketsForPCL >= 1.2.2"
+      "Rx-Xaml >= 2.2.5"
     ],
     "UAP,Version=v10.0": []
   }
