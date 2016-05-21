@@ -43,6 +43,7 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Model\EncodingType.cs" />
     <Compile Include="Model\IHttpRequest.cs" />
     <Compile Include="Model\IHttpResponse.cs" />
     <Compile Include="Model\RequestType.cs" />

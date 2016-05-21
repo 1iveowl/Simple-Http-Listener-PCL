@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
@@ -10,9 +11,8 @@ namespace UwpClient.Test.Model
 {
     internal class HttpReponse : IHttpResponse
     {
-        public ITcpSocketClient TcpSocketClient { get; internal set; }
-        public RequestType RequestType { get; internal set; }
-        public int RemotePort { get; internal set; }
-        public string RemoteAddress { get; internal set; }
+        public HttpStatusCode StatusCode { get; internal set; }
+        public IDictionary<string, string> ResonseHeaders { get; internal set; }
+        public string Body { get; internal set; }
     }
 }

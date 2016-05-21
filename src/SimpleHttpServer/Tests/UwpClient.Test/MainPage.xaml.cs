@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Reactive.Linq;
 using System.Reactive;
@@ -52,14 +53,18 @@ namespace UwpClient.Test
                         Path.Text = request?.Path ?? "N/A";
                         if (request.RequestType == RequestType.Tcp)
                         {
-                            //var response = new HttpReponse
-                            //{
-                            //    TcpSocketClient = request.TcpSocketClient,
-                            //    RemotePort = request.RemotePort,
-                            //    RemoteAddress = request.RemoteAddress,
-                            //    RequestType = request.RequestType,
-                            //};
-                            await httpListener.HttpReponse(request);
+                            var response = new HttpReponse
+                            {
+                                StatusCode = HttpStatusCode.OK,
+                                ResonseHeaders = new Dictionary<string, string>
+                                {
+                                    {"Date", DateTime.UtcNow.ToString("r")},
+                                    {"Content-Type", "text/html; charset=UTF-8" },
+                                },
+                                Body = $"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"
+                            };
+
+                            await httpListener.HttpReponse(request, response);
                         }
                     }
                     else
