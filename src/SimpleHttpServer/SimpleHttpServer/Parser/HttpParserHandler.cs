@@ -32,6 +32,17 @@ namespace SimpleHttpServer.Parser
 
         public bool IsUnableToParseHttpRequest { get; internal set; } = false;
 
+        //public bool IsOnMethod { get; private set; }
+        //public bool IsOnRequestUro { get; private set; }
+
+        //public bool IsOnPath { get; private set; }
+        //public bool IsOnFragment { get; private set; }
+
+        //public bool IsOnQueryString { get; private set; }
+
+        //public bool IsOnHeaders { get; private set; }
+
+        //public bool IsOnBody { get; private set; }
 
         public void OnMessageBegin(HttpParser parser)
         {

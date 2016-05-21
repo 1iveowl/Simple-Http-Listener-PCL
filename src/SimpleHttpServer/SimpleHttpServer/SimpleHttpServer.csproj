@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HttpMachine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HttpMachine.PCL.0.9.1\lib\portable45-net45+win8\HttpMachine.dll</HintPath>
+      <HintPath>..\packages\HttpMachine.PCL.0.9.5.1\lib\portable45-net45+win8\HttpMachine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Sockets.Plugin">

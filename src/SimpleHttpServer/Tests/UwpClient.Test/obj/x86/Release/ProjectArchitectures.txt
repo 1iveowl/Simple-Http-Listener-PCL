@@ -1,2 +1,0 @@
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\SimpleHttpServer\SimpleHttpServer.csproj;neutral
-C:\Users\Jasper\Documents\GitHub\SimpleHttpServer.PCL\src\SimpleHttpServer\Tests\UwpClient.Test\UwpClient.Test.csproj;x86
