@@ -12,7 +12,7 @@
             <!--<TextBox x:Name="Method" Header="Method:"></TextBox>
             <TextBox x:Name="Path"
                      Header="Path:"></TextBox>-->
-            <TextBlock Margin="12">
+            <TextBlock Margin="36">
                 <Run Text="Method:"/>
                 <Run x:Name="Method"/>
                 <LineBreak></LineBreak>

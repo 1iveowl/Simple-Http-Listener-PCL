@@ -51,10 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Sockets.Plugin">
-      <HintPath>..\..\..\..\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.dll</HintPath>
+      <HintPath>..\..\..\..\..\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.dll</HintPath>
     </Reference>
     <Reference Include="Sockets.Plugin.Abstractions">
-      <HintPath>..\..\..\..\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.Abstractions.dll</HintPath>
+      <HintPath>..\..\..\..\..\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.Abstractions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
