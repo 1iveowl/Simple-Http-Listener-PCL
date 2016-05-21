@@ -17,6 +17,9 @@ namespace SimpleHttpServer.Parser
         {
             var parserHandler = new HttpParser(requestHandler);
 
+            
+
+            bool done = false;
             var observeRequstStream = Observable.Create<byte[]>(
                 obs =>
                 {
@@ -37,8 +40,7 @@ namespace SimpleHttpServer.Parser
                     }
 
                     obs.OnCompleted();
-                    return Disposable.Create(() => oneByteBuffer = null);
-
+                    return Disposable.Create(() => done = true);
                 })
                 .Timeout(timeout);
 
@@ -68,8 +70,12 @@ namespace SimpleHttpServer.Parser
 
             parserHandler.Execute(default(ArraySegment<byte>));
 
+            requestHandler.MajorVersion = parserHandler.MajorVersion;
+            requestHandler.MinorVersion = parserHandler.MinorVersion;
+            requestHandler.ShouldKeepAlive = parserHandler.ShouldKeepAlive;
+            requestHandler.UserContext = parserHandler.UserContext;
+
             return requestHandler;
         }
-
     }
 }

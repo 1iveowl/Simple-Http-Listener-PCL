@@ -54,7 +54,10 @@ namespace UwpClient.Test
                         {
                             var response = new HttpReponse
                             {
-                                SocketClient = request.TcpSocketClient
+                                TcpSocketClient = request.TcpSocketClient,
+                                RemotePort = request.RemotePort,
+                                RemoteAddress = request.RemoteAddress,
+                                RequestType = request.RequestType,
                             };
                             await httpListener.HttpReponse(response);
                         }

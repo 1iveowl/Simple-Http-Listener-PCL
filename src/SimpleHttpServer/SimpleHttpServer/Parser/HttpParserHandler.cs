@@ -11,6 +11,12 @@ namespace SimpleHttpServer.Parser
     {
         public ITcpSocketClient TcpSocketClient { get; internal set; }
         public RequestType RequestType { get; internal set; }
+        public int MajorVersion { get; internal set; }
+        public int MinorVersion { get; internal set; }
+
+        public bool ShouldKeepAlive { get; internal set; }
+        public object UserContext { get; internal set; }
+
         public string Method { get; private set; }
         public string RequstUri { get; private set; }
         public string Path { get; private set; }

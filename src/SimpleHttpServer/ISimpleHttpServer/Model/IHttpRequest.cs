@@ -14,6 +14,12 @@ namespace ISimpleHttpServer.Model
 
         RequestType RequestType { get; }
 
+        int MajorVersion { get; }
+        int MinorVersion { get; }
+        bool ShouldKeepAlive { get; }
+
+        object UserContext { get; }
+
         string Method { get;}
         string RequstUri { get; }
         string Path { get; }

@@ -10,6 +10,9 @@ namespace UwpClient.Test.Model
 {
     internal class HttpReponse : IHttpResponse
     {
-        public ITcpSocketClient SocketClient { get; set; }
+        public ITcpSocketClient TcpSocketClient { get; internal set; }
+        public RequestType RequestType { get; internal set; }
+        public int RemotePort { get; internal set; }
+        public string RemoteAddress { get; internal set; }
     }
 }
