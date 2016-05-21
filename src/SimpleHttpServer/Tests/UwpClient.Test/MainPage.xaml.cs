@@ -52,14 +52,14 @@ namespace UwpClient.Test
                         Path.Text = request?.Path ?? "N/A";
                         if (request.RequestType == RequestType.Tcp)
                         {
-                            var response = new HttpReponse
-                            {
-                                TcpSocketClient = request.TcpSocketClient,
-                                RemotePort = request.RemotePort,
-                                RemoteAddress = request.RemoteAddress,
-                                RequestType = request.RequestType,
-                            };
-                            await httpListener.HttpReponse(response);
+                            //var response = new HttpReponse
+                            //{
+                            //    TcpSocketClient = request.TcpSocketClient,
+                            //    RemotePort = request.RemotePort,
+                            //    RemoteAddress = request.RemoteAddress,
+                            //    RequestType = request.RequestType,
+                            //};
+                            await httpListener.HttpReponse(request);
                         }
                     }
                     else

@@ -12,7 +12,7 @@ namespace ISimpleHttpServer.Service
         TimeSpan Timeout { get; set; }
         IObservable<IHttpRequest> HttpRequest { get; }
         //IObservable<IHttpRequest> UdpHttpRequest { get; } 
-        Task HttpReponse(IHttpResponse response);
+        Task HttpReponse(IHttpRequest request);
         Task StartTcp(int port);
         Task StopTcp();
 

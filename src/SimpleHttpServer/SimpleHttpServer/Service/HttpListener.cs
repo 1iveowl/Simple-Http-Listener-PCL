@@ -131,14 +131,14 @@ namespace SimpleHttpServer.Service
             _isUdpSocketListening = false;
         }
 
-        public async Task HttpReponse(IHttpResponse reponse)
+        public async Task HttpReponse(IHttpRequest request)
         {
-            if (reponse.RequestType == RequestType.Tcp)
+            if (request.RequestType == RequestType.Tcp)
             {
                 var bArray = Encoding.UTF8.GetBytes(TestResponse());
-                await reponse.TcpSocketClient.WriteStream.WriteAsync(bArray, 0, bArray.Length);
-                await reponse.TcpSocketClient.DisconnectAsync();
-                reponse.TcpSocketClient.Dispose();
+                await request.TcpSocketClient.WriteStream.WriteAsync(bArray, 0, bArray.Length);
+                await request.TcpSocketClient.DisconnectAsync();
+                request.TcpSocketClient.Dispose();
             }
             
             //using (var client = new TcpSocketClient())

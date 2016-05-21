@@ -9,12 +9,6 @@ namespace ISimpleHttpServer.Model
 {
     public interface IHttpResponse
     {
-        ITcpSocketClient TcpSocketClient { get; }
 
-        RequestType RequestType { get; }
-
-        int RemotePort { get; }
-
-        string RemoteAddress { get; }
     }
 }

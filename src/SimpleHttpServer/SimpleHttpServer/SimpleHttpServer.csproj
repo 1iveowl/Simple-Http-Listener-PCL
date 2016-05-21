@@ -55,6 +55,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Parser\Base\HttpRequestBase.cs" />
     <Compile Include="Parser\HttpParserHandler.cs" />
     <Compile Include="Parser\StreamParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,41 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using HttpMachine;
 using ISimpleHttpServer.Model;
+using SimpleHttpServer.Parser.Base;
 using Sockets.Plugin.Abstractions;
 
 namespace SimpleHttpServer.Parser
 {
-    internal class HttpParserHandler : IHttpRequestParserDelegate, IHttpRequest
+    internal class HttpParserHandler : HttpRequestBase, IHttpRequestParserDelegate
     {
-        public ITcpSocketClient TcpSocketClient { get; internal set; }
-        public RequestType RequestType { get; internal set; }
-        public int MajorVersion { get; internal set; }
-        public int MinorVersion { get; internal set; }
-
-        public bool ShouldKeepAlive { get; internal set; }
-        public object UserContext { get; internal set; }
-
-        public string Method { get; private set; }
-        public string RequstUri { get; private set; }
-        public string Path { get; private set; }
-        public string QueryString { get; private set; }
-
-        public string Fragment { get; private set; }
-
-        public IDictionary<string, string> Headers { get; private set; } = new Dictionary<string, string>();
-
-        public MemoryStream Body { get; private set; } = new MemoryStream();
-
-        public string RemoteAddress { get; internal set; }
-
-        public int RemotePort { get; internal set; }
-
-        public bool IsEndOfRequest { get; private set; }
-
-        public bool IsRequestTimedOut { get; internal set; } = false;
-
-        public bool IsUnableToParseHttpRequest { get; internal set; } = false;
-
         //public bool IsOnMethod { get; private set; }
         //public bool IsOnRequestUro { get; private set; }
 
@@ -58,7 +30,7 @@ namespace SimpleHttpServer.Parser
 
         public void OnMethod(HttpParser parser, string method)
         {
-            Method = method;
+            base.Method = method;
         }
 
         public void OnRequestUri(HttpParser parser, string requestUri)
@@ -81,15 +53,32 @@ namespace SimpleHttpServer.Parser
             QueryString = queryString;
         }
 
-        private string _headerName = null; 
+        private string _headerName;
+        private bool _headerAlreadyExist;
+
+        //http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
         public void OnHeaderName(HttpParser parser, string name)
         {
-            _headerName = name;
+            if (Headers.ContainsKey(name.ToUpper()))
+            {
+                // Header Field Names are case-insensitive http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+                _headerAlreadyExist = true;
+            }
+            _headerName = name.ToUpper();
         }
 
         public void OnHeaderValue(HttpParser parser, string value)
         {
-            Headers[_headerName] = value;
+            if (_headerAlreadyExist)
+            {
+                // Join multiple message-header fields into one comma seperated list http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+                Headers[_headerName] = $"{Headers[_headerName]}, {value}";
+                _headerAlreadyExist = false;
+            }
+            else
+            {
+                Headers[_headerName] = value;
+            }
         }
 
         public void OnHeadersEnd(HttpParser parser)
