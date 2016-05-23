@@ -66,11 +66,11 @@
       <HintPath>..\packages\HttpMachine.PCL.0.9.5.1\lib\portable45-net45+win8\HttpMachine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sockets.Plugin">
-      <HintPath>..\..\..\..\..\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.dll</HintPath>
+    <Reference Include="ISocketLite.PCL">
+      <HintPath>..\..\..\..\SocketLite.PCL\src\main\Socket.CrossPlatform\SocketLite.PCL.UWP\bin\x86\Debug\ISocketLite.PCL.dll</HintPath>
     </Reference>
-    <Reference Include="Sockets.Plugin.Abstractions">
-      <HintPath>..\..\..\..\..\GitHub\sockets-for-pcl\Sockets\Sockets.Plugin.UWP\bin\x86\Debug\Sockets.Plugin.Abstractions.dll</HintPath>
+    <Reference Include="SocketLite">
+      <HintPath>..\..\..\..\SocketLite.PCL\src\main\Socket.CrossPlatform\SocketLite.PCL.UWP\bin\x86\Debug\SocketLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
@@ -92,7 +92,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\Base\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISimpleHttpServer\ISimpleHttpServer.csproj">
       <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>

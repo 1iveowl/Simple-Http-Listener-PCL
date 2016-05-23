@@ -9,72 +9,117 @@ using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 using ISimpleHttpServer.Service;
 using SimpleHttpServer.Parser;
-using Sockets.Plugin;
-using Sockets.Plugin.Abstractions;
+using SocketLite.Services;
+
 
 namespace SimpleHttpServer.Service
 {
 
     public class HttpListener : IHttpListener
     {
-        private readonly IObservable<IHttpRequest> _idleRequestObserver;
-        private readonly TcpSocketListener _tcpListener;
-        private readonly UdpSocketMulticastClient _udpMultiCaseListener;
+        //private readonly IObservable<IHttpRequest> _idleRequestObserver;
+        private readonly TcpSocketListener _tcpListener = new TcpSocketListener();
+        private readonly UdpSocketMulticastClient _udpMultiCaseListener = new UdpSocketMulticastClient();
 
-        private bool _isTcpSocketListening = false;
-        private bool _isUdpSocketListening = false;
+        private IDisposable _udpObservable;
+        private IDisposable _tcpObservable;
+
+        //private bool _isTcpSocketListening = false;
+        //private bool _isUdpSocketListening = false;
 
         public TimeSpan Timeout { get; set; }
 
-        public IObservable<IHttpRequest> HttpRequest { get; private set; }
+        public ISubject<IHttpRequest> HttpRequest { get; } = new Subject<IHttpRequest>();
 
-
-        private IObservable<IHttpRequest> UdpHttpRequest =>
-            Observable.FromEventPattern<UdpSocketMessageReceivedEventArgs>(
-                c => _udpMultiCaseListener.MessageReceived += c,
-                c => _udpMultiCaseListener.MessageReceived -= c)
-                .Select(udpListener =>
+        private IDisposable UdpHttpRequestSubscriber =>
+            _udpMultiCaseListener.ObservableMessages.Subscribe(
+                req =>
                 {
-                    Stream stream = new MemoryStream(udpListener.EventArgs.ByteData);
-
-                    Debug.WriteLine(Encoding.UTF8.GetString(udpListener.EventArgs.ByteData, 0, udpListener.EventArgs.ByteData.Length));
-                    //var text = Encoding.UTF8.GetString(udpListener.EventArgs.ByteData, 0, udpListener.EventArgs.ByteData.Length);
-
+                    var stream = new MemoryStream(req.ByteData);
                     var requestHandler = new HttpParserHandler
                     {
-                        RemoteAddress = udpListener.EventArgs.RemoteAddress,
-                        RemotePort = int.Parse(udpListener.EventArgs.RemotePort),
+                        RemoteAddress = req.RemoteAddress,
+                        RemotePort = int.Parse(req.RemotePort),
                         RequestType = RequestType.Udp
                     };
 
                     var streamParser = new StreamParser();
-                    return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+                    var wrappedRequest = streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+                    HttpRequest.OnNext(wrappedRequest);
+                },
+                ex =>
+                {
+                    HttpRequest.OnError(ex);
                 });
 
+        private IDisposable TcpHttpRequestSubscriber =>
+            _tcpListener.ObservableTcpSocket.Subscribe(
+                tcpSocket =>
+                {
+                    var stream = tcpSocket.ReadStream;
 
-        private IObservable<IHttpRequest> TcpHttpRequest =>
-            Observable.FromEventPattern<TcpSocketListenerConnectEventArgs>(
-                c => _tcpListener.ConnectionReceived += c,
-                c => _tcpListener.ConnectionReceived -= c)
-                .Select(
-                    tcpListener =>
+                    var requestHandler = new HttpParserHandler
                     {
-                        var client = tcpListener.EventArgs.SocketClient;
-                        var stream = client.ReadStream;
+                        RemoteAddress = tcpSocket.RemoteAddress,
+                        RemotePort = tcpSocket.RemotePort,
+                        TcpSocketClient = tcpSocket,
+                        RequestType = RequestType.Tcp
+                    };
 
-                        var requestHandler = new HttpParserHandler
-                        {
-                            RemoteAddress = client.RemoteAddress,
-                            RemotePort = client.RemotePort,
-                            TcpSocketClient = client,
-                            RequestType = RequestType.Tcp
-                        };
+                    var streamParser = new StreamParser();
+                    var wrappedRequest = streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+                    HttpRequest.OnNext(wrappedRequest);
+                },
+                ex =>
+                {
+                    HttpRequest.OnError(ex);
+                });
 
-                        var streamParser = new StreamParser();
-                        return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+        //private IObservable<IHttpRequest> TcpHttpRequest =>
+        //    Observable.FromEventPattern<TcpSocketListenerConnectEventArgs>(
+        //        c => _tcpListener.ConnectionReceived += c,
+        //        c => _tcpListener.ConnectionReceived -= c)
+        //        .Select(
+        //            tcpListener =>
+        //            {
+        //                var client = tcpListener.EventArgs.SocketClient;
+        //                var stream = client.ReadStream;
 
-                    })
-                .SubscribeOn(Scheduler.Default);
+        //                var requestHandler = new HttpParserHandler
+        //                {
+        //                    RemoteAddress = client.RemoteAddress,
+        //                    RemotePort = client.RemotePort,
+        //                    TcpSocketClient = client,
+        //                    RequestType = RequestType.Tcp
+        //                };
+
+        //                var streamParser = new StreamParser();
+        //                return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+
+        //            })
+        //        .SubscribeOn(Scheduler.Default);
+
+        //private IObservable<IHttpRequest> UdpHttpRequest =>
+        //    Observable.FromEventPattern<UdpSocketMessageReceivedEventArgs>(
+        //        c => _udpMultiCaseListener.MessageReceived += c,
+        //        c => _udpMultiCaseListener.MessageReceived -= c)
+        //        .Select(udpListener =>
+        //        {
+        //            Stream stream = new MemoryStream(udpListener.EventArgs.ByteData);
+
+        //            Debug.WriteLine(Encoding.UTF8.GetString(udpListener.EventArgs.ByteData, 0, udpListener.EventArgs.ByteData.Length));
+        //            //var text = Encoding.UTF8.GetString(udpListener.EventArgs.ByteData, 0, udpListener.EventArgs.ByteData.Length);
+
+        //            var requestHandler = new HttpParserHandler
+        //            {
+        //                RemoteAddress = udpListener.EventArgs.RemoteAddress,
+        //                RemotePort = int.Parse(udpListener.EventArgs.RemotePort),
+        //                RequestType = RequestType.Udp
+        //            };
+
+        //            var streamParser = new StreamParser();
+        //            return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+        //        }).SubscribeOn(Scheduler.Default);
 
         public HttpListener() : this(timeout: TimeSpan.FromSeconds(30))
         {
@@ -82,46 +127,33 @@ namespace SimpleHttpServer.Service
 
         public HttpListener(TimeSpan timeout)
         {
-            _idleRequestObserver = new Subject<IHttpRequest>();
-            _tcpListener = new TcpSocketListener();
-            _udpMultiCaseListener = new UdpSocketMulticastClient();
-
             Timeout = timeout;
-            HttpRequest = new Subject<IHttpRequest>();
         }
 
         public async Task StartTcp(int port)
         {
-            HttpRequest = _isUdpSocketListening ? UdpHttpRequest.Merge(TcpHttpRequest) : TcpHttpRequest;
-
-            await _tcpListener.StartListeningAsync(port);
-            _isTcpSocketListening = true;
+            _tcpObservable = TcpHttpRequestSubscriber;
+            await _tcpListener.StartListeningAsync(port, null);
         }
 
         public async Task StartUdpMulticast(string ipAddr, int port)
         {
             //var allInterfaces = await CommsInterface.GetAllInterfacesAsync();
-
-            HttpRequest = _isTcpSocketListening ? TcpHttpRequest.Merge(UdpHttpRequest) : UdpHttpRequest;
+            _udpObservable = UdpHttpRequestSubscriber;
             
-            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port);
-            _isUdpSocketListening = true;
+            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port, null);
         }
 
-        public async Task StopTcp()
+        public void StopTcp()
         {
-            HttpRequest = _isUdpSocketListening ? UdpHttpRequest : _idleRequestObserver;
-
-            await _tcpListener.StopListeningAsync();
-            _isTcpSocketListening = false;
+            _tcpListener.StopListening();
+            _tcpObservable.Dispose();
         }
 
-        public async Task StopUdpMultiCast()
+        public void StopUdpMultiCast()
         {
-            HttpRequest = _isTcpSocketListening ? TcpHttpRequest : _idleRequestObserver;
-
-            await _udpMultiCaseListener.DisconnectAsync();
-            _isUdpSocketListening = false;
+            _udpMultiCaseListener.Disconnect();
+            _udpObservable.Dispose();
         }
 
         public async Task HttpReponse(IHttpRequest request, IHttpResponse response)
@@ -130,8 +162,7 @@ namespace SimpleHttpServer.Service
             {
                 var bArray = Encoding.UTF8.GetBytes(ComposeResponse(request, response));
                 await request.TcpSocketClient.WriteStream.WriteAsync(bArray, 0, bArray.Length);
-                await request.TcpSocketClient.DisconnectAsync();
-                request.TcpSocketClient.Dispose();
+                request.TcpSocketClient.Disconnect();
             }
         }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
-using Sockets.Plugin.Abstractions;
+using ISocketLite.PCL.Interface;
 
 namespace SimpleHttpServer.Parser.Base
 {

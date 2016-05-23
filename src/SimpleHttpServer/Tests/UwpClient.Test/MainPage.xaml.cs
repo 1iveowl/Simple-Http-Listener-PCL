@@ -43,6 +43,11 @@ namespace UwpClient.Test
             var httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
             await httpListener.StartTcp(port: 8000);
             await httpListener.StartUdpMulticast(ipAddr:"239.255.255.250", port: 1900);
+            //httpListener.StopTcp();
+            //httpListener.StopUdpMultiCast();
+            ////await Task.Delay(TimeSpan.FromSeconds(5));
+            //await httpListener.StartTcp(port: 8000);
+            //await httpListener.StartUdpMulticast(ipAddr: "239.255.255.250", port: 1900);
 
             var observeHttpRequests = httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async
                 request =>
@@ -76,6 +81,8 @@ namespace UwpClient.Test
                 ex =>
                 {
                 });
+
+
         }
     }
 }

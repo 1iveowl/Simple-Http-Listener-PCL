@@ -4,7 +4,6 @@ using System.IO;
 using HttpMachine;
 using ISimpleHttpServer.Model;
 using SimpleHttpServer.Parser.Base;
-using Sockets.Plugin.Abstractions;
 
 namespace SimpleHttpServer.Parser
 {

@@ -5,7 +5,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
-using Sockets.Plugin.Abstractions;
 
 namespace UwpClient.Test.Model
 {
