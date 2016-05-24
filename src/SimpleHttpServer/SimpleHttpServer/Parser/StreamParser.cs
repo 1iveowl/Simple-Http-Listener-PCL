@@ -16,10 +16,15 @@ namespace SimpleHttpServer.Parser
         internal IHttpRequest ParseRequestStream(HttpParserHandler requestHandler, Stream stream, TimeSpan timeout)
         {
             var parserHandler = new HttpParser(requestHandler);
+            //var oneByteBuffer = new byte[1];
 
-            
+            //var observeRequstStream = Observable.While(
+            //    () => !requestHandler.IsEndOfRequest
+            //          && !requestHandler.IsRequestTimedOut
+            //          && !requestHandler.IsUnableToParseHttpRequest,
+            //    Observable.Start(() => stream.Read(oneByteBuffer, 0, oneByteBuffer.Length) != 0 ? oneByteBuffer : null))
+            //    .Timeout(timeout);
 
-            bool done = false;
             var observeRequstStream = Observable.Create<byte[]>(
                 obs =>
                 {
@@ -40,7 +45,7 @@ namespace SimpleHttpServer.Parser
                     }
 
                     obs.OnCompleted();
-                    return Disposable.Create(() => done = true);
+                    return Disposable.Empty;
                 })
                 .Timeout(timeout);
 

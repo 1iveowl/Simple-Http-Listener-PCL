@@ -11,8 +11,7 @@ namespace ISimpleHttpServer.Service
     public interface IHttpListener
     {
         TimeSpan Timeout { get; set; }
-        ISubject<IHttpRequest> HttpRequest { get; }
-        //IObservable<IHttpRequest> UdpHttpRequest { get; } 
+        IObservable<IHttpRequest> HttpRequest { get; }
         Task HttpReponse(IHttpRequest request, IHttpResponse response);
         Task StartTcp(int port);
         void StopTcp();
