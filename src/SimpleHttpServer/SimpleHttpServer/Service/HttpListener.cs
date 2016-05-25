@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 using ISimpleHttpServer.Service;
+using ISocketLite.PCL.Interface;
 using SimpleHttpServer.Parser;
 using SocketLite.Services;
 
@@ -17,8 +18,8 @@ namespace SimpleHttpServer.Service
 
     public class HttpListener : IHttpListener
     {
-        private readonly TcpSocketListener _tcpListener = new TcpSocketListener();
-        private readonly UdpSocketMulticastClient _udpMultiCaseListener = new UdpSocketMulticastClient();
+        private readonly ITcpSocketListener _tcpListener = new TcpSocketListener();
+        private readonly IUdpSocketMulticastClient _udpMultiCaseListener = new UdpSocketMulticastClient();
 
         private IDisposable _udpObservable;
         private IDisposable _tcpObservable;

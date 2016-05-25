@@ -137,16 +137,6 @@
       <Name>SimpleHttpServer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SocketLite.PCL\src\main\Socket.CrossPlatform\SocketLite.PCL.UWP\bin\x86\Debug\ISocketLite.PCL.dll</HintPath>
-    </Reference>
-    <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\SocketLite.PCL\src\main\Socket.CrossPlatform\SocketLite.PCL.UWP\bin\x86\Debug\SocketLite.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
