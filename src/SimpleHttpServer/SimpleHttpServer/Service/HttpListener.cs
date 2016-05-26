@@ -66,12 +66,12 @@ namespace SimpleHttpServer.Service
 
         public async Task StartTcpListener(int port, ICommunicationInterface communicationInterface = null)
         {
-            await _tcpListener.StartListeningAsync(port, null, allowMultipleBindToSamePort: true);
+            await _tcpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
         }
 
         public async Task StartUdpMulticastListener(string ipAddr, int port, ICommunicationInterface communicationInterface = null)
         {
-            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port, null, allowMultipleBindToSamePort: true);
+            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port, communicationInterface, allowMultipleBindToSamePort: true);
         }
 
         public void StopTcpListener()
