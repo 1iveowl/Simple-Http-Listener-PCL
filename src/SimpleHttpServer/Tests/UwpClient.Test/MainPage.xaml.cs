@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ISimpleHttpServer.Model;
 using SimpleHttpServer.Service;
+using SocketLite.Model;
 using UwpClient.Test.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -40,16 +41,23 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
-            var httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
-            await httpListener.StartTcp(port: 8000);
-            await httpListener.StartUdpMulticast(ipAddr:"239.255.255.250", port: 1900);
-            //httpListener.StopTcp();
-            //httpListener.StopUdpMultiCast();
-            ////await Task.Delay(TimeSpan.FromSeconds(5));
-            //await httpListener.StartTcp(port: 8000);
-            //await httpListener.StartUdpMulticast(ipAddr: "239.255.255.250", port: 1900);
+            //var availableNetworkInterfaces = new CommunicationInterface().GetAllInterfaces();
+            //var firstUsableInterface = availableNetworkInterfaces.FirstOrDefault(x => x.IsUsable);
 
-            var observeHttpRequests = httpListener.HttpRequest.ObserveOnDispatcher().Subscribe(async
+            var httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
+            await httpListener.StartTcpListener(port: 8000);
+            await httpListener.StartUdpMulticastListener(ipAddr:"239.255.255.250", port: 1900);
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            httpListener.StopTcpListener();
+            httpListener.StopUdpMultiCastListener();
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            await httpListener.StartTcpListener(port: 8000);
+            await httpListener.StartUdpMulticastListener(ipAddr: "239.255.255.250", port: 1900);
+
+            var observeHttpRequests = httpListener
+                .HttpRequestObservable
+                // Must observe on Dispatcher for XAML to work
+                .ObserveOnDispatcher().Subscribe(async
                 request =>
                 {
                     if (!request.IsUnableToParseHttpRequest)
@@ -82,7 +90,8 @@ namespace UwpClient.Test
                 {
                 });
 
-
+            // Remember to dispose of subscriber when done
+            //observeHttpRequests.Dispose();
         }
     }
 }

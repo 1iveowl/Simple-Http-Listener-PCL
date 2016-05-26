@@ -21,37 +21,24 @@ namespace SimpleHttpServer.Service
         private readonly ITcpSocketListener _tcpListener = new TcpSocketListener();
         private readonly IUdpSocketMulticastClient _udpMultiCaseListener = new UdpSocketMulticastClient();
 
-        private IDisposable _udpObservable;
-        private IDisposable _tcpObservable;
-
         public TimeSpan Timeout { get; set; }
 
-        private ISubject<IHttpRequest> HttpRequestSubject { get; } = new Subject<IHttpRequest>();
-        public IObservable<IHttpRequest> HttpRequest => HttpRequestSubject.AsObservable();
-
-        private IDisposable UdpHttpRequestSubscriber =>
-            _udpMultiCaseListener.ObservableMessages.Subscribe(
-                req =>
+        public IObservable<IHttpRequest> HttpRequestObservable =>
+            _udpMultiCaseListener.ObservableMessages.Select(
+                udpSocket =>
                 {
-                    var stream = new MemoryStream(req.ByteData);
+                    var stream = new MemoryStream(udpSocket.ByteData);
                     var requestHandler = new HttpParserHandler
                     {
-                        RemoteAddress = req.RemoteAddress,
-                        RemotePort = int.Parse(req.RemotePort),
+                        RemoteAddress = udpSocket.RemoteAddress,
+                        RemotePort = int.Parse(udpSocket.RemotePort),
                         RequestType = RequestType.Udp
                     };
 
                     var streamParser = new StreamParser();
-                    var wrappedRequest = streamParser.ParseRequestStream(requestHandler, stream, Timeout);
-                    HttpRequestSubject.OnNext(wrappedRequest);
-                },
-                ex =>
-                {
-                    HttpRequestSubject.OnError(ex);
-                });
-
-        private IDisposable TcpHttpRequestSubscriber =>
-            _tcpListener.ObservableTcpSocket.Subscribe(
+                    return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+                })
+            .Merge(_tcpListener.ObservableTcpSocket.Select(
                 tcpSocket =>
                 {
                     var stream = tcpSocket.ReadStream;
@@ -65,13 +52,9 @@ namespace SimpleHttpServer.Service
                     };
 
                     var streamParser = new StreamParser();
-                    var wrappedRequest = streamParser.ParseRequestStream(requestHandler, stream, Timeout);
-                    HttpRequestSubject.OnNext(wrappedRequest);
-                },
-                ex =>
-                {
-                    HttpRequestSubject.OnError(ex);
-                });
+                    return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
+                }));
+
         public HttpListener() : this(timeout: TimeSpan.FromSeconds(30))
         {
         }
@@ -81,30 +64,24 @@ namespace SimpleHttpServer.Service
             Timeout = timeout;
         }
 
-        public async Task StartTcp(int port)
+        public async Task StartTcpListener(int port, ICommunicationInterface communicationInterface = null)
         {
-            _tcpObservable = TcpHttpRequestSubscriber;
-            await _tcpListener.StartListeningAsync(port, null, allowMultipleBindToSamePort:true);
+            await _tcpListener.StartListeningAsync(port, null, allowMultipleBindToSamePort: true);
         }
 
-        public async Task StartUdpMulticast(string ipAddr, int port)
+        public async Task StartUdpMulticastListener(string ipAddr, int port, ICommunicationInterface communicationInterface = null)
         {
-            //var allInterfaces = await CommsInterface.GetAllInterfacesAsync();
-            _udpObservable = UdpHttpRequestSubscriber;
-            
-            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port, null, allowMultipleBindToSamePort:true);
+            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port, null, allowMultipleBindToSamePort: true);
         }
 
-        public void StopTcp()
+        public void StopTcpListener()
         {
             _tcpListener.StopListening();
-            _tcpObservable.Dispose();
         }
 
-        public void StopUdpMultiCast()
+        public void StopUdpMultiCastListener()
         {
             _udpMultiCaseListener.Disconnect();
-            _udpObservable.Dispose();
         }
 
         public async Task HttpReponse(IHttpRequest request, IHttpResponse response)

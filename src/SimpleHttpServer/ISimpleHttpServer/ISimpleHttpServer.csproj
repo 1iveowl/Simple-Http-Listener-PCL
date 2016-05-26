@@ -55,11 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SocketLite.PCL.0.9.3.29\lib\portable-net45+netcore45\ISocketLite.PCL.dll</HintPath>
+      <HintPath>..\packages\SocketLite.PCL.0.9.5\lib\portable-net45+netcore45\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SocketLite.PCL.0.9.3.29\lib\portable-net45+netcore45\SocketLite.dll</HintPath>
+      <HintPath>..\packages\SocketLite.PCL.0.9.5\lib\portable-net45+netcore45\SocketLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

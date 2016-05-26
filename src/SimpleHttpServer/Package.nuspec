@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>SimpleHttpListener</id>
+        <version>1.0.9</version>
+        <authors>1iveowl</authors>
+        <owners>Jasper H. Bojsen</owners>
+        <licenseUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL/blob/master/LICENCE</licenseUrl>
+        <projectUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL</projectUrl>
+        <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Simple Http Listener - Cross Platform PCL
+    
+Great for a simple http implementation. For example as a building block for UPnP device or client implementation.</description>
+        <releaseNotes>Supports listening on both Tcp and Udp</releaseNotes>
+        <copyright>Copyright 1iveowl 2016</copyright>
+        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android</tags>
+        <dependencies>
+            <dependency id="Rx-Main" version="2.2.5"/>
+            <dependency id="SocketLite.PCL" version="1.0.2"/>
+            <dependency id="HttpMachine.PCL" version="1.0.2"/>
+        </dependencies>
+    </metadata>
+    
+    <files>
+        <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.dll"
+          target="lib\portable-net45+netcore45\SimpleHttpServer.dll" />
+      <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
+        target="lib\portable-net45+netcore45\SimpleHttpServer.pdb" />
+      <file src="\SimpleHttpServer\bin\Release\ISimpleHttpServer.dll"
+        target="lib\portable-net45+netcore45\ISimpleHttpServer.dll" />
+      <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
+        target="lib\portable-net45+netcore45\ISimpleHttpServer.pdb" />
+    
+    </files>
+</package>
