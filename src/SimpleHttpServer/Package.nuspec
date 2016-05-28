@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SimpleHttpListener</id>
-        <version>1.0.12</version>
+        <version>1.0.14</version>
         <authors>1iveowl</authors>
         <owners>Jasper H. Bojsen</owners>
         <licenseUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL/blob/master/LICENCE</licenseUrl>
@@ -17,7 +17,7 @@ Great for a simple http implementation. For example as a building block for UPnP
         <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android</tags>
         <dependencies>
             <dependency id="Rx-Main" version="2.2.5"/>
-            <dependency id="SocketLite.PCL" version="1.0.4"/>
+            <dependency id="SocketLite.PCL" version="1.0.6"/>
             <dependency id="HttpMachine.PCL" version="1.0.2"/>
         </dependencies>
     </metadata>

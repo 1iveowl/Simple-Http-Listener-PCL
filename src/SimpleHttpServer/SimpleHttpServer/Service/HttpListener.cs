@@ -17,10 +17,13 @@ namespace SimpleHttpServer.Service
     public class HttpListener : IHttpListener
     {
         private readonly ITcpSocketListener _tcpListener = new TcpSocketListener();
-        private readonly IUdpSocketMulticastClient _udpMultiCaseListener = new UdpSocketMulticastClient();
+        private readonly IUdpSocketMulticastClient _udpMultiCastListener = new UdpSocketMulticastClient();
+        private readonly IUdpSocketReceiver _udpListener = new UdpSocketReceiver();
 
         private IObservable<IHttpRequest> UpdRequstObservable =>
-            _udpMultiCaseListener.ObservableMessages.Select(
+            _udpMultiCastListener.ObservableMessages
+            .Merge(_udpListener.ObservableMessages)
+            .Select(
                 udpSocket =>
                 {
                     var stream = new MemoryStream(udpSocket.ByteData);
@@ -34,6 +37,8 @@ namespace SimpleHttpServer.Service
                     var streamParser = new StreamParser();
                     return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
                 });
+
+
 
         private IObservable<IHttpRequest> TcpRequestObservable =>
             _tcpListener.ObservableTcpSocket.Select(
@@ -74,9 +79,14 @@ namespace SimpleHttpServer.Service
             await _tcpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
         }
 
+        public async Task StartUdpListener(int port, ICommunicationInterface communicationInterface = null)
+        {
+            await _udpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
+        }
+
         public async Task StartUdpMulticastListener(string ipAddr, int port, ICommunicationInterface communicationInterface = null)
         {
-            await _udpMultiCaseListener.JoinMulticastGroupAsync(ipAddr, port, communicationInterface, allowMultipleBindToSamePort: true);
+            await _udpMultiCastListener.JoinMulticastGroupAsync(ipAddr, port, communicationInterface, allowMultipleBindToSamePort: true);
         }
 
         public void StopTcpListener()
@@ -86,7 +96,7 @@ namespace SimpleHttpServer.Service
 
         public void StopUdpMultiCastListener()
         {
-            _udpMultiCaseListener.Disconnect();
+            _udpMultiCastListener.Disconnect();
         }
 
         public async Task HttpReponse(IHttpRequest request, IHttpResponse response)
@@ -109,6 +119,7 @@ namespace SimpleHttpServer.Service
             {
                 stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
             }
+            
             stringBuilder.Append($"Content-Length: {Encoding.UTF8.GetBytes(response.Body).Length}\r\n\r\n");
             stringBuilder.Append(response.Body);
 

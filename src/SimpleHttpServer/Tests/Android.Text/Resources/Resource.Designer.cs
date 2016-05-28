@@ -26,6 +26,8 @@ namespace Android.Text
 		
 		public static void UpdateIdValues()
 		{
+			global::SocketLite.Resource.String.ApplicationName = global::Android.Text.Resource.String.ApplicationName;
+			global::SocketLite.Resource.String.Hello = global::Android.Text.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

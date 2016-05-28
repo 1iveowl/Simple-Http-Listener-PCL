@@ -22,6 +22,10 @@ namespace ISimpleHttpServer.Service
             string ipAddr, 
             int port, 
             ICommunicationInterface communicationInterface = null);
+
+        Task StartUdpListener(
+            int port,
+            ICommunicationInterface communicationInterface = null);
         void StopTcpListener();
         void StopUdpMultiCastListener();
 
