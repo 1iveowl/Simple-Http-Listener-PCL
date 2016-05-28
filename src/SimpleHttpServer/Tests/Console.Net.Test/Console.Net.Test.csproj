@@ -34,11 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.0.9.5\lib\net45\ISocketLite.PCL.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.0.3\lib\net45\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SocketLite.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.0.9.5\lib\net45\SocketLite.NET.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.0.3\lib\net45\SocketLite.NET.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

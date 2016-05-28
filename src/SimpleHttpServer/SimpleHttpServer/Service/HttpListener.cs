@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Reactive.Concurrency;
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
 using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
@@ -21,11 +19,7 @@ namespace SimpleHttpServer.Service
         private readonly ITcpSocketListener _tcpListener = new TcpSocketListener();
         private readonly IUdpSocketMulticastClient _udpMultiCaseListener = new UdpSocketMulticastClient();
 
-        public TimeSpan Timeout { get; set; }
-
-        // Listening to both UDP and TCP and merging the Http Request streams into one IObservable stream
-        public IObservable<IHttpRequest> HttpRequestObservable =>
-            // Listen to UDP Multicast
+        private IObservable<IHttpRequest> UpdRequstObservable =>
             _udpMultiCaseListener.ObservableMessages.Select(
                 udpSocket =>
                 {
@@ -39,9 +33,10 @@ namespace SimpleHttpServer.Service
 
                     var streamParser = new StreamParser();
                     return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
-                })
-            // Merge with Listen to TCP 
-            .Merge(_tcpListener.ObservableTcpSocket.Select(
+                });
+
+        private IObservable<IHttpRequest> TcpRequestObservable =>
+            _tcpListener.ObservableTcpSocket.Select(
                 tcpSocket =>
                 {
                     var stream = tcpSocket.ReadStream;
@@ -56,7 +51,14 @@ namespace SimpleHttpServer.Service
 
                     var streamParser = new StreamParser();
                     return streamParser.ParseRequestStream(requestHandler, stream, Timeout);
-                }));
+                });
+
+        // Listening to both UDP and TCP and merging the Http Request streams
+        // into one unified IObservable stream of Http Requests
+        public IObservable<IHttpRequest> HttpRequestObservable
+            => Observable.Merge(TcpRequestObservable, UpdRequstObservable);
+
+        public TimeSpan Timeout { get; set; }
 
         public HttpListener() : this(timeout: TimeSpan.FromSeconds(30))
         {
