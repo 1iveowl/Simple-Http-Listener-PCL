@@ -3,7 +3,7 @@ A simple Http Listener that is created as a Portable Class Library and to works 
 
 This project is based on [SocketLite.PCL](https://github.com/1iveowl/sockets-for-pcl/) for cross platform TCP sockets support. 
 
-IMPORTANT: SocketList.PCL utilizes the "Bait and Switch" pattern and this nuget must be part of any project using Simple Http Listner PCL.
+IMPORTANT: SocketList.PCL utilizes the "Bait and Switch" pattern and the SocketLite.PCL nuget must be part of any project using Simple Http Listner PCL.
 
 The Http Listener also requires Microsoft [Reactive Extensions](https://www.nuget.org/packages/Rx-Main). 
 
