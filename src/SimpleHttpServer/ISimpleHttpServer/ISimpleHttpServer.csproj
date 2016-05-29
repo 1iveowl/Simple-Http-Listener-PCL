@@ -81,12 +81,6 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\HttpMachine.PCL\src\main\HttpMachine\HttpMachine.csproj">
-      <Project>{70448fca-6275-4685-aa0b-8be2221c46f7}</Project>
-      <Name>HttpMachine</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
