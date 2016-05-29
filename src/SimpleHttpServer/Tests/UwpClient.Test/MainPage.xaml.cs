@@ -8,6 +8,7 @@ using System.Reactive.Linq;
 using System.Reactive;
 using System.Reactive.Concurrency;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -41,18 +42,23 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
+            var comm = new CommunicationsInterface();
+            var allComms = comm.GetAllInterfaces();
+            var networkComm = allComms.FirstOrDefault(x => x.GatewayAddress != null);
             //var availableNetworkInterfaces = new CommunicationInterface().GetAllInterfaces();
             //var firstUsableInterface = availableNetworkInterfaces.FirstOrDefault(x => x.IsUsable);
 
             var httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
-            await httpListener.StartTcpListener(port: 8000);
-            await httpListener.StartUdpMulticastListener(ipAddr:"239.255.255.250", port: 1900);
-            await Task.Delay(TimeSpan.FromSeconds(1));
-            httpListener.StopTcpListener();
-            httpListener.StopUdpMultiCastListener();
-            await Task.Delay(TimeSpan.FromSeconds(1));
-            await httpListener.StartTcpListener(port: 8000);
-            await httpListener.StartUdpMulticastListener(ipAddr: "239.255.255.250", port: 1900);
+            await httpListener.StartTcpRequestListener(port: 8000, communicationInterface: networkComm);
+            await httpListener.StartTcpResponseListener(port: 8001, communicationInterface: networkComm);
+            await httpListener.StartUdpMulticastListener(ipAddr:"239.255.255.250", port: 1900, communicationInterface: networkComm);
+            //await httpListener.StartUdpListener(1900, communicationInterface: networkComm);
+            //await Task.Delay(TimeSpan.FromSeconds(1));
+            //httpListener.StopTcpListener();
+            //httpListener.StopUdpMultiCastListener();
+            //await Task.Delay(TimeSpan.FromSeconds(1));
+            //await httpListener.StartTcpListener(port: 8000);
+            //await httpListener.StartUdpMulticastListener(ipAddr: "239.255.255.250", port: 1900);
 
             var observeHttpRequests = httpListener
                 .HttpRequestObservable
@@ -60,7 +66,7 @@ namespace UwpClient.Test
                 .ObserveOnDispatcher().Subscribe(async
                 request =>
                 {
-                    if (!request.IsUnableToParseHttpRequest)
+                    if (!request.IsUnableToParseHttp)
                     {
                         Method.Text = request?.Method ?? "N/A";
                         Path.Text = request?.Path ?? "N/A";
@@ -68,13 +74,14 @@ namespace UwpClient.Test
                         {
                             var response = new HttpReponse
                             {
-                                StatusCode = HttpStatusCode.OK,
-                                ResonseHeaders = new Dictionary<string, string>
+                                StatusCode = (int)HttpStatusCode.OK,
+                                ResponseReason = HttpStatusCode.OK.ToString(),
+                                Headers = new Dictionary<string, string>
                                 {
                                     {"Date", DateTime.UtcNow.ToString("r")},
                                     {"Content-Type", "text/html; charset=UTF-8" },
                                 },
-                                Body = $"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"
+                                Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
                             };
 
                             await httpListener.HttpReponse(request, response);
@@ -88,6 +95,20 @@ namespace UwpClient.Test
                 // Exception
                 ex =>
                 {
+                });
+
+            var observeHttpReponse = httpListener
+                .HttpResponseObservable
+                .ObserveOnDispatcher()
+                .Where(x => !x.IsUnableToParseHttp)
+                .Subscribe(response =>
+                {
+                    if (!response.IsUnableToParseHttp)
+                    {
+                        ReponseCode.Text = response.StatusCode.ToString();
+                        Reason.Text = response.ResponseReason;
+                        Address.Text = response.RemoteAddress;
+                    }
                 });
 
             // Remember to dispose of subscriber when done

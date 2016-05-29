@@ -1,85 +1,159 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Text;
 using HttpMachine;
 using ISimpleHttpServer.Model;
-using SimpleHttpServer.Parser.Base;
+using SimpleHttpServer.Model;
 
 namespace SimpleHttpServer.Parser
 {
-    internal class HttpParserHandler : HttpRequestBase, IHttpRequestParserDelegate
+    internal class HttpParserHandler
     {
-
-        public void OnMessageBegin(HttpParser parser)
+        internal IHttpRequest ParseRequestStream(HttpRequestParserHandler requestHandler, Stream stream, TimeSpan timeout)
         {
+            var parserHandler = new HttpMachine.HttpParser(requestHandler as IHttpRequestParserDelegate);
+
+            var observeRequstStream = new ObservableHttpData().Create(requestHandler.HttpRequest, stream, timeout);
+
+            var observerRequestSubscriber = observeRequstStream.Subscribe(
+                bArray =>
+                {
+                    try
+                    {
+                        if (parserHandler.Execute(new ArraySegment<byte>(bArray, 0, bArray.Length)) <= 0)
+                        {
+                            requestHandler.HttpRequest.IsUnableToParseHttp = true;
+                            //requestHandler = new HttpRequestParserHandler
+                            //{
+                            //        HttpRequest =
+                            //    {
+                            //        IsUnableToParseHttp = true
+                            //    }
+                            //};
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        requestHandler.HttpRequest.IsUnableToParseHttp = true;
+                        //requestHandler = new HttpRequestParserHandler
+                        //{
+                        //    HttpRequest =
+                        //    {
+                        //        IsUnableToParseHttp = true
+                        //    }
+                        //};
+                    }
+
+                },
+                ex =>
+                {
+                    if (ex is TimeoutException)
+                    {
+                        requestHandler = new HttpRequestParserHandler
+                        {
+                            HttpRequest =
+                            {
+                                IsRequestTimedOut = true
+                            }
+                        };
+                    }
+                    else
+                    {
+                        requestHandler = new HttpRequestParserHandler
+                        {
+                            HttpRequest =
+                            {
+                                IsUnableToParseHttp = true
+                            }
+                        };
+                    }
+                });
+
+            observerRequestSubscriber.Dispose();
+
+            parserHandler.Execute(default(ArraySegment<byte>));
+
+            requestHandler.HttpRequest.MajorVersion = parserHandler.MajorVersion;
+            requestHandler.HttpRequest.MinorVersion = parserHandler.MinorVersion;
+            requestHandler.HttpRequest.ShouldKeepAlive = parserHandler.ShouldKeepAlive;
+            requestHandler.HttpRequest.UserContext = parserHandler.UserContext;
+
+            return requestHandler.HttpRequest;
         }
 
-        public void OnMethod(HttpParser parser, string method)
+        internal IHttpResponse ParseResonseStream(HttpReponseParserHandler responseHandler, Stream stream,
+            TimeSpan timeout)
         {
-            base.Method = method;
+            var parserHandler = new HttpMachine.HttpParser(responseHandler as IHttpResponseParserDelegate);
+
+            var observeResponseStream = new ObservableHttpData().Create(responseHandler.HttpResponse, stream, timeout);
+
+            var observerReponseSubscriber = observeResponseStream.Subscribe(
+                bArray =>
+                {
+                    try
+                    {
+                        if (parserHandler.Execute(new ArraySegment<byte>(bArray, 0, bArray.Length)) <= 0)
+                        {
+                            responseHandler.HttpResponse.IsUnableToParseHttp = true;
+                            //responseHandler = new HttpReponseParserHandler
+                            //{
+                            //    HttpResponse =
+                            //{
+                            //    IsUnableToParseHttp = true
+                            //}
+                            //};
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        responseHandler.HttpResponse.IsUnableToParseHttp = true;
+                        //responseHandler = new HttpReponseParserHandler
+                        //{
+                        //    HttpResponse =
+                        //    {
+                        //        IsUnableToParseHttp = true,
+                        //        IsEndOfRequest = true,
+                        //    }
+                        //};
+                    }
+                },
+                ex =>
+                {
+                    if (ex is TimeoutException)
+                    {
+                        responseHandler = new HttpReponseParserHandler
+                        {
+                            HttpResponse =
+                            {
+                                IsRequestTimedOut = true
+                            }
+                        };
+                    }
+                    else
+                    {
+                        responseHandler = new HttpReponseParserHandler
+                        {
+                            HttpResponse =
+                            {
+                                IsUnableToParseHttp = true
+                            }
+                        };
+                    }
+                });
+
+            observerReponseSubscriber.Dispose();
+
+            parserHandler.Execute(default(ArraySegment<byte>));
+
+            responseHandler.HttpResponse.MajorVersion = parserHandler.MajorVersion;
+            responseHandler.HttpResponse.MinorVersion = parserHandler.MinorVersion;
+
+            return responseHandler.HttpResponse;
         }
 
-        public void OnRequestUri(HttpParser parser, string requestUri)
-        {
-            RequstUri = requestUri;
-        }
-
-        public void OnPath(HttpParser parser, string path)
-        {
-            Path = path;
-        }
-
-        public void OnFragment(HttpParser parser, string fragment)
-        {
-            Fragment = fragment;
-        }
-
-        public void OnQueryString(HttpParser parser, string queryString)
-        {
-            QueryString = queryString;
-        }
-
-        private string _headerName;
-        private bool _headerAlreadyExist;
-
-        //http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        public void OnHeaderName(HttpParser parser, string name)
-        {
-            if (Headers.ContainsKey(name.ToUpper()))
-            {
-                // Header Field Names are case-insensitive http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-                _headerAlreadyExist = true;
-            }
-            _headerName = name.ToUpper();
-        }
-
-        public void OnHeaderValue(HttpParser parser, string value)
-        {
-            if (_headerAlreadyExist)
-            {
-                // Join multiple message-header fields into one comma seperated list http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-                Headers[_headerName] = $"{Headers[_headerName]}, {value}";
-                _headerAlreadyExist = false;
-            }
-            else
-            {
-                Headers[_headerName] = value;
-            }
-        }
-
-        public void OnHeadersEnd(HttpParser parser)
-        {
-            //throw new NotImplementedException();
-        }
-
-        public void OnBody(HttpParser parser, ArraySegment<byte> data)
-        {
-            Body.Write(data.Array, 0, data.Array.Length);
-        }
-
-        public void OnMessageEnd(HttpParser parser)
-        {
-            IsEndOfRequest = true;
-        }
     }
 }

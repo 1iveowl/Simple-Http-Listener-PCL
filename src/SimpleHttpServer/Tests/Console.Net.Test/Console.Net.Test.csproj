@@ -34,11 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.1.0.4\lib\net45\ISocketLite.PCL.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.0.9\lib\net45\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.1.0.4\lib\net45\SocketLite.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.0.9\lib\net45\SocketLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -73,6 +73,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ISimpleHttpServer\ISimpleHttpServer.csproj">
+      <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>
+      <Name>ISimpleHttpServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleHttpServer\SimpleHttpServer.csproj">
+      <Project>{12ac2283-5031-41f7-b52d-dc06ff8839df}</Project>
+      <Name>SimpleHttpServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -29,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.1.0.4\lib\net45\ISocketLite.PCL.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.0.9\lib\net45\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
@@ -53,7 +53,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.1.0.4\lib\net45\SocketLite.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.0.9\lib\net45\SocketLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

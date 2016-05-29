@@ -20,6 +20,18 @@
                 <Run x:Name="Path" />
                 <LineBreak></LineBreak>
             </TextBlock>
+
+            <TextBlock Margin="36">
+                <Run Text="Reponse Code:" />
+                <Run x:Name="ReponseCode" />
+                <LineBreak></LineBreak>
+                <Run Text="Reason" />
+                <Run x:Name="Reason" />
+                <LineBreak></LineBreak>
+                <Run Text="Address" />
+                <Run x:Name="Address" />
+                <LineBreak></LineBreak>
+            </TextBlock>
         </StackPanel>
 
     </Grid>

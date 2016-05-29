@@ -128,6 +128,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\HttpMachine.PCL\src\main\HttpMachine\HttpMachine.csproj">
+      <Project>{70448fca-6275-4685-aa0b-8be2221c46f7}</Project>
+      <Name>HttpMachine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ISimpleHttpServer\ISimpleHttpServer.csproj">
       <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>
       <Name>ISimpleHttpServer</Name>

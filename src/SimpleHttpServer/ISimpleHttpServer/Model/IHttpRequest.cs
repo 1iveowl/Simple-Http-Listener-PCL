@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ISocketLite.PCL.Interface;
 
 
 namespace ISimpleHttpServer.Model
 {
-    public interface IHttpRequest
+    public interface IHttpRequest : IParseControl
     {
         ITcpSocketClient TcpSocketClient { get; }
 
@@ -35,12 +31,6 @@ namespace ISimpleHttpServer.Model
         IDictionary<string, string> Headers { get; }
 
         MemoryStream Body { get;}
-
-        bool IsEndOfRequest { get;}
-
-        bool IsRequestTimedOut { get; }
-
-        bool IsUnableToParseHttpRequest { get; }
 
     }
 }

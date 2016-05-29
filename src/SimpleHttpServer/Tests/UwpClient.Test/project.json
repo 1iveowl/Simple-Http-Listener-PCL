@@ -2,7 +2,7 @@
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
     "Rx-Xaml": "2.2.5",
-    "SocketLite.PCL": "1.0.4"
+    "SocketLite.PCL": "1.0.9"
   },
   "frameworks": {
     "uap10.0": {}

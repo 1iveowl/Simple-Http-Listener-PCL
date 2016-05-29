@@ -13,11 +13,18 @@ namespace ISimpleHttpServer.Service
     {
         TimeSpan Timeout { get; set; }
         IObservable<IHttpRequest> HttpRequestObservable { get; }
+
+        IObservable<IHttpResponse> HttpResponseObservable { get; }
         Task HttpReponse(IHttpRequest request, IHttpResponse response);
 
-        Task StartTcpListener(
+        Task StartTcpRequestListener(
             int port, 
             ICommunicationInterface communicationInterface = null);
+
+        Task StartTcpResponseListener(
+            int port,
+            ICommunicationInterface communicationInterface = null);
+
         Task StartUdpMulticastListener(
             string ipAddr, 
             int port, 
@@ -26,6 +33,9 @@ namespace ISimpleHttpServer.Service
         Task StartUdpListener(
             int port,
             ICommunicationInterface communicationInterface = null);
+
+        Task SendOnMulticast(byte[] data);
+
         void StopTcpListener();
         void StopUdpMultiCastListener();
 
