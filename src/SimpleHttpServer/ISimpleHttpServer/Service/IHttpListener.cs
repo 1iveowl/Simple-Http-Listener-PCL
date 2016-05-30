@@ -36,8 +36,9 @@ namespace ISimpleHttpServer.Service
 
         Task SendOnMulticast(byte[] data);
 
-        void StopTcpListener();
+        void StopTcpRequestListener();
+        void StopTcpReponseListener();
         void StopUdpMultiCastListener();
-
+        void StopUdpListener();
     }
 }

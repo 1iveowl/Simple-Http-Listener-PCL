@@ -109,14 +109,25 @@ namespace SimpleHttpServer.Service
             await _udpMultiCastListener.JoinMulticastGroupAsync(ipAddr, port, communicationInterface, allowMultipleBindToSamePort: true);
         }
 
-        public void StopTcpListener()
+        public void StopTcpRequestListener()
         {
             _tcpRequestListener.StopListening();
+
+        }
+
+        public void StopTcpReponseListener()
+        {
+            _tcpResponseListener.StopListening();
         }
 
         public void StopUdpMultiCastListener()
         {
             _udpMultiCastListener.Disconnect();
+        }
+
+        public void StopUdpListener()
+        {
+            _udpListener.StopListening();
         }
 
         public async Task SendOnMulticast(byte[] data)
