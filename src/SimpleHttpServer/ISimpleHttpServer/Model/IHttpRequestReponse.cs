@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace ISimpleHttpServer.Model
 {
-    public enum RequestType
+    public interface IHttpRequestReponse : IHttpResponse, IHttpRequest
     {
-        TCP,
-        UDP
     }
 }

@@ -13,10 +13,10 @@ namespace SimpleHttpServer.Parser.Base
     {
         private string _headerName;
         private bool _headerAlreadyExist;
-        protected IHttpHeaders HeaderDictionary;
+        //protected IHttpHeaders HeaderDictionary;
 
         //http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        public void OnHeaderName(HttpMachine.HttpParser parser, string name)
+        public void OnHeaderName(HttpCombinedParser parser, string name)
         {
             
             if (HeaderDictionary.Headers.ContainsKey(name.ToUpper()))
@@ -27,7 +27,7 @@ namespace SimpleHttpServer.Parser.Base
             _headerName = name.ToUpper();
         }
 
-        public void OnHeaderValue(HttpMachine.HttpParser parser, string value)
+        public void OnHeaderValue(HttpCombinedParser parser, string value)
         {
             if (_headerAlreadyExist)
             {
@@ -41,7 +41,7 @@ namespace SimpleHttpServer.Parser.Base
             }
         }
 
-        public void OnHeadersEnd(HttpMachine.HttpParser parser)
+        public void OnHeadersEnd(HttpCombinedParser parser)
         {
             //throw new NotImplementedException();
         }

@@ -70,7 +70,7 @@ namespace UwpClient.Test
                     {
                         Method.Text = request?.Method ?? "N/A";
                         Path.Text = request?.Path ?? "N/A";
-                        if (request.RequestType == RequestType.Tcp)
+                        if (request.RequestType == RequestType.TCP)
                         {
                             var response = new HttpReponse
                             {

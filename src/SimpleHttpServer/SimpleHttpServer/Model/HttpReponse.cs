@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using ISimpleHttpServer.Model;
 using SimpleHttpServer.Model.Base;
-using SimpleHttpServer.Parser.Base;
 
 namespace SimpleHttpServer.Model
 {

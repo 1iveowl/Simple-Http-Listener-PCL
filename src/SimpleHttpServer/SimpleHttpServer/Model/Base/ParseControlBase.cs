@@ -10,7 +10,8 @@ namespace SimpleHttpServer.Model.Base
 {
     public abstract class ParseControlBase : IParseControl
     {
-        protected ParseControlBase() { }
+        public RequestType RequestType { get; internal set; }
+        public ITcpSocketClient TcpSocketClient { get; internal set; } 
 
         public bool IsEndOfRequest { get; internal set; }
 
@@ -21,7 +22,8 @@ namespace SimpleHttpServer.Model.Base
         public string RemoteAddress { get; internal set; }
 
         public int RemotePort { get; internal set; }
-        public RequestType RequestType { get; internal set; }
-        public ITcpSocketClient TcpSocketClient { get; internal set; }
+
+        protected ParseControlBase() { }
+
     }
 }

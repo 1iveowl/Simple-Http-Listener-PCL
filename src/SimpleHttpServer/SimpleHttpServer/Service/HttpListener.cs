@@ -4,114 +4,79 @@ using System.IO;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HttpMachine;
 using ISimpleHttpServer.Model;
 using ISimpleHttpServer.Service;
 using ISocketLite.PCL.Interface;
+using SimpleHttpServer.Model;
 using SimpleHttpServer.Parser;
 using SocketLite.Services;
 
 
 namespace SimpleHttpServer.Service
 {
-
     public class HttpListener : IHttpListener
     {
         private readonly ITcpSocketListener _tcpRequestListener = new TcpSocketListener();
         private readonly ITcpSocketListener _tcpResponseListener = new TcpSocketListener();
         private readonly IUdpSocketMulticastClient _udpMultiCastListener = new UdpSocketMulticastClient();
         private readonly IUdpSocketReceiver _udpListener = new UdpSocketReceiver();
-        private readonly HttpParserHandler _httpParserHandler = new HttpParserHandler();
+        private readonly HttpStreamParser _httpStreamParser = new HttpStreamParser();
 
-        private IObservable<IHttpRequest> UpdRequstObservable =>
+        private IObservable<IHttpRequestReponse> UpdRequstReponseObservable =>
             _udpMultiCastListener.ObservableMessages
             .Merge(_udpListener.ObservableMessages)
             .Select(
                 udpSocket =>
                 {
                     var stream = new MemoryStream(udpSocket.ByteData);
-                    var requestHandler = new HttpRequestParserHandler
+                    var requestHandler = new HttpParserDelegate
                     {
-                        HttpRequest =
+                        HttpRequestReponse =
                         {
                             RemoteAddress = udpSocket.RemoteAddress,
                             RemotePort = int.Parse(udpSocket.RemotePort),
-                            RequestType = RequestType.Udp
+                            RequestType = RequestType.UDP
                         }
                     };
 
-                    return _httpParserHandler.ParseRequestStream(requestHandler, stream, Timeout);
+                    return _httpStreamParser.Parse(requestHandler, stream, Timeout);
                 });
 
-        private IObservable<IHttpResponse> UdpResponseObservable =>
-            _udpMultiCastListener.ObservableMessages
-                .Merge(_udpListener.ObservableMessages)
-                .Select(
-                    udpSocket =>
-                    {
-                        Debug.WriteLine(Encoding.UTF8.GetString(udpSocket.ByteData, 0, udpSocket.ByteData.Length));
-                        var stream = new MemoryStream(udpSocket.ByteData);
-                        var responseHandler = new HttpReponseParserHandler
-                        {
-                            HttpResponse =
-                            {
-                                RemoteAddress = udpSocket.RemoteAddress,
-                                RemotePort = int.Parse(udpSocket.RemotePort),
-                                RequestType = RequestType.Udp
-                            }
-                        };
-
-                        return _httpParserHandler.ParseResonseStream(responseHandler, stream, Timeout);
-                    });
-
-
-
-        private IObservable<IHttpRequest> TcpRequestObservable =>
-            _tcpRequestListener.ObservableTcpSocket.Select(
+        private IObservable<IHttpRequestReponse> TcpRequestResponseObservable =>
+            _tcpRequestListener.ObservableTcpSocket
+            .Merge(_tcpResponseListener.ObservableTcpSocket).Select(
                 tcpSocket =>
                 {
                     var stream = tcpSocket.ReadStream;
 
-                    var requestHandler = new HttpRequestParserHandler
+                    var requestHandler = new HttpParserDelegate
                     {
-                        HttpRequest =
+                        HttpRequestReponse =
                         {
                             RemoteAddress = tcpSocket.RemoteAddress,
                             RemotePort = tcpSocket.RemotePort,
                             TcpSocketClient = tcpSocket,
-                            RequestType = RequestType.Tcp
+                            RequestType = RequestType.TCP
                         }
                     };
 
-                    return _httpParserHandler.ParseRequestStream(requestHandler, stream, Timeout);
-                });
-
-        private IObservable<IHttpResponse> TcpReponseObservable =>
-            _tcpResponseListener.ObservableTcpSocket.Select(
-                tcpSocket =>
-                {
-                    var stream = tcpSocket.ReadStream;
-
-                    var responseHandler = new HttpReponseParserHandler
-                    {
-                        HttpResponse =
-                        {
-                            RemoteAddress = tcpSocket.RemoteAddress,
-                            RemotePort = tcpSocket.RemotePort,
-                            TcpSocketClient = tcpSocket,
-                            RequestType = RequestType.Tcp
-                        }
-                    };
-
-                    return _httpParserHandler.ParseResonseStream(responseHandler, stream, Timeout);
+                    return _httpStreamParser.Parse(requestHandler, stream, Timeout);
                 });
 
         // Listening to both UDP and TCP and merging the Http Request streams
         // into one unified IObservable stream of Http Requests
-        public IObservable<IHttpRequest> HttpRequestObservable
-            => Observable.Merge(TcpRequestObservable, UpdRequstObservable);
+        public IObservable<IHttpRequest> HttpRequestObservable => 
+            TcpRequestResponseObservable
+            .Merge(UpdRequstReponseObservable)
+            .Where(x => x.MessageType == MessageType.Request)
+            .Select(x => x as IHttpRequest);
 
         public IObservable<IHttpResponse> HttpResponseObservable =>
-            Observable.Merge(TcpReponseObservable, UdpResponseObservable);
+            TcpRequestResponseObservable
+            .Merge(UpdRequstReponseObservable)
+            .Where(x => x.MessageType == MessageType.Response)
+            .Select(x => x as IHttpResponse);
 
         public TimeSpan Timeout { get; set; }
 
@@ -161,7 +126,7 @@ namespace SimpleHttpServer.Service
 
         public async Task HttpReponse(IHttpRequest request, IHttpResponse response)
         {
-            if (request.RequestType == RequestType.Tcp)
+            if (request.RequestType == RequestType.TCP)
             {
                 var bArray = Encoding.UTF8.GetBytes(ComposeResponse(request, response));
                 await request.TcpSocketClient.WriteStream.WriteAsync(bArray, 0, bArray.Length);

@@ -57,19 +57,18 @@
   <ItemGroup>
     <Compile Include="Model\Base\HttpHeaderBase.cs" />
     <Compile Include="Model\Base\ParseControlBase.cs" />
+    <Compile Include="Model\IHttpRequestReponse.cs" />
     <Compile Include="Model\ObservableHttpData.cs" />
-    <Compile Include="Parser\Base\HttpHeaderHandlerBase.cs" />
     <Compile Include="Model\HttpReponse.cs" />
-    <Compile Include="Parser\HttpReponseParserHandler.cs" />
-    <Compile Include="Model\HttpRequest.cs" />
-    <Compile Include="Parser\HttpRequestParserHandler.cs" />
-    <Compile Include="Parser\HttpParserHandler.cs" />
+    <Compile Include="Model\HttpRequestReponse.cs" />
+    <Compile Include="Parser\HttpParserDelegate.cs" />
+    <Compile Include="Parser\HttpStreamParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\HttpListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HttpMachine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HttpMachine.PCL.1.0.3\lib\portable-net45+netcore45\HttpMachine.dll</HintPath>
+      <HintPath>..\packages\HttpMachine.PCL.1.1.1\lib\portable-net45+netcore45\HttpMachine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -103,6 +102,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Parser\Base\" />
     <Folder Include="Service\Base\" />
   </ItemGroup>
   <ItemGroup>

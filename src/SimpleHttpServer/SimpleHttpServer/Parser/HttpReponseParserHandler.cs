@@ -34,5 +34,10 @@ namespace SimpleHttpServer.Parser
         {
             HttpResponse.IsEndOfRequest = true;
         }
+
+        public void OnParserError()
+        {
+            HttpResponse.IsUnableToParseHttp = true;
+        }
     }
 }
