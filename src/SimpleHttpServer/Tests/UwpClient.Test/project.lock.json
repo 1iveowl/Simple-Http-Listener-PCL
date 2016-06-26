@@ -324,7 +324,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -2176,7 +2176,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -3867,7 +3867,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -5568,7 +5568,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -7259,7 +7259,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -8960,7 +8960,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -10651,7 +10651,7 @@
           "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
-      "SocketLite.PCL/1.0.9": {
+      "SocketLite.PCL/1.1.3": {
         "dependencies": {
           "Rx-Main": "2.2.5"
         },
@@ -12833,11 +12833,11 @@
         "lib/windowsphone8/System.Reactive.Windows.Threading.dll"
       ]
     },
-    "SocketLite.PCL/1.0.9": {
-      "sha512": "jLXtA8OCQ1ycZ0nwmwCc0zkitDdCAO7dX9htcEmWMXuplmhA4lXFckeSe2vLum4X1/YMQYwfCa7VjkhdjbG+xQ==",
+    "SocketLite.PCL/1.1.3": {
+      "sha512": "cqB/6kFaGrEtiMd3S7iCA6z77VGFsX0Agj/POvjLGBUdCzrHOLEFyJJVKH9Kmq3nU7w51Y0EvwVeOwMZ8vvdtA==",
       "type": "package",
       "files": [
-        "SocketLite.PCL.1.0.9.nupkg.sha512",
+        "SocketLite.PCL.1.1.3.nupkg.sha512",
         "SocketLite.PCL.nuspec",
         "lib/MonoAndroid10/ISocketLite.PCL.dll",
         "lib/MonoAndroid10/ISocketLite.PCL.pdb",
@@ -15469,7 +15469,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Rx-Xaml >= 2.2.5",
-      "SocketLite.PCL >= 1.0.9"
+      "SocketLite.PCL >= 1.1.3"
     ],
     "UAP,Version=v10.0": []
   }

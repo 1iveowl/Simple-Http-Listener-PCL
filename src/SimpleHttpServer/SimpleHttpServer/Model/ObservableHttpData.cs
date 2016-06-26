@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 
 namespace SimpleHttpServer.Model
@@ -19,9 +21,16 @@ namespace SimpleHttpServer.Model
                         && !parseControl.IsRequestTimedOut
                         && !parseControl.IsUnableToParseHttp)
                     {
-                        if (stream.Read(oneByteBuffer, 0, oneByteBuffer.Length) != 0)
+                        if (stream.CanRead)
                         {
-                            obs.OnNext(oneByteBuffer);
+                            if (stream.Read(oneByteBuffer, 0, oneByteBuffer.Length) != 0)
+                            {
+                                obs.OnNext(oneByteBuffer);
+                            }
+                            else
+                            {
+                                break;
+                            }
                         }
                         else
                         {

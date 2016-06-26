@@ -42,13 +42,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.1.0.9\lib\MonoAndroid10\ISocketLite.PCL.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.1.3\lib\MonoAndroid10\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.1.0.9\lib\MonoAndroid10\SocketLite.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.1.1.3\lib\MonoAndroid10\SocketLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +43,7 @@ namespace SimpleHttpServer.Service
                     };
 
                     return _httpStreamParser.Parse(requestHandler, stream, Timeout);
-                });
+                }).SubscribeOn(Scheduler.Default);
 
         private IObservable<IHttpRequestReponse> TcpRequestResponseObservable =>
             _tcpRequestListener.ObservableTcpSocket
@@ -62,7 +64,7 @@ namespace SimpleHttpServer.Service
                     };
 
                     return _httpStreamParser.Parse(requestHandler, stream, Timeout);
-                });
+                }).SubscribeOn(Scheduler.Default);
 
         // Listening to both UDP and TCP and merging the Http Request streams
         // into one unified IObservable stream of Http Requests
@@ -76,7 +78,7 @@ namespace SimpleHttpServer.Service
             TcpRequestResponseObservable
             .Merge(UpdRequstReponseObservable)
             .Where(x => x.MessageType == MessageType.Response)
-            .Select(x => x as IHttpResponse);
+            .Select(x => x as IHttpResponse).SubscribeOn(Scheduler.Default);
 
         public TimeSpan Timeout { get; set; }
 
@@ -139,28 +141,39 @@ namespace SimpleHttpServer.Service
         {
             if (request.RequestType == RequestType.TCP)
             {
-                var bArray = Encoding.UTF8.GetBytes(ComposeResponse(request, response));
-                await request.TcpSocketClient.WriteStream.WriteAsync(bArray, 0, bArray.Length);
-                request.TcpSocketClient.Disconnect();
+                var bArray = ComposeResponse(request, response);
+                try
+                {
+                    if (request?.TcpSocketClient?.WriteStream != null)
+                    {
+                        await request.TcpSocketClient.WriteStream.WriteAsync(bArray, 0, bArray.Length);
+                        request.TcpSocketClient.Disconnect();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //throw ex;
+                }
             }
         }
 
-
-        private string ComposeResponse(IHttpRequest request, IHttpResponse response)
+        private byte[] ComposeResponse(IHttpRequest request, IHttpResponse response)
         {
             var stringBuilder = new StringBuilder();
 
-            stringBuilder.Append($"HTTP/{request.MajorVersion}.{request.MinorVersion} {(int)response.StatusCode} {response.StatusCode}\r\n");
+            stringBuilder.Append($"HTTP/{request.MajorVersion}.{request.MinorVersion} {(int)response.StatusCode} {response.ResponseReason}\r\n");
             foreach (var header in response.Headers)
             {
                 stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
             }
 
             stringBuilder.Append($"Content-Length: {response.Body.Length}\r\n\r\n");
-            stringBuilder.Append(response.Body);
+            var headerByteArray = Encoding.UTF8.GetBytes(stringBuilder.ToString());
 
-            Debug.WriteLine(stringBuilder.ToString());
-            return stringBuilder.ToString();
+            var result = headerByteArray.Concat(response.Body.ToArray()).ToArray();
+
+            Debug.WriteLine(Encoding.UTF8.GetString(result, 0, result.Length));
+            return result;
         }
     }
 }

@@ -57,6 +57,7 @@ namespace UwpClient.Test
             //httpListener.StopTcpListener();
             //httpListener.StopUdpMultiCastListener();
             //await Task.Delay(TimeSpan.FromSeconds(1));
+            
             //await httpListener.StartTcpListener(port: 8000);
             //await httpListener.StartUdpMulticastListener(ipAddr: "239.255.255.250", port: 1900);
 
@@ -84,7 +85,7 @@ namespace UwpClient.Test
                                 Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
                             };
 
-                            await httpListener.HttpReponse(request, response);
+                            await httpListener.HttpReponse(request, response).ConfigureAwait(false);
                         }
                     }
                     else
@@ -97,19 +98,19 @@ namespace UwpClient.Test
                 {
                 });
 
-            var observeHttpReponse = httpListener
-                .HttpResponseObservable
-                .ObserveOnDispatcher()
-                .Where(x => !x.IsUnableToParseHttp)
-                .Subscribe(response =>
-                {
-                    if (!response.IsUnableToParseHttp)
-                    {
-                        ReponseCode.Text = response.StatusCode.ToString();
-                        Reason.Text = response.ResponseReason;
-                        Address.Text = response.RemoteAddress;
-                    }
-                });
+            //var observeHttpReponse = httpListener
+            //    .HttpResponseObservable
+            //    .ObserveOnDispatcher()
+            //    .Where(x => !x.IsUnableToParseHttp)
+            //    .Subscribe(response =>
+            //    {
+            //        if (!response.IsUnableToParseHttp)
+            //        {
+            //            ReponseCode.Text = response.StatusCode.ToString();
+            //            Reason.Text = response.ResponseReason;
+            //            Address.Text = response.RemoteAddress;
+            //        }
+            //    });
 
             // Remember to dispose of subscriber when done
             //observeHttpRequests.Dispose();
