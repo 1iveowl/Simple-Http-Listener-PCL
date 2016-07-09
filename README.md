@@ -50,6 +50,15 @@ private async Task StartMulticastListener()
 }
 ```
 
+Similar code is used to listen to Tcp responses and listen for Udp ports (none multicase) using `HttpListener.StartTcpResponseListener()` and `HttpListener.StartUdpListener()` respectively.
+
+To stop listening to any of these use one of these:
+
+ - `HttpListener.StopTcpReponseListener();`
+ - `HttpListener.StopTcpRequestListener();`
+ - `HttpListener.StopUdpListener();`
+ - `HttpListener.StopUdpMultiCastListener();`
+
 To respond to an incoming Http Request is easy too and look something like this:
 ```cs
 using HttpListener = SimpleHttpServer.Service.HttpListener;
@@ -88,6 +97,35 @@ private async Task StartListener()
                 await _httpListener.HttpReponse(request, response).ConfigureAwait(false);
             }
        });
+}
+```
+
+For the last example "respond to an incoming Http Request" to work you must implement the ISimpleHttpServer.Model.IHttpResponse interface, which will look something like this: 
+
+```cs
+internal class HttpReponse : IHttpResponse
+{
+    public int MajorVersion { get; internal set; }
+    public int MinorVersion { get; internal set; }
+
+    public int StatusCode { get; internal set; }
+
+    public string ResponseReason { get; internal set; }
+    public IDictionary<string, string> Headers { get; internal set; }
+
+    public MemoryStream Body { get; internal set; }
+
+
+    public string RemoteAddress { get; internal set; }
+    public int RemotePort { get; internal set; }
+    public RequestType RequestType { get; internal set; }
+    public ITcpSocketClient TcpSocketClient { get; internal set; }
+
+    public IDictionary<string, string> ResonseHeaders { get; internal set; }
+
+    public bool IsEndOfRequest { get; internal set; }
+    public bool IsRequestTimedOut { get; internal set; }
+    public bool IsUnableToParseHttp { get; internal set; }
 }
 ```
 
