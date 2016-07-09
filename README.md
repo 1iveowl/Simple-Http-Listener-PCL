@@ -129,4 +129,4 @@ internal class HttpReponse : IHttpResponse
 }
 ```
 
-For full example look at the [Console Example](https://github.com/1iveowl/Simple-Http-Listener-PCL/tree/master/src/SimpleHttpServer/Tests/Console.Net.Test) or the [UWP Example](https://github.com/1iveowl/Simple-Http-Listener-PCL/tree/master/src/SimpleHttpServer/Tests/UwpClient.Test). I can recommending cloning the code open it with Visual Studio and running the tests with a dubugger.
+For full example look at the [Console Example](https://github.com/1iveowl/Simple-Http-Listener-PCL/tree/master/src/SimpleHttpServer/Tests/Console.Net.Test) or the [UWP Example](https://github.com/1iveowl/Simple-Http-Listener-PCL/tree/master/src/SimpleHttpServer/Tests/UwpClient.Test). I can recommend cloning the code and open it with Visual Studio and running the tests with a dubugger.
