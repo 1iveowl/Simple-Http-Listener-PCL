@@ -59,7 +59,7 @@ To stop listening to any of these use one of these:
  - `HttpListener.StopUdpListener();`
  - `HttpListener.StopUdpMultiCastListener();`
 
-To respond to an incoming Http Request is easy too and look something like this:
+To respond to an incoming Http Request is easy too and will look something like this:
 ```cs
 using HttpListener = SimpleHttpServer.Service.HttpListener;
 
@@ -71,7 +71,7 @@ private async Task StartListener()
     await httpListener.StartTcpRequestListener(port: 8000);
 
     // Rx Subscribe
-    httpListener.HttpRequest.Subscribe(
+    httpListener.HttpRequest.Subscribe(async 
        request =>
        {
             //Enter your code handling each incoming Http request here.
