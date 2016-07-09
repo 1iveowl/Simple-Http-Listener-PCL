@@ -50,7 +50,7 @@ private async Task StartMulticastListener()
 }
 ```
 
-To respond to an incoming Http Request is easy too. Added the following code to 
+To respond to an incoming Http Request is easy too and look something like this:
 ```cs
 using HttpListener = SimpleHttpServer.Service.HttpListener;
 
