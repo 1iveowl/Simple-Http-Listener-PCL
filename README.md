@@ -22,7 +22,7 @@ private async Task StartListener()
     await httpListener.StartTcpRequestListener(port: 8000);
 
 	// Rx Subscribe
-	httpListener.HttpRequest.Subscribe(
+	httpListener.HttpRequestObservable.Subscribe(
        request =>
        {
            //Enter your code handling each incoming Http request here.
@@ -42,7 +42,7 @@ private async Task StartMulticastListener()
 	var httpListener = new await HttpListener.StartUdpMulticastListener(ipAddr:"239.255.255.250", port: 1900);
 			
 	// Rx Subscribe
-	httpListener.HttpRequest.Subscribe(
+	httpListener.HttpRequestObservable.Subscribe(
 	    request =>
 	    {
 	        //Enter your code handling each incoming Http request here.
