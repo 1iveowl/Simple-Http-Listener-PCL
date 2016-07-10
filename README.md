@@ -7,7 +7,6 @@ IMPORTANT: SocketList.PCL utilizes the "Bait and Switch" pattern and the SocketL
 
 The Http Listener also requires Microsoft [Reactive Extensions](https://www.nuget.org/packages/Rx-Main). 
 
-If you use the listner with UWP you might also need [Rx-xaml](https://www.nuget.org/packages/Rx-Xaml/).
 
 To use Http Requests all you need to do is something like this:
 
