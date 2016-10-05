@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Parser\Base\" />
-    <Folder Include="Service\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ISimpleHttpServer\ISimpleHttpServer.csproj">
