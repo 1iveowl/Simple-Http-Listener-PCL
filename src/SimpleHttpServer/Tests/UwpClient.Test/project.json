@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.0",
-    "SocketLite.PCL": "2.0.4"
+    "SocketLite.PCL": "2.0.5"
   },
   "frameworks": {
     "uap10.0": {}
