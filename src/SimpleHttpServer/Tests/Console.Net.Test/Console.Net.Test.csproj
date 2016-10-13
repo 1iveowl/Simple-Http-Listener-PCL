@@ -33,12 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HttpMachine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HttpMachine.PCL.1.1.1\lib\portable-net45+netcore45\HttpMachine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ISocketLite.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.2.0.5\lib\net45\ISocketLite.PCL.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.2.0.7\lib\net45\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SocketLite.PCL.2.0.5\lib\net45\SocketLite.dll</HintPath>
+      <HintPath>..\..\packages\SocketLite.PCL.2.0.7\lib\net45\SocketLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
