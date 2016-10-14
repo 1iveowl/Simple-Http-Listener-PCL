@@ -34,7 +34,7 @@ namespace SimpleHttpServer.Parser
 
         public void OnRequestUri(HttpCombinedParser parser, string requestUri)
         {
-            HttpRequestReponse.RequstUri = requestUri;
+            HttpRequestReponse.RequestUri = requestUri;
         }
 
         public void OnPath(HttpCombinedParser parser, string path)

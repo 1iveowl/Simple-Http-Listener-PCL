@@ -150,9 +150,9 @@ namespace SimpleHttpServer.Service
                         request.TcpSocketClient.Disconnect();
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    //throw ex;
+                    //ignore
                 }
             }
         }
