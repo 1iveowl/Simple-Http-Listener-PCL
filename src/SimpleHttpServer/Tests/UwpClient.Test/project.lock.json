@@ -3,12 +3,12 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -280,54 +280,6 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
-        }
-      },
       "runtime.native.System.IO.Compression/4.1.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -352,13 +304,13 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -510,18 +462,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -1623,35 +1563,6 @@
           "lib/win8/_._": {}
         }
       },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "lib/win8/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/aot/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {
-            "assetType": "runtime",
-            "rid": "aot"
-          },
-          "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -2268,12 +2179,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -2493,54 +2404,6 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
-        }
-      },
       "runtime.any.System.Collections/4.0.11": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -2720,24 +2583,6 @@
           "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "runtime.win.System.Console/4.0.0": {
-        "dependencies": {
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Console.dll": {}
-        }
-      },
       "runtime.win.System.Diagnostics.Debug/4.0.11": {
         "compile": {
           "ref/netstandard/_._": {}
@@ -2863,13 +2708,13 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -3016,19 +2861,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "runtime.win.System.Console": "4.0.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -4027,21 +3859,6 @@
         },
         "runtime": {
           "lib/win8/_._": {}
-        }
-      },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {}
         }
       },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
@@ -4618,12 +4435,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -4842,54 +4659,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -5116,24 +4885,6 @@
           "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "runtime.win.System.Console/4.0.0": {
-        "dependencies": {
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Console.dll": {}
-        }
-      },
       "runtime.win.System.Diagnostics.Debug/4.0.11": {
         "compile": {
           "ref/netstandard/_._": {}
@@ -5252,13 +5003,13 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -5405,19 +5156,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "runtime.win.System.Console": "4.0.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -6416,21 +6154,6 @@
         },
         "runtime": {
           "lib/win8/_._": {}
-        }
-      },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "runtimes/aot/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {}
         }
       },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
@@ -7007,12 +6730,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -7236,54 +6959,6 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
-        }
-      },
       "runtime.any.System.Collections/4.0.11": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -7463,24 +7138,6 @@
           "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "runtime.win.System.Console/4.0.0": {
-        "dependencies": {
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Console.dll": {}
-        }
-      },
       "runtime.win.System.Diagnostics.Debug/4.0.11": {
         "compile": {
           "ref/netstandard/_._": {}
@@ -7611,13 +7268,13 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -7764,19 +7421,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "runtime.win.System.Console": "4.0.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -8775,21 +8419,6 @@
         },
         "runtime": {
           "lib/win8/_._": {}
-        }
-      },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {}
         }
       },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
@@ -9366,12 +8995,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -9594,54 +9223,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -9868,24 +9449,6 @@
           "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "runtime.win.System.Console/4.0.0": {
-        "dependencies": {
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Console.dll": {}
-        }
-      },
       "runtime.win.System.Diagnostics.Debug/4.0.11": {
         "compile": {
           "ref/netstandard/_._": {}
@@ -10009,13 +9572,13 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -10162,19 +9725,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "runtime.win.System.Console": "4.0.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -11175,21 +10725,6 @@
           "lib/win8/_._": {}
         }
       },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "runtimes/aot/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        }
-      },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -11764,12 +11299,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -11993,54 +11528,6 @@
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
-        }
-      },
       "runtime.any.System.Collections/4.0.11": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -12220,24 +11707,6 @@
           "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "runtime.win.System.Console/4.0.0": {
-        "dependencies": {
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Console.dll": {}
-        }
-      },
       "runtime.win.System.Diagnostics.Debug/4.0.11": {
         "compile": {
           "ref/netstandard/_._": {}
@@ -12368,13 +11837,13 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -12521,19 +11990,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "runtime.win.System.Console": "4.0.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -13534,21 +12990,6 @@
           "lib/win8/_._": {}
         }
       },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        }
-      },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
         "dependencies": {
           "System.Runtime": "4.1.0"
@@ -14123,12 +13564,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/1.1.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/portable-net45+win8+wpa81/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -14351,54 +13792,6 @@
         },
         "compile": {
           "ref/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
-        }
-      },
-      "NETStandard.Library/1.6.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.Win32.Primitives": "4.0.1",
-          "System.AppContext": "4.1.0",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Console": "4.0.0",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Diagnostics.Tools": "4.0.1",
-          "System.Diagnostics.Tracing": "4.1.0",
-          "System.Globalization": "4.0.11",
-          "System.Globalization.Calendars": "4.0.1",
-          "System.IO": "4.1.0",
-          "System.IO.Compression": "4.1.0",
-          "System.IO.Compression.ZipFile": "4.0.1",
-          "System.IO.FileSystem": "4.0.1",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Net.Primitives": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Reflection.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0",
-          "System.Runtime.Numerics": "4.0.1",
-          "System.Security.Cryptography.Algorithms": "4.2.0",
-          "System.Security.Cryptography.Encoding": "4.0.0",
-          "System.Security.Cryptography.Primitives": "4.0.0",
-          "System.Security.Cryptography.X509Certificates": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Threading.Timer": "4.0.1",
-          "System.Xml.ReaderWriter": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -14625,24 +14018,6 @@
           "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "runtime.win.System.Console/4.0.0": {
-        "dependencies": {
-          "System.IO": "4.1.0",
-          "System.IO.FileSystem.Primitives": "4.0.1",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.Encoding.Extensions": "4.0.11",
-          "System.Threading": "4.0.11",
-          "System.Threading.Tasks": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtime": {
-          "runtimes/win/lib/netcore50/System.Console.dll": {}
-        }
-      },
       "runtime.win.System.Diagnostics.Debug/4.0.11": {
         "compile": {
           "ref/netstandard/_._": {}
@@ -14766,13 +14141,13 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/2.0.8": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "lib/uap10.0/ISocketLite.PCL.dll": {},
+          "lib/uap10.0/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -14919,19 +14294,6 @@
         },
         "runtime": {
           "lib/netcore50/System.ComponentModel.EventBasedAsync.dll": {}
-        }
-      },
-      "System.Console/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "Microsoft.NETCore.Targets": "1.0.1",
-          "System.IO": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "runtime.win.System.Console": "4.0.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Console.dll": {}
         }
       },
       "System.Data.Common/4.1.0": {
@@ -15930,21 +15292,6 @@
         },
         "runtime": {
           "lib/win8/_._": {}
-        }
-      },
-      "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.0.1",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
-        },
-        "runtime": {
-          "runtimes/aot/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll": {}
         }
       },
       "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
@@ -16522,15 +15869,15 @@
     }
   },
   "libraries": {
-    "HttpMachine.PCL/2.0.1": {
-      "sha512": "gcn48nA27KDOiCSHhG8Fk+wXJS7t7AEK7zgzHH46qFuMSrrfJ0Tp7wrPuuZ5qdD7wgxa+GKSoBTyX5joUT/oPw==",
+    "HttpMachine.PCL/1.1.3": {
+      "sha512": "OEYEGV0tKNLg5GMymbqJZh2DxSBP/2dUZ1iaJlThDiOAcXfpNArTICe+gvd9UY6p0qgh/YS7YKKDwlFV1HJfdg==",
       "type": "package",
-      "path": "HttpMachine.PCL/2.0.1",
+      "path": "HttpMachine.PCL/1.1.3",
       "files": [
-        "HttpMachine.PCL.2.0.1.nupkg.sha512",
+        "HttpMachine.PCL.1.1.3.nupkg.sha512",
         "HttpMachine.PCL.nuspec",
-        "lib/netstandard1.4/HttpMachine.dll",
-        "lib/netstandard1.4/HttpMachine.pdb"
+        "lib/portable-net45+win8+wpa81/HttpMachine.dll",
+        "lib/portable-net45+win8+wpa81/HttpMachine.pdb"
       ]
     },
     "Microsoft.CSharp/4.0.1": {
@@ -16833,17 +16180,6 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "NETStandard.Library/1.6.0": {
-      "sha512": "z+NYIYoHR96GyfEHWV3sWClJ0F5i262fhXqLMcFWQJnhj6Dzi5ouv+d86JgDOzeiNla38C5wIqwf9AxInikq2g==",
-      "type": "package",
-      "path": "NETStandard.Library/1.6.0",
-      "files": [
-        "NETStandard.Library.1.6.0.nupkg.sha512",
-        "NETStandard.Library.nuspec",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -17530,21 +16866,6 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Primitives.dll"
       ]
     },
-    "runtime.win.System.Console/4.0.0": {
-      "sha512": "xiO5b50KA3Z7BOfWK7GLYLN2dfJa/BoDyI0XhNyOwXvAXWvubDyAF61YMnWl/q+j2WopSAXGo12kTpjxmlyCyg==",
-      "type": "package",
-      "path": "runtime.win.System.Console/4.0.0",
-      "files": [
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "ref/netstandard/_._",
-        "runtime.win.System.Console.4.0.0.nupkg.sha512",
-        "runtime.win.System.Console.nuspec",
-        "runtimes/win/lib/net/_._",
-        "runtimes/win/lib/netcore50/System.Console.dll",
-        "runtimes/win/lib/netstandard1.3/System.Console.dll"
-      ]
-    },
     "runtime.win.System.Diagnostics.Debug/4.0.11": {
       "sha512": "q8Fm954ezFLfmG0tHNUmsNy+qaEjWtWqYhWh3cGSVjtJwkcBsfigWCh+fdaIVZ9K7m+6lgb3ElL2BBU6G+RijA==",
       "type": "package",
@@ -17823,12 +17144,12 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "SocketLite.PCL/3.0.6": {
-      "sha512": "RWLAyB2AVAYgWdw7FIexRHoMAm3WiUe7qDggEPH5Lm3S7WmtKrsXAeAsQm/gq41IRH9XPAR1LSR9nNVc9pjtPg==",
+    "SocketLite.PCL/2.0.8": {
+      "sha512": "CEtuA8Qcx7PmvXrXAvQRLzYKEWGIK5/qHPjMMFBYNSoGDhibf4FmreK+/KoUpBS/tliXGFWHcAyigP8HUWJMVA==",
       "type": "package",
-      "path": "SocketLite.PCL/3.0.6",
+      "path": "SocketLite.PCL/2.0.8",
       "files": [
-        "SocketLite.PCL.3.0.6.nupkg.sha512",
+        "SocketLite.PCL.2.0.8.nupkg.sha512",
         "SocketLite.PCL.nuspec",
         "lib/MonoAndroid10/ISocketLite.PCL.dll",
         "lib/MonoAndroid10/ISocketLite.PCL.pdb",
@@ -17842,18 +17163,14 @@
         "lib/net45/ISocketLite.PCL.pdb",
         "lib/net45/SocketLite.dll",
         "lib/net45/SocketLite.pdb",
-        "lib/portable-net45+win8+wpa81+wp8/ISocketLite.PCL.dll",
-        "lib/portable-net45+win8+wpa81+wp8/ISocketLite.PCL.pdb",
-        "lib/portable-net45+win8+wpa81+wp8/SocketLite.pdb",
+        "lib/portable-net45+win8+wpa81/ISocketLite.PCL.dll",
+        "lib/portable-net45+win8+wpa81/ISocketLite.PCL.pdb",
+        "lib/portable-net45+win8+wpa81/SocketLite.dll",
+        "lib/portable-net45+win8+wpa81/SocketLite.pdb",
         "lib/uap10.0/ISocketLite.PCL.dll",
         "lib/uap10.0/ISocketLite.PCL.pdb",
         "lib/uap10.0/SocketLite.dll",
-        "lib/uap10.0/SocketLite.pdb",
-        "lib/win8+wpa81+wp8/SocketLite.dll",
-        "ref/netstandard1.4/ISocketLite.PCL.dll",
-        "ref/netstandard1.4/ISocketLite.PCL.pdb",
-        "ref/netstandard1.4/SocketLite.dll",
-        "ref/netstandard1.4/SocketLite.pdb"
+        "lib/uap10.0/SocketLite.pdb"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -18339,42 +17656,6 @@
         "ref/win8/_._",
         "ref/wp80/_._",
         "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "System.Console/4.0.0": {
-      "sha512": "Q0g2CE7Md9/14mJeZn9OyB1GXq3IL1daXTY8D5olKHNbDQn1Z2/dTzsHpCN8V9Vdh6q4915htom7EavKsDHlxg==",
-      "type": "package",
-      "path": "System.Console/4.0.0",
-      "files": [
-        "System.Console.4.0.0.nupkg.sha512",
-        "System.Console.nuspec",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Console.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Console.dll",
-        "ref/netstandard1.3/System.Console.dll",
-        "ref/netstandard1.3/System.Console.xml",
-        "ref/netstandard1.3/de/System.Console.xml",
-        "ref/netstandard1.3/es/System.Console.xml",
-        "ref/netstandard1.3/fr/System.Console.xml",
-        "ref/netstandard1.3/it/System.Console.xml",
-        "ref/netstandard1.3/ja/System.Console.xml",
-        "ref/netstandard1.3/ko/System.Console.xml",
-        "ref/netstandard1.3/ru/System.Console.xml",
-        "ref/netstandard1.3/zh-hans/System.Console.xml",
-        "ref/netstandard1.3/zh-hant/System.Console.xml",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
@@ -21147,38 +20428,6 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
-      "sha512": "KvR5kEk3VpTY3ovWsHhr8jPl0aHnZxb2jv1MBEVj+piWjpcRpJq9Kv7t1/QQYz+WIxeHbYt2Dx7NZA+meb66vg==",
-      "type": "package",
-      "path": "System.Runtime.InteropServices.RuntimeInformation/4.0.0",
-      "files": [
-        "System.Runtime.InteropServices.RuntimeInformation.4.0.0.nupkg.sha512",
-        "System.Runtime.InteropServices.RuntimeInformation.nuspec",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "lib/win8/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "lib/wpa81/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "runtimes/aot/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "runtimes/win/lib/net45/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "runtimes/win/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "runtimes/win/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll"
-      ]
-    },
     "System.Runtime.InteropServices.WindowsRuntime/4.0.1": {
       "sha512": "oIIXM4w2y3MiEZEXA+RTtfPV+SZ1ymbFdWppHlUciNdNIL0/Uo3HW9q9iN2O7T7KUmRdvjA7C2Gv4exAyW4zEQ==",
       "type": "package",
@@ -22955,6 +22204,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
+      "SocketLite.PCL >= 2.0.8",
       "System.Reactive >= 3.0.0"
     ],
     "UAP,Version=v10.0": []
