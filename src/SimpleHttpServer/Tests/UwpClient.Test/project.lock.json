@@ -3,12 +3,12 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -352,13 +352,13 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -2268,12 +2268,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -2863,13 +2863,13 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -4618,12 +4618,12 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -5252,13 +5252,13 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -7007,12 +7007,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -7611,13 +7611,13 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -9366,12 +9366,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -10009,13 +10009,13 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -11764,12 +11764,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -12368,13 +12368,13 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -14123,12 +14123,12 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "HttpMachine.PCL/2.0.1": {
+      "HttpMachine.PCL/2.0.3": {
         "compile": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.4/HttpMachine.dll": {}
+          "lib/netstandard1.2/HttpMachine.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -14766,13 +14766,13 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.6": {
+      "SocketLite.PCL/3.0.7": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
         "compile": {
-          "ref/netstandard1.4/ISocketLite.PCL.dll": {},
-          "ref/netstandard1.4/SocketLite.dll": {}
+          "ref/netstandard1.2/ISocketLite.PCL.dll": {},
+          "ref/netstandard1.2/SocketLite.dll": {}
         },
         "runtime": {
           "lib/uap10.0/ISocketLite.PCL.dll": {},
@@ -16522,15 +16522,15 @@
     }
   },
   "libraries": {
-    "HttpMachine.PCL/2.0.1": {
-      "sha512": "gcn48nA27KDOiCSHhG8Fk+wXJS7t7AEK7zgzHH46qFuMSrrfJ0Tp7wrPuuZ5qdD7wgxa+GKSoBTyX5joUT/oPw==",
+    "HttpMachine.PCL/2.0.3": {
+      "sha512": "MAtmIT2OIRGmNk3rScwGrWE5YNcAs8tky7u4To9nRCpTTPS999TEJqr9IZMD+JAqAOGS8jXazprmQF+ncZ9q3A==",
       "type": "package",
-      "path": "HttpMachine.PCL/2.0.1",
+      "path": "HttpMachine.PCL/2.0.3",
       "files": [
-        "HttpMachine.PCL.2.0.1.nupkg.sha512",
+        "HttpMachine.PCL.2.0.3.nupkg.sha512",
         "HttpMachine.PCL.nuspec",
-        "lib/netstandard1.4/HttpMachine.dll",
-        "lib/netstandard1.4/HttpMachine.pdb"
+        "lib/netstandard1.2/HttpMachine.dll",
+        "lib/netstandard1.2/HttpMachine.pdb"
       ]
     },
     "Microsoft.CSharp/4.0.1": {
@@ -17823,12 +17823,12 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "SocketLite.PCL/3.0.6": {
-      "sha512": "RWLAyB2AVAYgWdw7FIexRHoMAm3WiUe7qDggEPH5Lm3S7WmtKrsXAeAsQm/gq41IRH9XPAR1LSR9nNVc9pjtPg==",
+    "SocketLite.PCL/3.0.7": {
+      "sha512": "NI0WQFo2HaWmB7dUSeUGqAIuZYQvXjFMB9XAw7wHQNcuioTROkl+yIGfs8gd5zbmXcQm6vGQdKt16GK+MVAlkw==",
       "type": "package",
-      "path": "SocketLite.PCL/3.0.6",
+      "path": "SocketLite.PCL/3.0.7",
       "files": [
-        "SocketLite.PCL.3.0.6.nupkg.sha512",
+        "SocketLite.PCL.3.0.7.nupkg.sha512",
         "SocketLite.PCL.nuspec",
         "lib/MonoAndroid10/ISocketLite.PCL.dll",
         "lib/MonoAndroid10/ISocketLite.PCL.pdb",
@@ -17850,10 +17850,10 @@
         "lib/uap10.0/SocketLite.dll",
         "lib/uap10.0/SocketLite.pdb",
         "lib/win8+wpa81+wp8/SocketLite.dll",
-        "ref/netstandard1.4/ISocketLite.PCL.dll",
-        "ref/netstandard1.4/ISocketLite.PCL.pdb",
-        "ref/netstandard1.4/SocketLite.dll",
-        "ref/netstandard1.4/SocketLite.pdb"
+        "ref/netstandard1.2/ISocketLite.PCL.dll",
+        "ref/netstandard1.2/ISocketLite.PCL.pdb",
+        "ref/netstandard1.2/SocketLite.dll",
+        "ref/netstandard1.2/SocketLite.pdb"
       ]
     },
     "System.AppContext/4.1.0": {

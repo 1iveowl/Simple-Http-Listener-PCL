@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SimpleHttpListener</id>
-        <version>3.0.2</version>
+        <version>3.0.3</version>
         <authors>1iveowl</authors>
         <owners>Jasper H. Bojsen</owners>
         <licenseUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL/blob/master/LICENCE</licenseUrl>
@@ -13,29 +13,28 @@
     
 Great for a simple http implementation. For example as a building block for UPnP device or client implementation.</description>
         <releaseNotes>
-Updated from PCL Profile 259 to .NET Standard 1.4 library.
-Updated to SocketLite 3.0.6</releaseNotes>
+Updated to .NET Standard 1.2 library. For a PCL Profile 111 version see version 2.0.9, which is identical code/functionality to this release.</releaseNotes>
         <copyright>Copyright 1iveowl 2016</copyright>
         <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android
         </tags>
         
         <dependencies>
             <dependency id="System.Reactive" version="3.0.0"/>
-            <dependency id="SocketLite.PCL" version="3.0.6"/>
-            <dependency id="HttpMachine.PCL" version="2.0.1"/>
+            <dependency id="SocketLite.PCL" version="3.0.7"/>
+            <dependency id="HttpMachine.PCL" version="2.0.3"/>
         </dependencies>
 
     </metadata>
     
     <files>
         <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.dll"
-          target="lib\netstandard1.4\SimpleHttpServer.dll" />
+          target="lib\netstandard1.2\SimpleHttpServer.dll" />
       <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
-        target="lib\netstandard1.4\SimpleHttpServer.pdb" />
+        target="lib\netstandard1.2\SimpleHttpServer.pdb" />
       <file src="\SimpleHttpServer\bin\Release\ISimpleHttpServer.dll"
-        target="lib\netstandard1.4\ISimpleHttpServer.dll" />
+        target="lib\netstandard1.2\ISimpleHttpServer.dll" />
       <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
-        target="lib\netstandard1.4\ISimpleHttpServer.pdb" />
+        target="lib\netstandard1.2\ISimpleHttpServer.pdb" />
     
     </files>
 </package>
