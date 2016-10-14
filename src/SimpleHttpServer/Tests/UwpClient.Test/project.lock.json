@@ -304,7 +304,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -2708,7 +2708,7 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -5003,7 +5003,7 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -7268,7 +7268,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -9572,7 +9572,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -11837,7 +11837,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -14141,7 +14141,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/2.0.8": {
+      "SocketLite.PCL/2.0.9": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -17144,12 +17144,12 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "SocketLite.PCL/2.0.8": {
-      "sha512": "CEtuA8Qcx7PmvXrXAvQRLzYKEWGIK5/qHPjMMFBYNSoGDhibf4FmreK+/KoUpBS/tliXGFWHcAyigP8HUWJMVA==",
+    "SocketLite.PCL/2.0.9": {
+      "sha512": "Gu46zfMsCk+fOP46GoAlXVWtUUYegC3uKwKUi9KfMQjcWQepXVVag8hzzynMTa3CnXNNuA2zzDHhzFjDlYvpsQ==",
       "type": "package",
-      "path": "SocketLite.PCL/2.0.8",
+      "path": "SocketLite.PCL/2.0.9",
       "files": [
-        "SocketLite.PCL.2.0.8.nupkg.sha512",
+        "SocketLite.PCL.2.0.9.nupkg.sha512",
         "SocketLite.PCL.nuspec",
         "lib/MonoAndroid10/ISocketLite.PCL.dll",
         "lib/MonoAndroid10/ISocketLite.PCL.pdb",
@@ -22204,7 +22204,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
-      "SocketLite.PCL >= 2.0.8",
+      "SocketLite.PCL >= 2.0.9",
       "System.Reactive >= 3.0.0"
     ],
     "UAP,Version=v10.0": []
