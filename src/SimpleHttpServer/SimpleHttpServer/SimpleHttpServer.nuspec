@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SimpleHttpListener</id>
-        <version>2.0.10</version>
+        <version>0</version>
         <authors>1iveowl</authors>
         <owners>Jasper H. Bojsen</owners>
         <licenseUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL/blob/master/LICENCE</licenseUrl>
@@ -16,25 +16,11 @@ Great for a simple http implementation. For example as a building block for UPnP
 Changed to PCL Profile 111 (code/functionality identical to version 3.0.3)</releaseNotes>
         <copyright>Copyright 1iveowl 2016</copyright>
         <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android
-        </tags>
-        
+        </tags>        
         <dependencies>
+            <dependency id="SocketLite.PCL" version="2.0.20"/>
+            <dependency id="HttpMachine.PCL" version="1.1.10"/>
             <dependency id="System.Reactive" version="3.0.0"/>
-            <dependency id="SocketLite.PCL" version="2.0.9"/>
-            <dependency id="HttpMachine.PCL" version="1.1.3"/>
         </dependencies>
-
     </metadata>
-    
-    <files>
-        <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.dll"
-          target="lib\portable-net45+win8+wpa81\SimpleHttpServer.dll" />
-      <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
-        target="lib\portable-net45+win8+wpa81\SimpleHttpServer.pdb" />
-      <file src="\SimpleHttpServer\bin\Release\ISimpleHttpServer.dll"
-        target="lib\portable-net45+win8+wpa81\ISimpleHttpServer.dll" />
-      <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
-        target="lib\portable-net45+win8+wpa81\ISimpleHttpServer.pdb" />
-    
-    </files>
 </package>

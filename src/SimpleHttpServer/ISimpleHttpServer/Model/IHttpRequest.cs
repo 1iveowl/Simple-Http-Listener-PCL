@@ -10,7 +10,7 @@ namespace ISimpleHttpServer.Model
         bool ShouldKeepAlive { get; }
         object UserContext { get; }
         string Method { get;}
-        string RequstUri { get; }
+        string RequestUri { get; }
         string Path { get; }
         string QueryString { get; }
         string Fragment { get;}
