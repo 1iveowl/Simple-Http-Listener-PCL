@@ -352,7 +352,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -2863,7 +2863,7 @@
           "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -5252,7 +5252,7 @@
           "runtimes/win8-arm-aot/native/_._": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -7611,7 +7611,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -10009,7 +10009,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -12368,7 +12368,7 @@
           "runtimes/win/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -14766,7 +14766,7 @@
           "runtimes/aot/lib/netcore50/System.Private.Uri.dll": {}
         }
       },
-      "SocketLite.PCL/3.0.9": {
+      "SocketLite.PCL/3.0.10": {
         "dependencies": {
           "System.Reactive": "3.0.0"
         },
@@ -17823,12 +17823,12 @@
         "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
-    "SocketLite.PCL/3.0.9": {
-      "sha512": "vKQmFsOH/y9t4Yt+zE1rIofJvahG347ZScX7QoPJXg9sJBR66wGutKRAOehXHK8jKJT82pDNtCPDjZUph5755g==",
+    "SocketLite.PCL/3.0.10": {
+      "sha512": "IFI7hFnjBCxD95Zi6zLEdgPdKZXDnxmz+tPsmmNVx94PpVF7NP0DG5OfG57jTstyfF3vNvd4qulbfcRXK40/xQ==",
       "type": "package",
-      "path": "SocketLite.PCL/3.0.9",
+      "path": "SocketLite.PCL/3.0.10",
       "files": [
-        "SocketLite.PCL.3.0.9.nupkg.sha512",
+        "SocketLite.PCL.3.0.10.nupkg.sha512",
         "SocketLite.PCL.nuspec",
         "lib/MonoAndroid10/ISocketLite.PCL.dll",
         "lib/MonoAndroid10/ISocketLite.PCL.pdb",
@@ -17842,14 +17842,18 @@
         "lib/net45/ISocketLite.PCL.pdb",
         "lib/net45/SocketLite.dll",
         "lib/net45/SocketLite.pdb",
-        "lib/portable-net45+win8+wpa81+wp8/ISocketLite.PCL.dll",
-        "lib/portable-net45+win8+wpa81+wp8/ISocketLite.PCL.pdb",
-        "lib/portable-net45+win8+wpa81+wp8/SocketLite.pdb",
+        "lib/portable-net45+netcore45+wpa81/ISocketLite.PCL.dll",
+        "lib/portable-net45+netcore45+wpa81/ISocketLite.PCL.pdb",
+        "lib/portable-net45+netcore45+wpa81/SocketLite.dll",
+        "lib/portable-net45+netcore45+wpa81/SocketLite.pdb",
+        "lib/portable-net451+netcore451+wpa81/ISocketLite.PCL.dll",
+        "lib/portable-net451+netcore451+wpa81/ISocketLite.PCL.pdb",
+        "lib/portable-net451+netcore451+wpa81/SocketLite.dll",
+        "lib/portable-net451+netcore451+wpa81/SocketLite.pdb",
         "lib/uap10.0/ISocketLite.PCL.dll",
         "lib/uap10.0/ISocketLite.PCL.pdb",
         "lib/uap10.0/SocketLite.dll",
         "lib/uap10.0/SocketLite.pdb",
-        "lib/win8+wpa81+wp8/SocketLite.dll",
         "ref/netstandard1.2/ISocketLite.PCL.dll",
         "ref/netstandard1.2/ISocketLite.PCL.pdb",
         "ref/netstandard1.2/SocketLite.dll",

@@ -17,7 +17,7 @@ namespace SimpleHttpServer.Model
         public bool ShouldKeepAlive { get; internal set; }
         public object UserContext { get; internal set; }
         public string Method { get; internal set; }
-        public string RequstUri { get; internal set; }
+        public string RequestUri { get; internal set; }
         public string Path { get; internal set; }
         public string QueryString { get; internal set; }
         public string Fragment { get; internal set; }
