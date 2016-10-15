@@ -306,7 +306,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -2711,7 +2710,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -5007,7 +5005,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -7273,7 +7270,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -9578,7 +9574,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -11844,7 +11839,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -14149,7 +14143,6 @@
       },
       "SocketLite.PCL/2.0.20": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "System.Reactive": "3.0.0"
         },
         "compile": {
@@ -15877,11 +15870,14 @@
   },
   "libraries": {
     "HttpMachine.PCL/1.1.10": {
-      "sha512": "nQH9zF8hWBCha+YZeI7qc4nCI3wUGYQ0ixKUu68OiDNAooSDIIBDj2OuNTPTBgGXNvwOhy22ByexqrshybXCIg==",
+      "sha512": "QiyJkUVM7YEG+2S1xviigwOTXUCmktOnUHHLp81BPhpxFe3sgXgbVpZRQaLPc8aL5o0UtOBB5HBgWtoUGqcbaQ==",
       "type": "package",
+      "path": "HttpMachine.PCL/1.1.10",
       "files": [
         "HttpMachine.PCL.1.1.10.nupkg.sha512",
         "HttpMachine.PCL.nuspec",
+        "lib/portable-net45+win8+wpa81/HttpMachine.dll",
+        "lib/portable-net45+win8+wpa81/HttpMachine.pdb",
         "lib/portable45-net45+win8+wpa81/HttpMachine.dll",
         "lib/portable45-net45+win8+wpa81/HttpMachine.xml"
       ]
@@ -17151,8 +17147,9 @@
       ]
     },
     "SocketLite.PCL/2.0.20": {
-      "sha512": "drN2/mGjl0D780YoeeBRqgndHdf6UyNvK53TdkrEiIwlW1tCMFy7QNgf3mbSsH9ptur/ELbn8rGCluXt6K3IxA==",
+      "sha512": "eCu4aEEeuks5Kh3Y5Zx+xe2f42w+ahyVpWsaFyi0ivweooFahAY1U7/tsniDWIwynzVxuuQnAAIyQeUcO3nybQ==",
       "type": "package",
+      "path": "SocketLite.PCL/2.0.20",
       "files": [
         "SocketLite.PCL.2.0.20.nupkg.sha512",
         "SocketLite.PCL.nuspec",

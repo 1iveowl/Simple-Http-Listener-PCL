@@ -23,4 +23,9 @@ Changed to PCL Profile 111 (code/functionality identical to version 3.0.3)</rele
             <dependency id="System.Reactive" version="3.0.0"/>
         </dependencies>
     </metadata>
+    <!--Profile 111--> 
+    <files> 
+        <file src="\SimpleHttpServer\bin\Release\*.dll" target="lib\portable-net45+win8+wpa81\" />  
+        <file src="\SimpleHttpServer\bin\Release\*.pdb" target="lib\portable-net45+win8+wpa81\" />  
+    </files>  
 </package>
