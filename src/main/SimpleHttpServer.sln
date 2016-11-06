@@ -13,6 +13,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISimpleHttpServer", "ISimpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Net.Test", "Tests\Console.Net.Test\Console.Net.Test.csproj", "{9536191E-25D7-45DE-BFA1-39988AFA8A90}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{0D63487A-43FA-4CBD-ACF6-1D0A3140095F}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{83DC400F-874C-4A2C-89D8-D59A227014F7}"
+	ProjectSection(SolutionItems) = preProject
+		build.ps1 = build.ps1
+		publish.ps1 = publish.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
