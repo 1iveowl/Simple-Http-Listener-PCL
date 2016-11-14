@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{83DC400F
 	ProjectSection(SolutionItems) = preProject
 		build.ps1 = build.ps1
 		publish.ps1 = publish.ps1
+		SimpleHttpListener.png = SimpleHttpListener.png
 	EndProjectSection
 EndProject
 Global
