@@ -162,15 +162,23 @@ namespace SimpleHttpServer.Service
             var stringBuilder = new StringBuilder();
 
             stringBuilder.Append($"HTTP/{request.MajorVersion}.{request.MinorVersion} {(int)response.StatusCode} {response.ResponseReason}\r\n");
-            foreach (var header in response.Headers)
+
+            if (response.Headers.Any())
             {
-                stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
+                foreach (var header in response.Headers)
+                {
+                    stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
+                }
             }
 
-            stringBuilder.Append($"Content-Length: {response.Body.Length}\r\n\r\n");
-            var headerByteArray = Encoding.UTF8.GetBytes(stringBuilder.ToString());
+            var result = Encoding.UTF8.GetBytes(stringBuilder.ToString());
 
-            var result = headerByteArray.Concat(response.Body.ToArray()).ToArray();
+            if (response.Body != null)
+            {
+                stringBuilder.Append($"Content-Length: {response?.Body?.Length}\r\n\r\n");
+                Debug.WriteLine(Encoding.UTF8.GetString(result, 0, result.Length));
+                result = result.Concat(response?.Body?.ToArray()).ToArray();
+            }
 
             Debug.WriteLine(Encoding.UTF8.GetString(result, 0, result.Length));
             return result;
