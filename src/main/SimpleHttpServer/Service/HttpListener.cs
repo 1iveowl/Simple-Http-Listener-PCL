@@ -163,15 +163,18 @@ namespace SimpleHttpServer.Service
 
             stringBuilder.Append($"HTTP/{request.MajorVersion}.{request.MinorVersion} {(int)response.StatusCode} {response.ResponseReason}\r\n");
 
-            if (response.Headers.Any())
+            if (response.Headers != null)
             {
-                foreach (var header in response.Headers)
+                if (response.Headers.Any())
                 {
-                    stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
+                    foreach (var header in response.Headers)
+                    {
+                        stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
+                    }
                 }
             }
 
-            if (response.Body.Length > 0)
+            if (response.Body?.Length > 0)
             {
                 stringBuilder.Append($"Content-Length: {response?.Body?.Length}");
             }
