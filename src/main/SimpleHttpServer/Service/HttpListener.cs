@@ -171,14 +171,16 @@ namespace SimpleHttpServer.Service
                 }
             }
 
-            var result = Encoding.UTF8.GetBytes(stringBuilder.ToString());
-
-            if (response.Body != null)
+            if (response.Body.Length > 0)
             {
-                stringBuilder.Append($"Content-Length: {response?.Body?.Length}\r\n\r\n");
-                Debug.WriteLine(Encoding.UTF8.GetString(result, 0, result.Length));
-                result = result.Concat(response?.Body?.ToArray()).ToArray();
+                stringBuilder.Append($"Content-Length: {response?.Body?.Length}");
             }
+
+            stringBuilder.Append("\r\n\r\n");
+
+            var headerByteArray = Encoding.UTF8.GetBytes(stringBuilder.ToString());
+
+            var result = headerByteArray.Concat(response?.Body?.ToArray()).ToArray();
 
             Debug.WriteLine(Encoding.UTF8.GetString(result, 0, result.Length));
             return result;
