@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ISimpleHttpServer.Model;
+﻿using ISimpleHttpServer.Model;
 using ISocketLite.PCL.Interface;
 
 namespace SimpleHttpServer.Model.Base
