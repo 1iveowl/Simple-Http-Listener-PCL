@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.25914.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleHttpServer", "SimpleHttpServer\SimpleHttpServer.csproj", "{12AC2283-5031-41F7-B52D-DC06FF8839DF}"
 EndProject
@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{83DC400F
 		build.ps1 = build.ps1
 		publish.ps1 = publish.ps1
 		SimpleHttpListener.png = SimpleHttpListener.png
+		SimpleHttpServer.nuspec = SimpleHttpServer.nuspec
 	EndProjectSection
 EndProject
 Global

@@ -1,7 +1,7 @@
 ﻿{
   "supports": {},
   "dependencies": {
-    "HttpMachine.PCL": "2.0.3",
+    "HttpMachine.PCL": "3.0.0",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "1.6.1",
     "SocketLite.PCL": "3.0.11",
