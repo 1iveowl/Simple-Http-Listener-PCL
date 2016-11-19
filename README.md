@@ -1,4 +1,7 @@
 ## Simple Http Listener##
+[![NuGet](https://img.shields.io/badge/nuget-3.0.11_(.Net_Standard_1.2)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/3.0.11)
+[![NuGet](https://img.shields.io/badge/nuget-2.0.21_(Profile_111)-yellow.svg)](https://www.nuget.org/packages/SimpleHttpListener/2.0.21)
+
 A simple Http Listener that is created as a Portable Class Library and to works with Xamarin Forms across Windows 10, iOS and Android.
 
 This project is based on [SocketLite.PCL](https://github.com/1iveowl/sockets-for-pcl/) for cross platform TCP sockets support. 
