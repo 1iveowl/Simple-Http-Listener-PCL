@@ -67,9 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\HttpListener.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parser\Base\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ISimpleHttpServer\ISimpleHttpServer.csproj">
       <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>

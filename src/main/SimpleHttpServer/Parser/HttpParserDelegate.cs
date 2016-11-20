@@ -82,6 +82,22 @@ namespace SimpleHttpServer.Parser
             }
         }
 
+        public void OnTransferEncodingChunked(HttpCombinedParser combinedParser, bool isChunked)
+        {
+
+            HttpRequestReponse.IsChunked = isChunked;
+        }
+
+        public void OnChunkedLength(HttpCombinedParser combinedParser, int length)
+        {
+            
+        }
+
+        public void OnChunkReceived(HttpCombinedParser combinedParser)
+        {
+            
+        }
+
         public void OnHeadersEnd(HttpCombinedParser parser)
         {
             //throw new NotImplementedException();
@@ -106,6 +122,11 @@ namespace SimpleHttpServer.Parser
         public void OnParserError()
         {
             HttpRequestReponse.IsUnableToParseHttp = true;
-        }     
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

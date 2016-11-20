@@ -3,7 +3,7 @@ using System.IO;
 using ISimpleHttpServer.Model;
 using ISocketLite.PCL.Interface;
 
-namespace Console.Net.Test.Model
+namespace ConsoleClient.Net.Test.Model
 {
     internal class HttpReponse : IHttpResponse
     {

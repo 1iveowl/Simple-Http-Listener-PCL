@@ -21,6 +21,7 @@ namespace SimpleHttpServer.Model
         public string Path { get; internal set; }
         public string QueryString { get; internal set; }
         public string Fragment { get; internal set; }
+        public bool IsChunked { get; internal set; }
         public MemoryStream Body { get; internal set; } = new MemoryStream();       
     }
 }
