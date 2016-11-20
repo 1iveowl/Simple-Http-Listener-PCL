@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using HttpListener = SimpleHttpServer.Service.HttpListener;
 using System.Text;
 using ISimpleHttpServer.Model;
 
-using HttpListener = SimpleHttpServer.Service.HttpListener;
-
-namespace Console.Net.Test
+namespace ConsoleClient.Net.Test
 {
     class Program
     {
@@ -23,11 +22,11 @@ namespace Console.Net.Test
         private static async void StartTcpListener()
         {
             await _httpListener.StartTcpRequestListener(port: 8000);
-            
+
             // Rx Subscribe
-            _httpListener.HttpRequestObservable.Subscribe(async 
+            _httpListener.HttpRequestObservable.Subscribe(async
                request =>
-               {
+            {
 
                 //Enter your code handling each incoming Http request here.
 
@@ -37,7 +36,7 @@ namespace Console.Net.Test
                 System.Console.WriteLine("--------------***-------------");
                 if (request.RequestType == RequestType.TCP)
                 {
-                    var response = new Console.Net.Test.Model.HttpReponse
+                    var response = new ConsoleClient.Net.Test.Model.HttpReponse
                     {
                         StatusCode = (int)HttpStatusCode.OK,
                         ResponseReason = HttpStatusCode.OK.ToString(),
@@ -52,7 +51,7 @@ namespace Console.Net.Test
                     await _httpListener.HttpReponse(request, response).ConfigureAwait(false);
                 }
 
-               });
+            });
         }
     }
 }

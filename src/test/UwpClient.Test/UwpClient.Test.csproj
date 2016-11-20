@@ -128,11 +128,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ISimpleHttpServer\ISimpleHttpServer.csproj">
+    <ProjectReference Include="..\..\main\ISimpleHttpServer\ISimpleHttpServer.csproj">
       <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>
       <Name>ISimpleHttpServer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SimpleHttpServer\SimpleHttpServer.csproj">
+    <ProjectReference Include="..\..\main\SimpleHttpServer\SimpleHttpServer.csproj">
       <Project>{12ac2283-5031-41f7-b52d-dc06ff8839df}</Project>
       <Name>SimpleHttpServer</Name>
     </ProjectReference>
