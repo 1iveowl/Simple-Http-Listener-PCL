@@ -29,14 +29,14 @@ Updated to .NET Standard 1.2 library. For a PCL Profile 111 version see version 
     </metadata>
     
     <files>
-        <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.dll"
-          target="lib\netstandard1.2\SimpleHttpServer.dll" />
-      <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
+        <file src="..\main\SimpleHttpServer\bin\Release\SimpleHttpServer.*" target="lib\netstandard1.2\" />
+      <file src="..\main\ISimpleHttpServer\bin\Release\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
+      <!--<file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
         target="lib\netstandard1.2\SimpleHttpServer.pdb" />
       <file src="\SimpleHttpServer\bin\Release\ISimpleHttpServer.dll"
         target="lib\netstandard1.2\ISimpleHttpServer.dll" />
       <file src="\SimpleHttpServer\bin\Release\SimpleHttpServer.pdb"
-        target="lib\netstandard1.2\ISimpleHttpServer.pdb" />
+        target="lib\netstandard1.2\ISimpleHttpServer.pdb" />-->
     
     </files>
 </package>
