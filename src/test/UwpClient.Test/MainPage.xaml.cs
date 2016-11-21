@@ -30,14 +30,14 @@ namespace UwpClient.Test
 
         private async Task StartListener()
         {
-            var comm = new CommunicationsInterface();
-            var allComms = comm.GetAllInterfaces();
-            var networkComm = allComms.FirstOrDefault(x => x.GatewayAddress != null);
+            //var comm = new CommunicationsInterface();
+            //var allComms = comm.GetAllInterfaces();
+            //var networkComm = allComms.FirstOrDefault(x => x.GatewayAddress != null);
 
             var httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(3));
-            await httpListener.StartTcpRequestListener(port: 8000, communicationInterface: networkComm);
-            await httpListener.StartTcpResponseListener(port: 8001, communicationInterface: networkComm);
-            await httpListener.StartUdpMulticastListener(ipAddr:"239.255.255.250", port: 1900, communicationInterface: networkComm);
+            await httpListener.StartTcpRequestListener(port: 8000);
+            await httpListener.StartTcpResponseListener(port: 8001);
+            await httpListener.StartUdpMulticastListener(ipAddr:"239.255.255.250", port: 1900);
 
 
             var observeHttpRequests = httpListener
