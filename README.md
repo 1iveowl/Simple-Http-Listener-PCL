@@ -1,6 +1,13 @@
 ## Simple Http Listener##
+[![NuGet](https://img.shields.io/badge/nuget-3.5.0_(.Net_Standard_1.4)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
+
 [![NuGet](https://img.shields.io/badge/nuget-3.2.1_(.Net_Standard_1.2)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
+
 [![NuGet](https://img.shields.io/badge/nuget-2.0.21_(Profile_111)-yellow.svg)](https://www.nuget.org/packages/SimpleHttpListener/2.0.21)
+
+Note: V3.2.1 is not .NET Core compatible. Only v.3.5.0+ are .NET Core compatible.
+
+## What is this?
 
 A simple Http Listener that is created as a Portable Class Library and to works with Xamarin Forms across Windows 10, iOS and Android.
 
