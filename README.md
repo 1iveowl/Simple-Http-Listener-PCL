@@ -1,5 +1,5 @@
 ## Simple Http Listener##
-[![NuGet](https://img.shields.io/badge/nuget-3.5.0_(.Net_Standard_1.4)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
+[![NuGet Badge](https://www.nuget.org/packages/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
 
 [![NuGet](https://img.shields.io/badge/nuget-3.2.1_(.Net_Standard_1.2)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
 
