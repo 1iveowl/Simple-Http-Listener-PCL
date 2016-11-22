@@ -7,6 +7,8 @@
 
 Note: V3.2.1 is not .NET Core compatible. Only v.3.5.0+ are .NET Core compatible.
 
+## What is this?
+
 A simple Http Listener that is created as a Portable Class Library and to works with Xamarin Forms across Windows 10, iOS and Android.
 
 This project is based on [SocketLite.PCL](https://github.com/1iveowl/sockets-for-pcl/) for cross platform TCP sockets support. 
