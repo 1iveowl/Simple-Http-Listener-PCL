@@ -13,16 +13,17 @@
     
 Great for a simple http implementation. For example as a building block for UPnP device or client implementation.</description>
         <releaseNotes>
+Now support .NET Core.
 Now support HTTP 1.1 Transfer-Encoding: chunked
-Updated dependancies: Rx 3.1.0 and SocketLite 3.2.1
-Updated to .NET Standard 1.2 library. For a PCL Profile 111 version see version 2.0.9, which is identical code/functionality to this release.</releaseNotes>
+Updated dependancies: Rx 3.1.1 and SocketLite 3.5.0.
+Changed to .NET Standard 1.4 library. For a PCL Profile 111 version see version 2.0.9, which is identical code/functionality to this release.</releaseNotes>
         <copyright>Copyright 1iveowl 2016</copyright>
-        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android
+        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android netcore
         </tags>
         
         <dependencies>
-            <dependency id="System.Reactive" version="3.1.0"/>
-            <dependency id="SocketLite.PCL" version="3.2.1"/>
+            <dependency id="System.Reactive" version="3.1.1"/>
+            <dependency id="SocketLite.PCL" version="3.5.0"/>
             <dependency id="HttpMachine.PCL" version="3.0.1"/>
             <dependency id="NETStandard.Library" version="1.6.1"/>
         </dependencies>
@@ -30,7 +31,7 @@ Updated to .NET Standard 1.2 library. For a PCL Profile 111 version see version 
     </metadata>
     
     <files>
-        <file src="..\main\SimpleHttpServer\bin\Release\SimpleHttpServer.*" target="lib\netstandard1.2\" />
-      <file src="..\main\ISimpleHttpServer\bin\Release\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
+        <file src="..\main\SimpleHttpServer\bin\Release\SimpleHttpServer.*" target="lib\netstandard1.4\" />
+      <file src="..\main\ISimpleHttpServer\bin\Release\ISimpleHttpServer.*" target="lib\netstandard1.4\" />
     </files>
 </package>
