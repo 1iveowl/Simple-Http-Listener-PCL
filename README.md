@@ -3,6 +3,8 @@
 
 [![NuGet](https://img.shields.io/badge/nuget-3.2.1_(.Net_Standard_1.2)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
 
+For a PCL Profile111 legacy edition see:
+
 [![NuGet](https://img.shields.io/badge/nuget-2.0.21_(Profile_111)-yellow.svg)](https://www.nuget.org/packages/SimpleHttpListener/2.0.21)
 
 Note: V3.2.1 is not .NET Core compatible. Only v.3.6.0+ are .NET Core compatible.
