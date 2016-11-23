@@ -20,7 +20,7 @@
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="SimpleHttpListener">
-      <Version>3.6.0-beta1</Version>
+      <Version>3.6.0-beta2</Version>
     </PackageReference>
     <PackageReference Include="SocketLite.PCL">
       <Version>3.6.0-beta1</Version>
