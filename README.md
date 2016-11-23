@@ -1,7 +1,7 @@
 ## Simple Http Listener##
 [![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
 
-[![NuGet](https://img.shields.io/badge/nuget-3.2.1_(.Net_Standard_1.2)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
+[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v1.2-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
 
 For a PCL Profile111 legacy edition see:
 
