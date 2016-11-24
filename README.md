@@ -1,11 +1,14 @@
-## Simple Http Listener##
-[![NuGet](https://img.shields.io/badge/nuget-3.5.0_(.Net_Standard_1.4)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
+# Simple Http Listener
 
-[![NuGet](https://img.shields.io/badge/nuget-3.2.1_(.Net_Standard_1.2)-brightgreen.svg)](https://www.nuget.org/packages/SimpleHttpListener/)
+[![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
+
+[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v1.2-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
+
+For a PCL Profile111 legacy edition see:
 
 [![NuGet](https://img.shields.io/badge/nuget-2.0.21_(Profile_111)-yellow.svg)](https://www.nuget.org/packages/SimpleHttpListener/2.0.21)
 
-Note: V3.2.1 is not .NET Core compatible. Only v.3.5.0+ are .NET Core compatible.
+Note: V3.2.1 is not .NET Core compatible. Only v.3.6.0+ are .NET Core compatible.
 
 ## What is this?
 

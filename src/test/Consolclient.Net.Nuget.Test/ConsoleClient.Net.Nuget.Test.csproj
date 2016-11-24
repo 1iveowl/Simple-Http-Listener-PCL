@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28E3FC31-1521-42C7-8330-1597B9D3AE48}</ProjectGuid>
+    <ProjectGuid>{02A7B0EF-46C8-47D1-A334-E230F69F3F03}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ConsoleClient.Net.Test</RootNamespace>
     <AssemblyName>ConsoleClient.Net.Test</AssemblyName>
@@ -37,12 +37,20 @@
       <HintPath>..\..\main\packages\HttpMachine.PCL.3.0.1\lib\netstandard1\HttpMachine.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ISimpleHttpServer, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\main\packages\SimpleHttpListener.3.6.0-beta1\lib\netstandard1.4\ISimpleHttpServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ISocketLite.PCL, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\main\packages\SocketLite.PCL.3.6.0\lib\net45\ISocketLite.PCL.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\main\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleHttpServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\main\packages\SimpleHttpListener.3.6.0-beta1\lib\netstandard1.4\SimpleHttpServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SocketLite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -68,7 +76,10 @@
       <HintPath>..\..\main\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\main\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\main\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
@@ -80,6 +91,10 @@
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\main\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\main\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.NetworkInformation, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -140,28 +155,24 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\main\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ConsoleClient.Net.Test\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
     <Compile Include="Model\HttpResponse.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\main\ISimpleHttpServer\ISimpleHttpServer.csproj">
-      <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>
-      <Name>ISimpleHttpServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\main\SimpleHttpServer\SimpleHttpServer.csproj">
-      <Project>{12ac2283-5031-41f7-b52d-dc06ff8839df}</Project>
-      <Name>SimpleHttpServer</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

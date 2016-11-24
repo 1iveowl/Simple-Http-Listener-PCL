@@ -11,4 +11,3 @@ else {
 
 NuGet.exe pack SimpleHttpServer.nuspec -Verbosity detailed -Symbols -OutputDir "NuGet" -Version $version
 
-Nuget.exe push .\Nuget\SimpleHttpListener.$version.nupkg -Source https://www.nuget.org
