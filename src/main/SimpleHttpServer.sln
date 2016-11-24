@@ -17,6 +17,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{83DC400F-874C-4A2C-89D8-D59A227014F7}"
 	ProjectSection(SolutionItems) = preProject
 		..\build\build.ps1 = ..\build\build.ps1
+		..\build\pack.ps1 = ..\build\pack.ps1
 		..\build\publish.ps1 = ..\build\publish.ps1
 		..\build\publishLocal.ps1 = ..\build\publishLocal.ps1
 		SimpleHttpListener.png = SimpleHttpListener.png

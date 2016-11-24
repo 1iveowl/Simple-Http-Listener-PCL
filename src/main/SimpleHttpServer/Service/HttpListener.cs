@@ -19,11 +19,17 @@ namespace SimpleHttpServer.Service
 {
     public class HttpListener : IHttpListener
     {
+        private readonly HttpStreamParser _httpStreamParser = new HttpStreamParser();
+
         private readonly ITcpSocketListener _tcpRequestListener = new TcpSocketListener();
         private readonly ITcpSocketListener _tcpResponseListener = new TcpSocketListener();
         private readonly IUdpSocketMulticastClient _udpMultiCastListener = new UdpSocketMulticastClient();
         private readonly IUdpSocketReceiver _udpListener = new UdpSocketReceiver();
-        private readonly HttpStreamParser _httpStreamParser = new HttpStreamParser();
+
+        public ITcpSocketListener TcpRequestListener => _tcpRequestListener;
+        public ITcpSocketListener TcpResponseListener => _tcpResponseListener;
+        public IUdpSocketMulticastClient UdpMultiCastListener => _udpMultiCastListener;
+        public IUdpSocketReceiver UdpListener => _udpListener;
 
         private IObservable<IHttpRequestReponse> UpdRequstReponseObservable =>
             _udpMultiCastListener.ObservableMessages
@@ -101,6 +107,7 @@ namespace SimpleHttpServer.Service
         {
             await
                 _tcpResponseListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
+            
         }
 
         public async Task StartUdpListener(int port, ICommunicationInterface communicationInterface = null)
@@ -118,23 +125,23 @@ namespace SimpleHttpServer.Service
 
         public void StopTcpRequestListener()
         {
-            _tcpRequestListener.StopListening();
+            _tcpRequestListener?.StopListening();
 
         }
 
         public void StopTcpReponseListener()
         {
-            _tcpResponseListener.StopListening();
+            _tcpResponseListener?.StopListening();
         }
 
         public void StopUdpMultiCastListener()
         {
-            _udpMultiCastListener.Disconnect();
+            _udpMultiCastListener?.Disconnect();
         }
 
         public void StopUdpListener()
         {
-            _udpListener.StopListening();
+            _udpListener?.StopListening();
         }
 
         public async Task SendOnMulticast(byte[] data)
@@ -198,5 +205,7 @@ namespace SimpleHttpServer.Service
             Debug.WriteLine(Encoding.UTF8.GetString(datagram, 0, datagram.Length));
             return datagram;
         }
+
+
     }
 }

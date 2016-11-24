@@ -15,7 +15,7 @@ Great for a simple http implementation. For example as a building block for UPnP
         <releaseNotes>
 Now support .NET Core.
 Now support HTTP 1.1 Transfer-Encoding: chunked
-Updated dependancies: Rx 3.1.1 and SocketLite 3.6.0-beta1.
+Updated dependancies: Rx 3.1.1 and SocketLite 3.6.1.
 Changed to .NET Standard 1.2 library. 
 For an older PCL Profile 111 version see version 2.0.9.</releaseNotes>
         <copyright>Copyright 1iveowl 2016</copyright>
@@ -24,7 +24,7 @@ For an older PCL Profile 111 version see version 2.0.9.</releaseNotes>
         
         <dependencies>
             <dependency id="System.Reactive" version="3.1.1"/>
-            <dependency id="SocketLite.PCL" version="3.6.0"/>
+            <dependency id="SocketLite.PCL" version="3.6.1"/>
             <dependency id="HttpMachine.PCL" version="3.0.1"/>
             <dependency id="NETStandard.Library" version="1.6.1"/>
         </dependencies>
