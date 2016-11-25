@@ -26,10 +26,11 @@ namespace SimpleHttpServer.Service
         private readonly IUdpSocketMulticastClient _udpMultiCastListener = new UdpSocketMulticastClient();
         private readonly IUdpSocketReceiver _udpListener = new UdpSocketReceiver();
 
-        public ITcpSocketListener TcpRequestListener => _tcpRequestListener;
-        public ITcpSocketListener TcpResponseListener => _tcpResponseListener;
-        public IUdpSocketMulticastClient UdpMultiCastListener => _udpMultiCastListener;
-        public IUdpSocketReceiver UdpListener => _udpListener;
+        public int TcpRequestListenerPort => _tcpRequestListener.LocalPort;
+        public int TcpReponseListenerPort => _tcpResponseListener.LocalPort;
+        public int UdpMulticastListenerPort => _udpMultiCastListener.Port;
+        public string UdpMulticastAddress => _udpMultiCastListener.IpAddress;
+        public int UpdListenerPort => _udpListener.Port;
 
         private IObservable<IHttpRequestReponse> UpdRequstReponseObservable =>
             _udpMultiCastListener.ObservableMessages
@@ -78,13 +79,15 @@ namespace SimpleHttpServer.Service
             TcpRequestResponseObservable
                 .Merge(UpdRequstReponseObservable)
                 .Where(x => x.MessageType == MessageType.Request)
-                .Select(x => x as IHttpRequest);
+                .Select(x => x as IHttpRequest)
+                .ObserveOn(Scheduler.Default);
 
-        public IObservable<IHttpResponse> HttpResponseObservable =>
+        public IObservable<IHttpResponse> HttpResponseObservable => 
             TcpRequestResponseObservable
                 .Merge(UpdRequstReponseObservable)
                 .Where(x => x.MessageType == MessageType.Response)
-                .Select(x => x as IHttpResponse).SubscribeOn(Scheduler.Default);
+                .Select(x => x as IHttpResponse)
+                .ObserveOn(Scheduler.Default);
 
         public TimeSpan Timeout { get; set; }
 
@@ -205,7 +208,5 @@ namespace SimpleHttpServer.Service
             Debug.WriteLine(Encoding.UTF8.GetString(datagram, 0, datagram.Length));
             return datagram;
         }
-
-
     }
 }

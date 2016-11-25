@@ -14,10 +14,11 @@ namespace ISimpleHttpServer.Service
     {
         TimeSpan Timeout { get; set; }
 
-        ITcpSocketListener TcpRequestListener { get; }
-        ITcpSocketListener TcpResponseListener { get; }
-        IUdpSocketMulticastClient UdpMultiCastListener { get; }
-        IUdpSocketReceiver UdpListener { get; }
+        int TcpRequestListenerPort { get; }
+        int TcpReponseListenerPort { get; }
+        int UdpMulticastListenerPort { get; }
+        string UdpMulticastAddress { get; } 
+        int UpdListenerPort { get; }
 
         IObservable<IHttpRequest> HttpRequestObservable { get; }
 
