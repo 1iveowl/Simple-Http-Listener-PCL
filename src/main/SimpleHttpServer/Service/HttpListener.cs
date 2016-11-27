@@ -50,7 +50,7 @@ namespace SimpleHttpServer.Service
                         };
 
                         return _httpStreamParser.Parse(requestHandler, stream, Timeout);
-                    }).SubscribeOn(Scheduler.Default);
+                    }).ObserveOn(Scheduler.Default);
 
         private IObservable<IHttpRequestReponse> TcpRequestResponseObservable =>
             _tcpRequestListener.ObservableTcpSocket
@@ -71,7 +71,7 @@ namespace SimpleHttpServer.Service
                         };
 
                         return _httpStreamParser.Parse(requestHandler, stream, Timeout);
-                    }).SubscribeOn(Scheduler.Default);
+                    }).ObserveOn(Scheduler.Default);
 
         // Listening to both UDP and TCP and merging the Http Request streams
         // into one unified IObservable stream of Http Requests
@@ -80,14 +80,14 @@ namespace SimpleHttpServer.Service
                 .Merge(UpdRequstReponseObservable)
                 .Where(x => x.MessageType == MessageType.Request)
                 .Select(x => x as IHttpRequest)
-                .ObserveOn(Scheduler.Default);
+                .ObserveOn(Scheduler.Default).Publish().RefCount();
 
         public IObservable<IHttpResponse> HttpResponseObservable => 
             TcpRequestResponseObservable
                 .Merge(UpdRequstReponseObservable)
                 .Where(x => x.MessageType == MessageType.Response)
                 .Select(x => x as IHttpResponse)
-                .ObserveOn(Scheduler.Default);
+                .ObserveOn(Scheduler.Default).Publish().RefCount();
 
         public TimeSpan Timeout { get; set; }
 
