@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Subjects;
-using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 using ISocketLite.PCL.Interface;
-using SocketLite.Services;
 
 namespace ISimpleHttpServer.Service
 {
@@ -14,10 +9,11 @@ namespace ISimpleHttpServer.Service
     {
         TimeSpan Timeout { get; set; }
 
-        ITcpSocketListener TcpRequestListener { get; }
-        ITcpSocketListener TcpResponseListener { get; }
-        IUdpSocketMulticastClient UdpMultiCastListener { get; }
-        IUdpSocketReceiver UdpListener { get; }
+        int TcpRequestListenerPort { get; }
+        int TcpReponseListenerPort { get; }
+        int UdpMulticastListenerPort { get; }
+        string UdpMulticastAddress { get; } 
+        int UpdListenerPort { get; }
 
         IObservable<IHttpRequest> HttpRequestObservable { get; }
 
