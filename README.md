@@ -10,6 +10,8 @@ For a PCL Profile111 legacy edition see:
 
 Note: V3.2.1 is not .NET Core compatible. Only v.3.6.0+ are .NET Core compatible.
 
+*Please star this project if you find it useful. Thank you.*
+
 ## What is this?
 
 A simple Http Listener that is created as a Portable Class Library and to works with Xamarin Forms across Windows 10, iOS and Android.
