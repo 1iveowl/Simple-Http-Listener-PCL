@@ -10,4 +10,9 @@
     <ProjectReference Include="..\..\main\ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj" />
     <ProjectReference Include="..\..\main\SimpleHttpServer.Netstandard\SimpleHttpServer.Netstandard.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+  </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ For an older PCL Profile 111 version see version 2.0.20.</releaseNotes>
     </metadata>
     
     <files>
-        <file src="..\main\SimpleHttpServer\bin\Release\SimpleHttpServer.*" target="lib\netstandard1.2\" />
-      <file src="..\main\ISimpleHttpServer\bin\Release\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
+        <file src="..\main\SimpleHttpServer.Netstandard\bin\Release\netstandard1.2\SimpleHttpServer.*" target="lib\netstandard1.2\" />
+      <file src="..\main\ISimpleHttpServer.Netstandard\bin\Release\netstandard1.2\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
     </files>
 </package>

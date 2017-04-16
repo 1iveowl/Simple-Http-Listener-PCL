@@ -22,20 +22,24 @@ namespace ISimpleHttpServer.Service
 
         Task StartTcpRequestListener(
             int port, 
-            ICommunicationInterface communicationInterface = null);
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = false);
 
         Task StartTcpResponseListener(
             int port,
-            ICommunicationInterface communicationInterface = null);
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = false);
 
         Task StartUdpMulticastListener(
             string ipAddr, 
             int port, 
-            ICommunicationInterface communicationInterface = null);
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = false);
 
         Task StartUdpListener(
             int port,
-            ICommunicationInterface communicationInterface = null);
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = false);
 
         Task SendOnMulticast(byte[] data);
 

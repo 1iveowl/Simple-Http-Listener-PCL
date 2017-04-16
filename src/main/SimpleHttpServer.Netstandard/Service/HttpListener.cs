@@ -100,30 +100,42 @@ namespace SimpleHttpServer.Service
             Timeout = timeout;
         }
 
-        public async Task StartTcpRequestListener(int port, ICommunicationInterface communicationInterface = null)
+        public async Task StartTcpRequestListener(
+            int port, 
+            ICommunicationInterface communicationInterface = null, 
+            bool allowMultipleBindToSamePort = true)
         {
             await
-                _tcpRequestListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
+                _tcpRequestListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
         }
 
-        public async Task StartTcpResponseListener(int port, ICommunicationInterface communicationInterface = null)
+        public async Task StartTcpResponseListener(
+            int port, 
+            ICommunicationInterface communicationInterface = null, 
+            bool allowMultipleBindToSamePort = true)
         {
             await
-                _tcpResponseListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
+                _tcpResponseListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
             
         }
 
-        public async Task StartUdpListener(int port, ICommunicationInterface communicationInterface = null)
+        public async Task StartUdpListener(
+            int port, 
+            ICommunicationInterface communicationInterface = null, 
+            bool allowMultipleBindToSamePort = true)
         {
-            await _udpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort: true);
+            await _udpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
         }
 
-        public async Task StartUdpMulticastListener(string ipAddr, int port,
-            ICommunicationInterface communicationInterface = null)
+        public async Task StartUdpMulticastListener(
+            string ipAddr, 
+            int port,
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
         {
             await
                 _udpMultiCastListener.JoinMulticastGroupAsync(ipAddr, port, communicationInterface,
-                    allowMultipleBindToSamePort: true);
+                    allowMultipleBindToSamePort);
         }
 
         public void StopTcpRequestListener()
