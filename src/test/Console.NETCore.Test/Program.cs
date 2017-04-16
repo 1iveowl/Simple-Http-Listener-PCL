@@ -21,7 +21,7 @@ class Program
 
     private static async void StartTcpListener()
     {
-        await _httpListener.StartTcpRequestListener(port: 8000);
+        await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort:false);
 
         // Rx Subscribe
         _httpListener.HttpRequestObservable.Subscribe(async
