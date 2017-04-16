@@ -7,7 +7,7 @@
     <PackageReference Include="SocketLite.PCL" Version="3.7.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\main\ISimpleHttpServer\ISimpleHttpServer.csproj" />
-    <ProjectReference Include="..\..\main\SimpleHttpServer\SimpleHttpServer.csproj" />
+    <ProjectReference Include="..\..\main\ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj" />
+    <ProjectReference Include="..\..\main\SimpleHttpServer.Netstandard\SimpleHttpServer.Netstandard.csproj" />
   </ItemGroup>
 </Project>

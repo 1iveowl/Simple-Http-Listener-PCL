@@ -128,13 +128,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\main\ISimpleHttpServer\ISimpleHttpServer.csproj">
-      <Project>{e059363f-c674-42fe-bd01-ddaa3c9d83ae}</Project>
-      <Name>ISimpleHttpServer</Name>
+    <ProjectReference Include="..\..\main\ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj">
+      <Project>{33fc8b0a-cee1-4873-957f-66b66acda699}</Project>
+      <Name>ISimpleHttpServer.Netstandard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\main\SimpleHttpServer\SimpleHttpServer.csproj">
-      <Project>{12ac2283-5031-41f7-b52d-dc06ff8839df}</Project>
-      <Name>SimpleHttpServer</Name>
+    <ProjectReference Include="..\..\main\SimpleHttpServer.Netstandard\SimpleHttpServer.Netstandard.csproj">
+      <Project>{7cd2818d-86fc-4c09-8a1a-f84318ce4ac7}</Project>
+      <Name>SimpleHttpServer.Netstandard</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
