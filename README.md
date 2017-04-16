@@ -6,11 +6,9 @@
 
 For a PCL Profile111 legacy edition see:
 
-[![NuGet](https://img.shields.io/badge/nuget-2.0.21_Profile_111-yellow.svg)](https://www.nuget.org/packages/SimpleHttpListener/2.0.21)
+[![NuGet](https://img.shields.io/badge/nuget-2.0.21_(Profile_111)-yellow.svg)](https://www.nuget.org/packages/SimpleHttpListener/2.0.21)
 
 Note: V3.2.1 is not .NET Core compatible. Only v.3.6.0+ are .NET Core compatible.
-
-*Please star this project if you find it useful. Thank you.*
 
 ## What is this?
 
