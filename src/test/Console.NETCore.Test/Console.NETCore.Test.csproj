@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="SocketLite.PCL" Version="3.7.6-beta4" />
+    <PackageReference Include="SocketLite.PCL" Version="3.7.6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\main\ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj" />
