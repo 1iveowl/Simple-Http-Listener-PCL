@@ -22,7 +22,9 @@ class Program
     private static async void StartTcpListener()
     {
         System.Console.WriteLine("Start Listener");
-        await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: false);
+        await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: true);
+
+        await _httpListener.StartUdpListener(8000, allowMultipleBindToSamePort: true);
         System.Console.WriteLine("Listener Started");
 
         // Rx Subscribe
