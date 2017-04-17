@@ -4,13 +4,13 @@
     <TargetFramework>netstandard1.2</TargetFramework>
     <AssemblyName>ISimpleHttpServer</AssemblyName>
     <RootNamespace>ISimpleHttpServer</RootNamespace>
-    <AssemblyVersion>3.7.5.0</AssemblyVersion>
-    <FileVersion>3.7.5.0</FileVersion>
+    <AssemblyVersion>3.7.6.0</AssemblyVersion>
+    <FileVersion>3.7.6.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="HttpMachine.PCL" Version="3.0.1" />
-    <PackageReference Include="SocketLite.PCL" Version="3.7.5" />
+    <PackageReference Include="SocketLite.PCL" Version="3.7.6-beta4" />
     <PackageReference Include="System.Reactive" Version="3.1.1" />
   </ItemGroup>
 
