@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  console.netcore.test:
+    image: console.netcore.test
+    build:
+      context: ./../test/Console.NETCore.Test
+      dockerfile: Dockerfile

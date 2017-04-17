@@ -4,10 +4,15 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="SocketLite.PCL" Version="3.7.2" />
+    <PackageReference Include="SocketLite.PCL" Version="3.7.4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\main\ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj" />
     <ProjectReference Include="..\..\main\SimpleHttpServer.Netstandard\SimpleHttpServer.Netstandard.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
   </ItemGroup>
 </Project>

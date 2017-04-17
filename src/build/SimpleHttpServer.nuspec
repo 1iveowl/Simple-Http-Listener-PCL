@@ -24,7 +24,7 @@ For an older PCL Profile 111 version see version 2.0.20.</releaseNotes>
         
         <dependencies>
             <dependency id="System.Reactive" version="3.1.1"/>
-            <dependency id="SocketLite.PCL" version="3.7.2"/>
+            <dependency id="SocketLite.PCL" version="3.7.4"/>
             <dependency id="HttpMachine.PCL" version="3.0.1"/>
             <dependency id="NETStandard.Library" version="1.6.1"/>
         </dependencies>
@@ -32,7 +32,7 @@ For an older PCL Profile 111 version see version 2.0.20.</releaseNotes>
     </metadata>
     
     <files>
-        <file src="..\main\SimpleHttpServer\bin\Release\SimpleHttpServer.*" target="lib\netstandard1.2\" />
-      <file src="..\main\ISimpleHttpServer\bin\Release\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
+        <file src="..\main\SimpleHttpServer.Netstandard\bin\Release\netstandard1.2\SimpleHttpServer.*" target="lib\netstandard1.2\" />
+      <file src="..\main\ISimpleHttpServer.Netstandard\bin\Release\netstandard1.2\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
     </files>
 </package>
