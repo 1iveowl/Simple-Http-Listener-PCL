@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -128,14 +129,33 @@ namespace SimpleHttpServer.Service
         }
 
         public async Task StartUdpMulticastListener(
+            string ipAddr,
+            int port,
+            IEnumerable<string> mcastIpv6AddressList,
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
+        {
+            await
+                _udpMultiCastListener.JoinMulticastGroupAsync(
+                    ipAddr, 
+                    port, 
+                    communicationInterface,
+                    mcastIpv6AddressList,
+                    allowMultipleBindToSamePort);
+        }
+
+        public async Task StartUdpMulticastListener(
             string ipAddr, 
             int port,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true)
         {
-            await
-                _udpMultiCastListener.JoinMulticastGroupAsync(ipAddr, port, communicationInterface,
-                    allowMultipleBindToSamePort);
+            await StartUdpMulticastListener(
+                ipAddr,
+                port,
+                null,
+                communicationInterface,
+                allowMultipleBindToSamePort);
         }
 
         public void StopTcpRequestListener()

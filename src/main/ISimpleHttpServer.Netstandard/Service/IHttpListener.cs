@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 using ISocketLite.PCL.Interface;
@@ -33,6 +34,13 @@ namespace ISimpleHttpServer.Service
         Task StartUdpMulticastListener(
             string ipAddr, 
             int port, 
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true);
+
+        Task StartUdpMulticastListener(
+            string ipAddr,
+            int port,
+            IEnumerable<string> mcastIpv6AddressList,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
