@@ -13,7 +13,7 @@ namespace SimpleHttpServer.Helper
     public static class Initializer
     {
 
-        public static async Task<IHttpListener> GetHttpListener(
+        public static async Task<IHttpListener> GetHttpTcpRequestListener(
             string ipAddress,
             int port,
             TimeSpan timeout = default(TimeSpan))
@@ -31,10 +31,10 @@ namespace SimpleHttpServer.Helper
 
             if (firstUsableInterface == null) throw new ArgumentException($"Unable to locate any network communication interface with the ip address: {ipAddress}");
 
-            return await GetHttpListener(firstUsableInterface, port);
+            return await GetHttpTcpRequestListener(firstUsableInterface, port);
         }
 
-        public static async Task<IHttpListener> GetHttpListener(
+        public static async Task<IHttpListener> GetHttpTcpRequestListener(
             ICommunicationInterface communicationInterface,
             int port,
             TimeSpan timeout = default(TimeSpan))
@@ -45,6 +45,8 @@ namespace SimpleHttpServer.Helper
             }
 
             var httpListener = new HttpListener(timeout);
+
+            await httpListener.StartTcpRequestListener(port, communicationInterface);
 
             return httpListener;
         }

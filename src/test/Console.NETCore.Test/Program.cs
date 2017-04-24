@@ -25,8 +25,8 @@ class Program
     {
         System.Console.WriteLine("Start Listener");
 
-        _httpListener = await Initializer.GetHttpListener("10.10.13.204", 8000);
-        await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: true);
+        _httpListener = await Initializer.GetHttpTcpRequestListener("10.10.13.204", 8000);
+        //await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: true);
 
         System.Console.WriteLine("Listener Started");
 
