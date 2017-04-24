@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using HttpListener = SimpleHttpServer.Service.HttpListener;
@@ -25,8 +26,14 @@ class Program
     {
         System.Console.WriteLine("Start Listener");
 
-        _httpListener = await Initializer.GetHttpTcpRequestListener("10.10.13.204", 8000);
-        //await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: true);
+        var listenerConfig = Initializer.GetListener("10.10.13.204", 8000);
+        _httpListener = listenerConfig.httpListener;
+
+        await _httpListener.StartTcpRequestListener(
+            port: 8000, 
+            allowMultipleBindToSamePort: true, 
+            communicationInterface: listenerConfig.communicationInterface);
+
 
         System.Console.WriteLine("Listener Started");
 

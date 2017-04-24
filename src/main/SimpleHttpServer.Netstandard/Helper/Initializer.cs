@@ -8,12 +8,13 @@ using ISocketLite.PCL.Interface;
 using SimpleHttpServer.Service;
 using SocketLite.Model;
 
+
 namespace SimpleHttpServer.Helper
 {
     public static class Initializer
     {
 
-        public static async Task<IHttpListener> GetHttpTcpRequestListener(
+        public static (IHttpListener httpListener, ICommunicationInterface communicationInterface) GetListener(
             string ipAddress,
             int port,
             TimeSpan timeout = default(TimeSpan))
@@ -31,10 +32,10 @@ namespace SimpleHttpServer.Helper
 
             if (firstUsableInterface == null) throw new ArgumentException($"Unable to locate any network communication interface with the ip address: {ipAddress}");
 
-            return await GetHttpTcpRequestListener(firstUsableInterface, port);
+            return (GetListener(firstUsableInterface, port));
         }
 
-        public static async Task<IHttpListener> GetHttpTcpRequestListener(
+        public static (IHttpListener httpListener, ICommunicationInterface communicationInterface) GetListener(
             ICommunicationInterface communicationInterface,
             int port,
             TimeSpan timeout = default(TimeSpan))
@@ -46,9 +47,9 @@ namespace SimpleHttpServer.Helper
 
             var httpListener = new HttpListener(timeout);
 
-            await httpListener.StartTcpRequestListener(port, communicationInterface);
+            //await httpListener.StartTcpRequestListener(port, communicationInterface);
 
-            return httpListener;
+            return (httpListener, communicationInterface);
         }
     }
 }
