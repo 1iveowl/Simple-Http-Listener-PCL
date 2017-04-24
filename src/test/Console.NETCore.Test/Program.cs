@@ -6,14 +6,16 @@ using HttpListener = SimpleHttpServer.Service.HttpListener;
 using System.Text;
 using ISimpleHttpServer.Model;
 using Console.NETcore.Test.Model;
+using ISimpleHttpServer.Service;
+using SimpleHttpServer.Helper;
 
 
 class Program
 {
-    private static HttpListener _httpListener;
+    private static IHttpListener _httpListener;
     static void Main(string[] args)
     {
-        _httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(30));
+        //_httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(30));
 
         StartTcpListener();
         System.Console.ReadKey();
@@ -22,9 +24,10 @@ class Program
     private static async void StartTcpListener()
     {
         System.Console.WriteLine("Start Listener");
+
+        _httpListener = await Initializer.GetHttpListener("10.10.13.204", 8000);
         await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: true);
 
-        await _httpListener.StartUdpListener(8000, allowMultipleBindToSamePort: true);
         System.Console.WriteLine("Listener Started");
 
         // Rx Subscribe
