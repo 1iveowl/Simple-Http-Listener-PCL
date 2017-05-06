@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reactive.Concurrency;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using HttpMachine;
 using ISimpleHttpServer.Model;
@@ -13,12 +9,13 @@ using ISimpleHttpServer.Service;
 using ISocketLite.PCL.Interface;
 using SimpleHttpServer.Model;
 using SimpleHttpServer.Parser;
+using SimpleHttpServer.Service.Base;
 using SocketLite.Services;
 
 
 namespace SimpleHttpServer.Service
 {
-    public class HttpListener : IHttpListener
+    public partial class HttpListener : ComposeBase, IHttpListener
     {
         private readonly HttpStreamParser _httpStreamParser = new HttpStreamParser();
 
@@ -27,109 +24,137 @@ namespace SimpleHttpServer.Service
         private readonly IUdpSocketMulticastClient _udpMultiCastListener = new UdpSocketMulticastClient();
         private readonly IUdpSocketReceiver _udpListener = new UdpSocketReceiver();
 
+        
+
+        private async Task<IObservable<IHttpRequestReponse>> GetTcpRequestResponseObservable(
+            int port,
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
+        {
+            var observeTcpRequest = await _tcpRequestListener.CreateObservableListener(
+                port,
+                communicationInterface,
+                allowMultipleBindToSamePort);
+
+            var observable = Observable.Create<IHttpRequestReponse>(
+                obs =>
+                {
+                    var disp = observeTcpRequest.Subscribe(
+                        tcpSocket =>
+                        {
+                            var stream = tcpSocket.ReadStream;
+
+                            var requestHandler = new HttpParserDelegate
+                            {
+                                HttpRequestReponse =
+                                {
+                                    RemoteAddress = tcpSocket.RemoteAddress,
+                                    RemotePort = tcpSocket.RemotePort,
+                                    TcpSocketClient = tcpSocket,
+                                    RequestType = RequestType.TCP
+                                }
+                            };
+
+                            var result = _httpStreamParser.Parse(requestHandler, stream, Timeout);
+                            obs.OnNext(result);
+                        },
+                        ex => obs.OnError(ex),
+                        () => obs.OnCompleted());
+
+                    return disp;
+                });
+
+            return observable;
+        }
+
+        private async Task<IObservable<IHttpRequestReponse>> GetUdpRequestResponseObservable(
+            int port,
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
+        {
+            var observeUdpRequest = await _udpListener.CreateObservableListener(
+                port,
+                communicationInterface,
+                allowMultipleBindToSamePort);
+
+            var observable = Observable.Create<IHttpRequestReponse>(
+                obs =>
+                {
+                    var disp = observeUdpRequest.Subscribe(
+                        udpSocket =>
+                        {
+                            var stream = new MemoryStream(udpSocket.ByteData);
+                            var requestHandler = new HttpParserDelegate
+                            {
+                                HttpRequestReponse =
+                                {
+                                    RemoteAddress = udpSocket.RemoteAddress,
+                                    RemotePort = int.Parse(udpSocket.RemotePort),
+                                    RequestType = RequestType.UDP
+                                }
+                            };
+
+                            var result = _httpStreamParser.Parse(requestHandler, stream, Timeout);
+                            obs.OnNext(result);
+                        },
+                        ex => obs.OnError(ex),
+                        () => obs.OnCompleted());
+
+                    return disp;
+                });
+
+            return observable;
+        }
+
+        private async Task<IObservable<IHttpRequestReponse>> GetUdpMulticastRequestResponseObservable(
+            string ipAddr,
+            int port,
+            IEnumerable<string> mcastIpv6AddressList,
+            ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
+        {
+            var observeUdpRequest = await _udpMultiCastListener.CreateObservableMultiCastListener(
+                ipAddr,
+                port,
+                communicationInterface,
+                mcastIpv6AddressList,
+                allowMultipleBindToSamePort);
+
+            var observable = Observable.Create<IHttpRequestReponse>(
+                obs =>
+                {
+                    var disp = observeUdpRequest.Subscribe(
+                        udpSocket =>
+                        {
+                            var stream = new MemoryStream(udpSocket.ByteData);
+                            var requestHandler = new HttpParserDelegate
+                            {
+                                HttpRequestReponse =
+                                {
+                                    RemoteAddress = udpSocket.RemoteAddress,
+                                    RemotePort = int.Parse(udpSocket.RemotePort),
+                                    RequestType = RequestType.UDP
+                                }
+                            };
+
+                            var result = _httpStreamParser.Parse(requestHandler, stream, Timeout);
+                            obs.OnNext(result);
+                        },
+                        ex => obs.OnError(ex),
+                        () => obs.OnCompleted());
+
+                    return disp;
+                });
+
+            return observable;
+        }
+
+        public TimeSpan Timeout { get; set; }
         public int TcpRequestListenerPort => _tcpRequestListener.LocalPort;
         public int TcpReponseListenerPort => _tcpResponseListener.LocalPort;
         public int UdpMulticastListenerPort => _udpMultiCastListener.Port;
         public string UdpMulticastAddress => _udpMultiCastListener.IpAddress;
         public int UpdListenerPort => _udpListener.Port;
-
-        private IObservable<IHttpRequestReponse> UpdRequstReponseObservable =>
-            _udpMultiCastListener.ObservableMessages
-                .Merge(_udpListener.ObservableMessages)
-                .Select(
-                    udpSocket =>
-                    {
-                        var stream = new MemoryStream(udpSocket.ByteData);
-                        var requestHandler = new HttpParserDelegate
-                        {
-                            HttpRequestReponse =
-                            {
-                                RemoteAddress = udpSocket.RemoteAddress,
-                                RemotePort = int.Parse(udpSocket.RemotePort),
-                                RequestType = RequestType.UDP
-                            }
-                        };
-
-                        return _httpStreamParser.Parse(requestHandler, stream, Timeout);
-                    });
-
-        private IObservable<IHttpRequestReponse> TcpRequestResponseObservable =>
-            _tcpRequestListener.ObservableTcpSocket
-                .Merge(_tcpResponseListener.ObservableTcpSocket).Select(
-                    tcpSocket =>
-                    {
-                        var stream = tcpSocket.ReadStream;
-
-                        var requestHandler = new HttpParserDelegate
-                        {
-                            HttpRequestReponse =
-                            {
-                                RemoteAddress = tcpSocket.RemoteAddress,
-                                RemotePort = tcpSocket.RemotePort,
-                                TcpSocketClient = tcpSocket,
-                                RequestType = RequestType.TCP
-                            }
-                        };
-
-                        return _httpStreamParser.Parse(requestHandler, stream, Timeout);
-                    }).ObserveOn(Scheduler.Default);
-
-        // Listening to both UDP and TCP and merging the Http Request streams
-        // into one unified IObservable stream of Http Requests
-
-        private IObservable<IHttpRequest> _httpRequestObservable => Observable.Create<IHttpRequest>(
-            obs =>
-            {
-                var disp = TcpRequestResponseObservable
-                    .Merge(UpdRequstReponseObservable)
-                    .Where(x => x.MessageType == MessageType.Request)
-                    .Select(x => x as IHttpRequest)
-                    .Subscribe(
-                        req =>
-                        {
-                            obs.OnNext(req);
-                        },
-                        ex =>
-                        {
-                            obs.OnError(ex);
-                        },
-                        () => obs.OnCompleted());
-                return disp;
-            }).Publish().RefCount();
-
-        public IObservable<IHttpRequest> HttpRequestObservable => _httpRequestObservable;
-        //TcpRequestResponseObservable
-        //    .Merge(UpdRequstReponseObservable)
-        //    .Where(x => x.MessageType == MessageType.Request)
-        //    .Select(x => x as IHttpRequest);
-
-        private IObservable<IHttpResponse> _httpResponseObservable => Observable.Create<IHttpResponse>(
-            obs =>
-            {
-                var disp = TcpRequestResponseObservable
-                    .Merge(UpdRequstReponseObservable)
-                    .Where(x => x.MessageType == MessageType.Response)
-                    .Select(x => x as IHttpResponse)
-                    .Subscribe(
-                        res =>
-                        {
-                            obs.OnNext(res);
-                        },
-                        ex =>
-                        {
-                            obs.OnError(ex);
-                        },
-                        () => obs.OnCompleted());
-                return disp;
-            }).Publish().RefCount();
-
-        public IObservable<IHttpResponse> HttpResponseObservable => _httpResponseObservable;
-            //TcpRequestResponseObservable
-            //    .Merge(UpdRequstReponseObservable)
-            //    .Where(x => x.MessageType == MessageType.Response)
-            //    .Select(x => x as IHttpResponse);
-
-        public TimeSpan Timeout { get; set; }
 
         public HttpListener() : this(timeout: TimeSpan.FromSeconds(30))
         {
@@ -140,82 +165,62 @@ namespace SimpleHttpServer.Service
             Timeout = timeout;
         }
 
-        public async Task StartTcpRequestListener(
+        public async Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(
             int port, 
-            ICommunicationInterface communicationInterface = null, 
-            bool allowMultipleBindToSamePort = true)
-        {
-            await
-                _tcpRequestListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
-        }
-
-        public async Task StartTcpResponseListener(
-            int port, 
-            ICommunicationInterface communicationInterface = null, 
-            bool allowMultipleBindToSamePort = true)
-        {
-            await
-                _tcpResponseListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
-            
-        }
-
-        public async Task StartUdpListener(
-            int port, 
-            ICommunicationInterface communicationInterface = null, 
-            bool allowMultipleBindToSamePort = true)
-        {
-            await _udpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
-        }
-
-        public async Task StartUdpMulticastListener(
-            string ipAddr,
-            int port,
-            IEnumerable<string> mcastIpv6AddressList,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true)
         {
-            await
-                _udpMultiCastListener.JoinMulticastGroupAsync(
-                    ipAddr, 
-                    port, 
-                    communicationInterface,
-                    mcastIpv6AddressList,
-                    allowMultipleBindToSamePort);
+            var observableRequestReponse =  await GetTcpRequestResponseObservable(port, communicationInterface, allowMultipleBindToSamePort);
+            return observableRequestReponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task StartUdpMulticastListener(
-            string ipAddr, 
-            int port,
-            ICommunicationInterface communicationInterface = null,
+        public async Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port, ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true)
         {
-            await StartUdpMulticastListener(
-                ipAddr,
-                port,
-                null,
-                communicationInterface,
-                allowMultipleBindToSamePort);
+            var observableRequestReponse = await GetTcpRequestResponseObservable(port, communicationInterface, allowMultipleBindToSamePort);
+            return observableRequestReponse.Where(res => res.MessageType == MessageType.Response);
         }
 
-        public void StopTcpRequestListener()
+        public async Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port, ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
         {
-            _tcpRequestListener?.StopListening();
-
+            var observableRequestReponse = await GetUdpRequestResponseObservable(port, communicationInterface, allowMultipleBindToSamePort);
+            return observableRequestReponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public void StopTcpReponseListener()
+        public async Task<IObservable<IHttpRequest>> UdpHttpResponseObservable(int port, ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
         {
-            _tcpResponseListener?.StopListening();
+            var observableRequestReponse = await GetUdpRequestResponseObservable(port, communicationInterface, allowMultipleBindToSamePort);
+            return observableRequestReponse.Where(res => res.MessageType == MessageType.Response);
         }
 
-        public void StopUdpMultiCastListener()
+        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr, int port, ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
         {
-            _udpMultiCastListener?.Disconnect();
+            var observableRequestReponse = await GetUdpMulticastRequestResponseObservable(ipAddr, port, null, communicationInterface);
+            return observableRequestReponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public void StopUdpListener()
+        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpResponseObservable(string ipAddr, int port, ICommunicationInterface communicationInterface = null,
+            bool allowMultipleBindToSamePort = true)
         {
-            _udpListener?.StopListening();
+            var observableRequestReponse = await GetUdpMulticastRequestResponseObservable(ipAddr, port, null, communicationInterface);
+            return observableRequestReponse.Where(res => res.MessageType == MessageType.Response);
+        }
+
+        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr, int port, IEnumerable<string> mcastIpv6AddressList,
+            ICommunicationInterface communicationInterface = null, bool allowMultipleBindToSamePort = true)
+        {
+            var observableRequestReponse = await GetUdpMulticastRequestResponseObservable(ipAddr, port, mcastIpv6AddressList, communicationInterface);
+            return observableRequestReponse.Where(req => req.MessageType == MessageType.Request);
+        }
+
+        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpResponseObservable(string ipAddr, int port, IEnumerable<string> mcastIpv6AddressList,
+            ICommunicationInterface communicationInterface = null, bool allowMultipleBindToSamePort = true)
+        {
+            var observableRequestReponse = await GetUdpMulticastRequestResponseObservable(ipAddr, port, mcastIpv6AddressList, communicationInterface);
+            return observableRequestReponse.Where(res => res.MessageType == MessageType.Response);
         }
 
         public async Task SendOnMulticast(byte[] data)
@@ -223,7 +228,7 @@ namespace SimpleHttpServer.Service
             await _udpMultiCastListener.SendMulticastAsync(data);
         }
 
-        public async Task HttpReponse(IHttpRequest request, IHttpResponse response)
+        public async Task HttpSendReponseAsync(IHttpRequest request, IHttpResponse response)
         {
             if (request.RequestType == RequestType.TCP)
             {
@@ -241,43 +246,6 @@ namespace SimpleHttpServer.Service
                     //Ignore;
                 }
             }
-        }
-
-        private byte[] ComposeResponse(IHttpRequest request, IHttpResponse response)
-        {
-            var stringBuilder = new StringBuilder();
-
-            stringBuilder.Append(
-                $"HTTP/{request.MajorVersion}.{request.MinorVersion} {(int) response.StatusCode} {response.ResponseReason}\r\n");
-
-            if (response.Headers != null)
-            {
-                if (response.Headers.Any())
-                {
-                    foreach (var header in response.Headers)
-                    {
-                        stringBuilder.Append($"{header.Key}: {header.Value}\r\n");
-                    }
-                }
-            }
-
-            if (response.Body?.Length > 0)
-            {
-                stringBuilder.Append($"Content-Length: {response?.Body?.Length}");
-            }
-
-            stringBuilder.Append("\r\n\r\n");
-
-            var datagram = Encoding.UTF8.GetBytes(stringBuilder.ToString());
-
-
-            if (response.Body?.Length > 0)
-            {
-                datagram = datagram.Concat(response?.Body?.ToArray()).ToArray();
-            }
-
-            Debug.WriteLine(Encoding.UTF8.GetString(datagram, 0, datagram.Length));
-            return datagram;
         }
     }
 }

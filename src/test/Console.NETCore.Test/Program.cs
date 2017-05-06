@@ -26,19 +26,19 @@ class Program
     {
         System.Console.WriteLine("Start Listener");
 
-        var listenerConfig = Initializer.GetListener("10.211.55.8", 8000);
+        var listenerConfig = Initializer.GetListener("192.168.0.36", 8000);
         _httpListener = listenerConfig.httpListener;
 
-        await _httpListener.StartTcpRequestListener(
-            port: 8000, 
-            allowMultipleBindToSamePort: true, 
+        var listner = await _httpListener.TcpHttpRequestObservable(
+            port: 8000,
+            allowMultipleBindToSamePort: true,
             communicationInterface: listenerConfig.communicationInterface);
 
 
         System.Console.WriteLine("Listener Started");
 
         // Rx Subscribe
-        _httpListener.HttpRequestObservable.Subscribe(async
+        listner.Subscribe(async
            request =>
         {
 
@@ -62,7 +62,7 @@ class Program
                     Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
                 };
 
-                await _httpListener.HttpReponse(request, response).ConfigureAwait(false);
+                await _httpListener.HttpSendReponseAsync(request, response).ConfigureAwait(false);
             }
 
         });
