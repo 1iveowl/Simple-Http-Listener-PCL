@@ -31,8 +31,7 @@ class Program
 
         var listner = await _httpListener.TcpHttpRequestObservable(
             port: 8000,
-            allowMultipleBindToSamePort: true,
-            communicationInterface: listenerConfig.communicationInterface);
+            allowMultipleBindToSamePort: true);
 
 
         System.Console.WriteLine("Listener Started");

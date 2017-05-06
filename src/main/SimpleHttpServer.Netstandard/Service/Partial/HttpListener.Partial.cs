@@ -40,7 +40,7 @@ namespace SimpleHttpServer.Service
 
 
         private IObservable<IHttpRequestReponse> TcpRequestResponseObservable =>
-            _tcpRequestListener.ObservableTcpSocket
+            _tcpListener.ObservableTcpSocket
                 .Merge(_tcpResponseListener.ObservableTcpSocket).Select(
                     tcpSocket =>
                     {
@@ -117,7 +117,7 @@ namespace SimpleHttpServer.Service
             bool allowMultipleBindToSamePort = true)
         {
             await
-                _tcpRequestListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
+                _tcpListener.StartListeningAsync(port, communicationInterface, allowMultipleBindToSamePort);
         }
 
         [Obsolete("Deprecated")]
@@ -153,7 +153,6 @@ namespace SimpleHttpServer.Service
                     ipAddr,
                     port,
                     communicationInterface,
-                    mcastIpv6AddressList,
                     allowMultipleBindToSamePort);
         }
 
@@ -175,7 +174,7 @@ namespace SimpleHttpServer.Service
         [Obsolete("Deprecated")]
         public void StopTcpRequestListener()
         {
-            _tcpRequestListener?.StopListening();
+            _tcpListener?.StopListening();
 
         }
 

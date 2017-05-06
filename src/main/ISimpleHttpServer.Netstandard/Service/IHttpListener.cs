@@ -14,45 +14,27 @@ namespace ISimpleHttpServer.Service
         int TcpReponseListenerPort { get; }
         int UdpMulticastListenerPort { get; }
         string UdpMulticastAddress { get; } 
-        int UpdListenerPort { get; }
+        int UdpListenerPort { get; }
         
         Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(int port,
-            ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
         Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port,
-            ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
 
         Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port,
-            ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
-        Task<IObservable<IHttpRequest>> UdpHttpResponseObservable(int port,
-            ICommunicationInterface communicationInterface = null,
-            bool allowMultipleBindToSamePort = true);
-
-        Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr,
-            int port,
-            ICommunicationInterface communicationInterface = null,
-            bool allowMultipleBindToSamePort = true);
-
-        Task<IObservable<IHttpRequest>> UdpMulticastHttpResponseObservable(string ipAddr,
-            int port,
-            ICommunicationInterface communicationInterface = null,
+        Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(int port,
             bool allowMultipleBindToSamePort = true);
 
         Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr,
             int port,
-            IEnumerable<string> mcastIpv6AddressList,
-            ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
-        Task<IObservable<IHttpRequest>> UdpMulticastHttpResponseObservable(string ipAddr,
+        Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(string ipAddr,
             int port,
-            IEnumerable<string> mcastIpv6AddressList,
-            ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
         [Obsolete("Deprecated")]
@@ -60,6 +42,7 @@ namespace ISimpleHttpServer.Service
 
         [Obsolete("Deprecated")]
         IObservable<IHttpResponse> HttpResponseObservable { get; }
+
         [Obsolete("Deprecated")]
         Task HttpReponse(IHttpRequest request, IHttpResponse response);
 
@@ -70,17 +53,20 @@ namespace ISimpleHttpServer.Service
             int port, 
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
+
         [Obsolete("Deprecated")]
         Task StartTcpResponseListener(
             int port,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
+
         [Obsolete("Deprecated")]
         Task StartUdpMulticastListener(
             string ipAddr, 
             int port, 
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
+
         [Obsolete("Deprecated")]
         Task StartUdpMulticastListener(
             string ipAddr,
@@ -88,6 +74,7 @@ namespace ISimpleHttpServer.Service
             IEnumerable<string> mcastIpv6AddressList,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
+
         [Obsolete("Deprecated")]
         Task StartUdpListener(
             int port,
