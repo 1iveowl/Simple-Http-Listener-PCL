@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using HttpListener = SimpleHttpServer.Service.HttpListener;
 using System.Text;
 using ISimpleHttpServer.Model;
 using Console.NETcore.Test.Model;
+using ISimpleHttpServer.Service;
+using SimpleHttpServer.Helper;
 
 
 class Program
 {
-    private static HttpListener _httpListener;
+    private static IHttpListener _httpListener;
     static void Main(string[] args)
     {
-        _httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(30));
+        //_httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(30));
 
         StartTcpListener();
         System.Console.ReadKey();
@@ -22,13 +25,19 @@ class Program
     private static async void StartTcpListener()
     {
         System.Console.WriteLine("Start Listener");
-        await _httpListener.StartTcpRequestListener(port: 8000, allowMultipleBindToSamePort: true);
 
-        await _httpListener.StartUdpListener(8000, allowMultipleBindToSamePort: true);
+        var listenerConfig = Initializer.GetListener("192.168.0.36", 8000);
+        _httpListener = listenerConfig.httpListener;
+
+        var observerListener = await _httpListener.TcpHttpRequestObservable(
+            port: 8000,
+            allowMultipleBindToSamePort: true);
+
+
         System.Console.WriteLine("Listener Started");
 
         // Rx Subscribe
-        _httpListener.HttpRequestObservable.Subscribe(async
+        observerListener.Subscribe(async
            request =>
         {
 
@@ -52,7 +61,7 @@ class Program
                     Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
                 };
 
-                await _httpListener.HttpReponse(request, response).ConfigureAwait(false);
+                await _httpListener.HttpSendReponseAsync(request, response).ConfigureAwait(false);
             }
 
         });
