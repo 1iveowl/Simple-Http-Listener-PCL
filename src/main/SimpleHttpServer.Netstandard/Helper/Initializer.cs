@@ -45,7 +45,7 @@ namespace SimpleHttpServer.Helper
                 timeout = TimeSpan.FromSeconds(30);
             }
 
-            var httpListener = new HttpListener(timeout);
+            var httpListener = new HttpListener(communicationInterface, timeout);
 
             //await httpListener.StartTcpRequestListener(port, communicationInterface);
 
