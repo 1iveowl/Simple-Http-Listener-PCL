@@ -29,7 +29,7 @@ class Program
         var listenerConfig = Initializer.GetListener("192.168.0.36", 8000);
         _httpListener = listenerConfig.httpListener;
 
-        var listner = await _httpListener.TcpHttpRequestObservable(
+        var observerListener = await _httpListener.TcpHttpRequestObservable(
             port: 8000,
             allowMultipleBindToSamePort: true);
 
@@ -37,7 +37,7 @@ class Program
         System.Console.WriteLine("Listener Started");
 
         // Rx Subscribe
-        listner.Subscribe(async
+        observerListener.Subscribe(async
            request =>
         {
 
