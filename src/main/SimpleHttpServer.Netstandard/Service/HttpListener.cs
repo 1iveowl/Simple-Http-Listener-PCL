@@ -20,12 +20,13 @@ namespace SimpleHttpServer.Service
     {
         private readonly HttpStreamParser _httpStreamParser = new HttpStreamParser();
 
-        private readonly ITcpSocketListener _tcpResponseListener = new TcpSocketListener();
-        private readonly ITcpSocketListener _tcpRequestListener = new TcpSocketListener();
 
-        private ITcpSocketListener _tcpListener;
+
+        private readonly IDictionary<int, IObservable<IHttpRequestReponse>> _tcpListenerPortToObservable = new Dictionary<int, IObservable<IHttpRequestReponse>>();
+        private readonly IDictionary<int, IObservable<IHttpRequestReponse>> _udpReceiverPortToObservable = new Dictionary<int, IObservable<IHttpRequestReponse>>();
+
+
         private IUdpSocketMulticastClient _udpMultiCastListener;
-        private IUdpSocketReceiver _udpListener;
 
         private readonly ICommunicationInterface _communicationInterface;
 
@@ -36,9 +37,9 @@ namespace SimpleHttpServer.Service
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true)
         {
-            _tcpListener = new TcpSocketListener();
+            var tcpListener = new TcpSocketListener();
 
-            var observeTcpRequest = await _tcpListener.CreateObservableListener(
+            var observeTcpRequest = await tcpListener.CreateObservableListener(
                 port,
                 communicationInterface,
                 allowMultipleBindToSamePort);
@@ -67,16 +68,22 @@ namespace SimpleHttpServer.Service
                         },
                         ex =>
                         {
-                            _tcpListener.Dispose();
+                            Cleanup();
                             obs.OnError(ex);
                         },
                         () =>
                         {
-                            _tcpListener.Dispose();
+                            Cleanup();
                             obs.OnCompleted();
                         });
 
                     return disp;
+
+                    void Cleanup()
+                    {
+                        _tcpListenerPortToObservable.Remove(port);
+                        tcpListener.Dispose();
+                    }
                 });
 
             return observable;
@@ -87,8 +94,9 @@ namespace SimpleHttpServer.Service
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true)
         {
-            _udpListener = new UdpSocketReceiver();
-            var observeUdpRequest = await _udpListener.CreateObservableListener(
+            IUdpSocketReceiver udpListener = new UdpSocketReceiver();
+
+            var observeUdpRequest = await udpListener.CreateObservableListener(
                 port,
                 communicationInterface,
                 allowMultipleBindToSamePort);
@@ -115,16 +123,22 @@ namespace SimpleHttpServer.Service
                         },
                         ex =>
                         {
-                            _udpListener.Dispose();
+                            Cleanup();
                             obs.OnError(ex);
                         },
                         () =>
                         {
-                            _udpListener.Dispose();
+                            Cleanup();
                             obs.OnCompleted();
                         });
 
                     return disp;
+
+                    void Cleanup()
+                    {
+                        _udpReceiverPortToObservable.Remove(port);
+                        udpListener.Dispose();
+                    }
                 });
 
             return observable;
@@ -182,11 +196,11 @@ namespace SimpleHttpServer.Service
         }
 
         public TimeSpan Timeout { get; set; }
-        public int TcpRequestListenerPort { get; private set; }
-        public int TcpReponseListenerPort { get; private set; }
-        public int UdpMulticastListenerPort { get; private set; }
-        public string UdpMulticastAddress { get; private set; }
-        public int UdpListenerPort { get; private set; }
+        //public int TcpRequestListenerPort { get; private set; }
+        //public int TcpReponseListenerPort { get; private set; }
+        //public int UdpMulticastListenerPort { get; private set; }
+        //public string UdpMulticastAddress { get; private set; }
+        //public int UdpListenerPort { get; private set; }
 
         public HttpListener(ICommunicationInterface communicationInterface) : this(communicationInterface, TimeSpan.FromSeconds(30))
         {
@@ -203,30 +217,54 @@ namespace SimpleHttpServer.Service
             int port, 
             bool allowMultipleBindToSamePort = true)
         {
-            TcpRequestListenerPort = port;
-            var observableRequestResponse =  await GetTcpRequestResponseObservable(port, _communicationInterface, allowMultipleBindToSamePort);
+            var observableRequestResponse =  await ManageTcpListenerInterfaceState(port,  allowMultipleBindToSamePort);
             return observableRequestResponse.Where(req => req.MessageType == MessageType.Request);
         }
 
         public async Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port, bool allowMultipleBindToSamePort = true)
         {
-            TcpReponseListenerPort = port;
-            var observableRequestReponse = await GetTcpRequestResponseObservable(port, _communicationInterface, allowMultipleBindToSamePort);
+            var observableRequestReponse = await ManageTcpListenerInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestReponse.Where(res => res.MessageType == MessageType.Response);
+        }
+
+        private async Task<IObservable<IHttpRequestReponse>> ManageTcpListenerInterfaceState(int port, bool allowMultipleBindToSamePort = true)
+        {
+            if (_tcpListenerPortToObservable.ContainsKey(port))
+            {
+                return _tcpListenerPortToObservable[port];
+            }
+            else
+            {
+                var observable = await GetTcpRequestResponseObservable(port, _communicationInterface, allowMultipleBindToSamePort);
+                _tcpListenerPortToObservable.Add(port, observable);
+                return observable;
+            }
         }
 
         public async Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port, bool allowMultipleBindToSamePort = true)
         {
-            UdpListenerPort = port;
-            var observableRequestResponse = await GetUdpRequestResponseObservable(port, _communicationInterface, allowMultipleBindToSamePort);
+            var observableRequestResponse = await ManageUnicastInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestResponse.Where(req => req.MessageType == MessageType.Request);
         }
 
         public async Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(int port, bool allowMultipleBindToSamePort = true)
         {
-            UdpListenerPort = port;
-            var observableRequestResponse = await GetUdpRequestResponseObservable(port, _communicationInterface, allowMultipleBindToSamePort);
+            var observableRequestResponse = await ManageUnicastInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestResponse.Where(res => res.MessageType == MessageType.Response);
+        }
+
+        private async Task<IObservable<IHttpRequestReponse>> ManageUnicastInterfaceState(int port, bool allowMultipleBindToSamePort = true)
+        {
+            if (_udpReceiverPortToObservable.ContainsKey(port))
+            {
+                return _udpReceiverPortToObservable[port];
+            }
+            else
+            {
+                var observable = await GetUdpRequestResponseObservable(port, _communicationInterface, allowMultipleBindToSamePort);
+                _udpReceiverPortToObservable.Add(port, observable);
+                return observable;
+            }
         }
 
         public async Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr, int port, bool allowMultipleBindToSamePort = true)

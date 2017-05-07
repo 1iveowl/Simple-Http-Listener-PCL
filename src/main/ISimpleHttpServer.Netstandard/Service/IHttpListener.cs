@@ -10,11 +10,11 @@ namespace ISimpleHttpServer.Service
     {
         TimeSpan Timeout { get; set; }
 
-        int TcpRequestListenerPort { get; }
-        int TcpReponseListenerPort { get; }
-        int UdpMulticastListenerPort { get; }
-        string UdpMulticastAddress { get; } 
-        int UdpListenerPort { get; }
+        //int TcpRequestListenerPort { get; }
+        //int TcpReponseListenerPort { get; }
+        //int UdpMulticastListenerPort { get; }
+        //string UdpMulticastAddress { get; } 
+        //int UdpListenerPort { get; }
         
         Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(int port,
             bool allowMultipleBindToSamePort = true);

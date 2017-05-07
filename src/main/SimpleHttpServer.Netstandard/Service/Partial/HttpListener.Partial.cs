@@ -11,12 +11,17 @@ using ISocketLite.PCL.Interface;
 using SimpleHttpServer.Model;
 using SimpleHttpServer.Parser;
 using SimpleHttpServer.Service.Base;
+using SocketLite.Services;
 
 
 namespace SimpleHttpServer.Service
 {
     public partial class HttpListener : ComposeBase, IHttpListener
     {
+        private ITcpSocketListener _tcpListener;
+        private IUdpSocketReceiver _udpListener;
+        private readonly ITcpSocketListener _tcpResponseListener = new TcpSocketListener();
+        private readonly ITcpSocketListener _tcpRequestListener = new TcpSocketListener();
 
         private IObservable<IHttpRequestReponse> UpdRequstReponseObservable =>
             _udpMultiCastListener.ObservableMessages
