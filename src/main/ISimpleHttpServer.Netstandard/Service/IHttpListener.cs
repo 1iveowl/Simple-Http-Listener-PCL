@@ -70,24 +70,24 @@ namespace ISimpleHttpServer.Service
         TimeSpan Timeout { get; set; }
         
         Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(int port,
-            bool allowMultipleBindToSamePort = true);
+            bool allowMultipleBindToSamePort = false);
 
         Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port,
-            bool allowMultipleBindToSamePort = true);
+            bool allowMultipleBindToSamePort = false);
 
 
         Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port,
-            bool allowMultipleBindToSamePort = true);
+            bool allowMultipleBindToSamePort = false);
 
         Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(int port,
-            bool allowMultipleBindToSamePort = true);
+            bool allowMultipleBindToSamePort = false);
 
         Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr,
             int port,
-            bool allowMultipleBindToSamePort = true);
+            bool allowMultipleBindToSamePort = false);
 
         Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(string ipAddr,
             int port,
-            bool allowMultipleBindToSamePort = true);
+            bool allowMultipleBindToSamePort = false);
     }
 }

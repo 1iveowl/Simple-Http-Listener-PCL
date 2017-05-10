@@ -63,7 +63,7 @@ namespace SimpleHttpServer.Parser
             if (HttpRequestReponse.Headers.ContainsKey(name.ToUpper()))
             {
                 // Header Field Names are case-insensitive http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-                _headerAlreadyExist = true;
+                _headerAlreadyExist = false;
             }
             _headerName = name.ToUpper();
         }
