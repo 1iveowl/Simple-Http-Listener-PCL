@@ -20,11 +20,8 @@ namespace SimpleHttpServer.Service
     {
         private readonly HttpStreamParser _httpStreamParser = new HttpStreamParser();
 
-
-
         private readonly IDictionary<int, IObservable<IHttpRequestReponse>> _tcpListenerPortToObservable = new Dictionary<int, IObservable<IHttpRequestReponse>>();
         private readonly IDictionary<int, IObservable<IHttpRequestReponse>> _udpReceiverPortToObservable = new Dictionary<int, IObservable<IHttpRequestReponse>>();
-
 
         private IUdpSocketMulticastClient _udpMultiCastListener;
 
@@ -96,7 +93,7 @@ namespace SimpleHttpServer.Service
         {
             IUdpSocketReceiver udpListener = new UdpSocketReceiver();
 
-            var observeUdpRequest = await udpListener.CreateObservableListener(
+            var observeUdpRequest = await udpListener.ObservableUnicastListener(
                 port,
                 communicationInterface,
                 allowMultipleBindToSamePort);
@@ -152,7 +149,7 @@ namespace SimpleHttpServer.Service
         {
             _udpMultiCastListener = new UdpSocketMulticastClient();
 
-            var observeUdpRequest = await _udpMultiCastListener.CreateObservableMultiCastListener(
+            var observeUdpRequest = await _udpMultiCastListener.ObservableMulticastListener(
                 ipAddr,
                 port,
                 communicationInterface,
@@ -196,11 +193,6 @@ namespace SimpleHttpServer.Service
         }
 
         public TimeSpan Timeout { get; set; }
-        //public int TcpRequestListenerPort { get; private set; }
-        //public int TcpReponseListenerPort { get; private set; }
-        //public int UdpMulticastListenerPort { get; private set; }
-        //public string UdpMulticastAddress { get; private set; }
-        //public int UdpListenerPort { get; private set; }
 
         public HttpListener(ICommunicationInterface communicationInterface) : this(communicationInterface, TimeSpan.FromSeconds(30))
         {
@@ -290,7 +282,7 @@ namespace SimpleHttpServer.Service
                 return;
             }
 
-            if (_udpMultiCastListener.IsMulticastInterfaceActive)
+            if (_udpMultiCastListener.IsMulticastActive)
             {
                 if (!_udpMultiCastListener.MulticastMemberShips.Any(m => m.Contains(ipAddr)))
                 {

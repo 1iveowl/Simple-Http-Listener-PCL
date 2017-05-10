@@ -24,10 +24,10 @@ For an older PCL Profile 111 version see version 2.0.20.</releaseNotes>
         
         <dependencies>
           <dependency id="System.Reactive" version="3.1.1"/>
-          <dependency id="SocketLite.PCL" version="4.0.1"/>
+          <dependency id="SocketLite.PCL" version="4.0.3"/>
           <dependency id="HttpMachine.PCL" version="3.0.1"/>
           <dependency id="NETStandard.Library" version="1.6.1"/>
-          <dependency id="System.ValueTuple" version="4.3.0"/>
+          <dependency id="System.ValueTuple" version="4.3.1"/>
         </dependencies>
 
     </metadata>
