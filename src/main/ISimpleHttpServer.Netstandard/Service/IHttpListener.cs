@@ -8,34 +8,8 @@ namespace ISimpleHttpServer.Service
 {
     public interface IHttpListener
     {
-        TimeSpan Timeout { get; set; }
 
-        int TcpRequestListenerPort { get; }
-        int TcpReponseListenerPort { get; }
-        int UdpMulticastListenerPort { get; }
-        string UdpMulticastAddress { get; } 
-        int UdpListenerPort { get; }
-        
-        Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(int port,
-            bool allowMultipleBindToSamePort = true);
-
-        Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port,
-            bool allowMultipleBindToSamePort = true);
-
-
-        Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port,
-            bool allowMultipleBindToSamePort = true);
-
-        Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(int port,
-            bool allowMultipleBindToSamePort = true);
-
-        Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr,
-            int port,
-            bool allowMultipleBindToSamePort = true);
-
-        Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(string ipAddr,
-            int port,
-            bool allowMultipleBindToSamePort = true);
+        #region Obsolete
 
         [Obsolete("Deprecated")]
         IObservable<IHttpRequest> HttpRequestObservable { get; }
@@ -50,7 +24,7 @@ namespace ISimpleHttpServer.Service
 
         [Obsolete("Deprecated")]
         Task StartTcpRequestListener(
-            int port, 
+            int port,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
@@ -62,8 +36,8 @@ namespace ISimpleHttpServer.Service
 
         [Obsolete("Deprecated")]
         Task StartUdpMulticastListener(
-            string ipAddr, 
-            int port, 
+            string ipAddr,
+            int port,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = true);
 
@@ -90,5 +64,30 @@ namespace ISimpleHttpServer.Service
         void StopUdpMultiCastListener();
         [Obsolete("Deprecated")]
         void StopUdpListener();
+
+        #endregion
+
+        TimeSpan Timeout { get; set; }
+        
+        Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(int port,
+            bool allowMultipleBindToSamePort = true);
+
+        Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port,
+            bool allowMultipleBindToSamePort = true);
+
+
+        Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port,
+            bool allowMultipleBindToSamePort = true);
+
+        Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(int port,
+            bool allowMultipleBindToSamePort = true);
+
+        Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr,
+            int port,
+            bool allowMultipleBindToSamePort = true);
+
+        Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(string ipAddr,
+            int port,
+            bool allowMultipleBindToSamePort = true);
     }
 }
