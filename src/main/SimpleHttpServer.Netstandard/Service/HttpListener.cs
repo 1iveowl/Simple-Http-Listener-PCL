@@ -213,13 +213,17 @@ namespace SimpleHttpServer.Service
             return observableRequestResponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(int port, bool allowMultipleBindToSamePort = false)
+        public async Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             var observableRequestReponse = await ManageTcpListenerInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestReponse.Where(res => res.MessageType == MessageType.Response);
         }
 
-        private async Task<IObservable<IHttpRequestReponse>> ManageTcpListenerInterfaceState(int port, bool allowMultipleBindToSamePort = false)
+        private async Task<IObservable<IHttpRequestReponse>> ManageTcpListenerInterfaceState(
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             if (_tcpListenerPortToObservable.ContainsKey(port))
             {
@@ -233,19 +237,25 @@ namespace SimpleHttpServer.Service
             }
         }
 
-        public async Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(int port, bool allowMultipleBindToSamePort = false)
+        public async Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             var observableRequestResponse = await ManageUnicastInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestResponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(int port, bool allowMultipleBindToSamePort = false)
+        public async Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             var observableRequestResponse = await ManageUnicastInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestResponse.Where(res => res.MessageType == MessageType.Response);
         }
 
-        private async Task<IObservable<IHttpRequestReponse>> ManageUnicastInterfaceState(int port, bool allowMultipleBindToSamePort = false)
+        private async Task<IObservable<IHttpRequestReponse>> ManageUnicastInterfaceState(
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             if (_udpReceiverPortToObservable.ContainsKey(port))
             {
@@ -259,7 +269,10 @@ namespace SimpleHttpServer.Service
             }
         }
 
-        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(string ipAddr, int port, bool allowMultipleBindToSamePort = false)
+        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(
+            string ipAddr, 
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
 
             await ManageMulticastInterfaceState(ipAddr, port, allowMultipleBindToSamePort);
@@ -267,14 +280,20 @@ namespace SimpleHttpServer.Service
             return _udpMulticastRequestResponseObservable.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(string ipAddr, int port, bool allowMultipleBindToSamePort = false)
+        public async Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(
+            string ipAddr, 
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             await ManageMulticastInterfaceState(ipAddr, port, allowMultipleBindToSamePort);
 
             return _udpMulticastRequestResponseObservable.Where(req => req.MessageType == MessageType.Response);
         }
 
-        private async Task  ManageMulticastInterfaceState(string ipAddr, int port, bool allowMultipleBindToSamePort = false)
+        private async Task  ManageMulticastInterfaceState(
+            string ipAddr, 
+            int port, 
+            bool allowMultipleBindToSamePort = false)
         {
             if (_udpMultiCastListener == null)
             {
