@@ -5,10 +5,12 @@ using System.IO;
 using System.Net;
 using HttpListener = SimpleHttpServer.Service.HttpListener;
 using System.Text;
+using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 using Console.NETcore.Test.Model;
 using ISimpleHttpServer.Service;
 using SimpleHttpServer.Helper;
+using Console = System.Console;
 
 
 class Program
@@ -22,8 +24,22 @@ class Program
         System.Console.ReadKey();
     }
 
+    private static async Task StartMultiCast()
+    {
+        var mcastListener = await _httpListener.UdpMulticastHttpRequestObservable("239.255.255.250", 1900, false);
+
+        mcastListener.Subscribe(msg =>
+        {
+            System.Console.WriteLine($"Method: {msg.Method}, Request type: {msg.RequestType}");
+        });
+        
+    }
+
     private static async void StartTcpListener()
     {
+
+
+
         System.Console.WriteLine("Start Listener");
 
         var listenerConfig = Initializer.GetListener("192.168.0.36", 8000);
@@ -33,6 +49,7 @@ class Program
             port: 8000,
             allowMultipleBindToSamePort: true);
 
+        await StartMultiCast();
 
         System.Console.WriteLine("Listener Started");
 

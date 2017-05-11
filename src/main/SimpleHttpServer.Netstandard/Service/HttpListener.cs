@@ -297,7 +297,7 @@ namespace SimpleHttpServer.Service
         {
             if (_udpMultiCastListener == null)
             {
-                _udpMulticastRequestResponseObservable = await GetUdpMulticastRequestResponseObservable(ipAddr, port, _communicationInterface);
+                _udpMulticastRequestResponseObservable = await GetUdpMulticastRequestResponseObservable(ipAddr, port, _communicationInterface, allowMultipleBindToSamePort);
                 return;
             }
 
@@ -310,7 +310,7 @@ namespace SimpleHttpServer.Service
             }
             else
             {
-                _udpMulticastRequestResponseObservable = await GetUdpMulticastRequestResponseObservable(ipAddr, port, _communicationInterface);
+                _udpMulticastRequestResponseObservable = await GetUdpMulticastRequestResponseObservable(ipAddr, port, _communicationInterface, allowMultipleBindToSamePort);
             }
         }
 
