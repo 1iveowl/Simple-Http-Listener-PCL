@@ -7,9 +7,9 @@ using ISimpleHttpServer.Model;
 
 namespace SimpleHttpServer.Service.Base
 {
-    public class ComposeBase
+    public abstract class ComposeBase
     {
-        protected byte[] ComposeResponse(IHttpRequest request, IHttpResponse response)
+        public byte[] ComposeResponse(IHttpRequest request, IHttpResponse response)
         {
             var stringBuilder = new StringBuilder();
 
