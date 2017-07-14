@@ -83,7 +83,7 @@ observerListner.Subscribe(async
 
 });
 ```
-You need to create you own implementation of the `HttpResponse` class. You can call it whatever you want, but it MUST implement the `IHttpReponse` interface. It can look like this:
+You need to create you own implementation of the `HttpResponse` class. You can call it whatever you want, but it MUST implement the `IHttpResponse` interface. It can look like this:
 
 ```csharp
 internal class HttpResponse : IHttpResponse
