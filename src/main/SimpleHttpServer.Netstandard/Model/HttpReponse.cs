@@ -6,7 +6,7 @@ using SimpleHttpServer.Model.Base;
 
 namespace SimpleHttpServer.Model
 {
-    public class HttpReponse : HttpHeaderBase, IHttpResponse
+    public class HttpResponse : HttpHeaderBase, IHttpResponse
     {
         public int MajorVersion { get; internal set; }
         public int MinorVersion { get; internal set; }

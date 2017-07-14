@@ -54,33 +54,33 @@ class Program
         System.Console.WriteLine("Listener Started");
 
         // Rx Subscribe
-        observerListener.Subscribe(async
-           request =>
-        {
-
-            //Enter your code handling each incoming Http request here.
-
-            //Example response
-            System.Console.WriteLine($"Remote Address: {request.RemoteAddress}");
-            System.Console.WriteLine($"Remote Port: {request.RemotePort}");
-            System.Console.WriteLine("--------------***-------------");
-            if (request.RequestType == RequestType.TCP)
+        observerListener.Subscribe(
+            async request =>
             {
-                var response = new HttpReponse
+
+                //Enter your code handling each incoming Http request here.
+
+                //Example response
+                System.Console.WriteLine($"Remote Address: {request.RemoteAddress}");
+                System.Console.WriteLine($"Remote Port: {request.RemotePort}");
+                System.Console.WriteLine("--------------***-------------");
+                if (request.RequestType == RequestType.TCP)
                 {
-                    StatusCode = (int)HttpStatusCode.OK,
-                    ResponseReason = HttpStatusCode.OK.ToString(),
-                    Headers = new Dictionary<string, string>
-                            {
-                                {"Date", DateTime.UtcNow.ToString("r")},
-                                {"Content-Type", "text/html; charset=UTF-8" },
-                            },
-                    Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
-                };
+                    var response = new HttpResponse
+                    {
+                        StatusCode = (int)HttpStatusCode.OK,
+                        ResponseReason = HttpStatusCode.OK.ToString(),
+                        Headers = new Dictionary<string, string>
+                                {
+                                    {"Date", DateTime.UtcNow.ToString("r")},
+                                    {"Content-Type", "text/html; charset=UTF-8" },
+                                },
+                        Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
+                    };
 
-                await _httpListener.HttpSendReponseAsync(request, response).ConfigureAwait(false);
-            }
+                    await _httpListener.HttpSendReponseAsync(request, response).ConfigureAwait(false);
+                }
 
-        });
+            });
     }
 }
