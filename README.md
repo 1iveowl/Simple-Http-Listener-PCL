@@ -66,7 +66,7 @@ observerListner.Subscribe(async
     if (request.RequestType == RequestType.TCP)
     {
         
-        var response = new HttpReponse
+        var response = new HttpResponse
         {
             StatusCode = (int)HttpStatusCode.OK,
             ResponseReason = HttpStatusCode.OK.ToString(),
@@ -83,7 +83,37 @@ observerListner.Subscribe(async
 
 });
 ```
-Now you have build a simple HttpServer that tells the time.
+You need to create you own implementation of the `HttpReponse` class. You can call it whatever you want, but it MUST implement the `IHttpReponse` interface. It can look like this:
+
+```csharp
+internal class HttpResponse : IHttpResponse
+{
+    public int MajorVersion { get; internal set; }
+    public int MinorVersion { get; internal set; }
+
+    public int StatusCode { get; internal set; }
+
+    public string ResponseReason { get; internal set; }
+    public IDictionary<string, string> Headers { get; internal set; }
+
+    public MemoryStream Body { get; internal set; }
+
+
+    public string RemoteAddress { get; internal set; }
+    public int RemotePort { get; internal set; }
+    public RequestType RequestType { get; internal set; }
+    public ITcpSocketClient TcpSocketClient { get; internal set; }
+
+    public IDictionary<string, string> ResonseHeaders { get; internal set; }
+
+    public bool IsEndOfRequest { get; internal set; }
+    public bool IsRequestTimedOut { get; internal set; }
+    public bool IsUnableToParseHttp { get; internal set; }
+}
+```
+
+These steps are all you have to do to build a simple HttpServer that tells the time.
+
 ### Listen To Other Http Requests/Responses
 You can also listen to UDP and UDP Multicast.
 

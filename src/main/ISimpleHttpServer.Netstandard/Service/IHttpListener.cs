@@ -20,7 +20,7 @@ namespace ISimpleHttpServer.Service
         [Obsolete("Deprecated")]
         Task HttpReponse(IHttpRequest request, IHttpResponse response);
 
-        Task HttpSendReponseAsync(IHttpRequest request, IHttpResponse response);
+
 
         [Obsolete("Deprecated")]
         Task StartTcpRequestListener(
@@ -95,6 +95,10 @@ namespace ISimpleHttpServer.Service
             string ipAddr,
             int port,
             bool allowMultipleBindToSamePort = false);
+
+        Task HttpSendReponseAsync(IHttpRequest request, IHttpResponse response);
+
+        byte[] ComposeResponse(IHttpRequest request, IHttpResponse response);
 
         Task SendOnMulticast(byte[] data);
     }

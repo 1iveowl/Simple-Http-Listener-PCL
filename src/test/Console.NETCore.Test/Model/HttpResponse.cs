@@ -5,7 +5,7 @@ using ISocketLite.PCL.Interface;
 
 namespace Console.NETcore.Test.Model
 {
-    internal class HttpReponse : IHttpResponse
+    internal class HttpResponse : IHttpResponse
     {
         public int MajorVersion { get; internal set; }
         public int MinorVersion { get; internal set; }
