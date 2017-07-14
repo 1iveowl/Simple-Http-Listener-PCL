@@ -112,8 +112,8 @@ internal class HttpResponse : IHttpResponse
 }
 ```
 
+These steps are all you have to do to build a simple HttpServer that tells the time.
 
-Now you have build a simple HttpServer that tells the time.
 ### Listen To Other Http Requests/Responses
 You can also listen to UDP and UDP Multicast.
 
