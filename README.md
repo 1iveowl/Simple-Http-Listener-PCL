@@ -23,7 +23,7 @@ The Http Listener also requires Microsoft [Reactive Extensions](https://www.nuge
 ## Version 4.0
 Version 4.0 represents a major overhaul of this library. Version 4.0 is still backwards compatible, but many of the methods have been marked as deprecated to inspire developers to use the newer versions of this library. In previous versions you had to subscribe to an observable and then start the action. In version 4.0 you just subscribe, that's it. Much more clean and better aligned with the Rx patterns.
 
-There us still UWP support in version 4.0, but the emphasis has been on .NET Core and it will be going forward
+There is still UWP support in version 4.0, but the emphasis has been on .NET Core and it will be going forward
 
 ## How To Use 
 
@@ -83,7 +83,7 @@ observerListner.Subscribe(async
 
 });
 ```
-You need to create you own implementation of the `HttpReponse` class. You can call it whatever you want, but it MUST implement the `IHttpReponse` interface. It can look like this:
+You need to create you own implementation of the `HttpResponse` class. You can call it whatever you want, but it MUST implement the `IHttpResponse` interface. It can look like this:
 
 ```csharp
 internal class HttpResponse : IHttpResponse
