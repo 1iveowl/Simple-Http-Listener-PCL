@@ -51,37 +51,43 @@ var observerListener = await _httpListener.TcpHttpRequestObservable(
     port: 8000,
     allowMultipleBindToSamePort: true);
 
-observerListner.Subscribe(async
-    request =>
-{
-
-    //Enter your code handling each incoming Http request here.
-
-    // Example
-    System.Console.WriteLine($"Remote Address: {request.RemoteAddress}");
-    System.Console.WriteLine($"Remote Port: {request.RemotePort}");
-    System.Console.WriteLine("--------------***-------------");
-
-    // Example responding back to the Http Request with telling the time:
-    if (request.RequestType == RequestType.TCP)
+observerListner.Subscribe(
+    async request =>
     {
-        
-        var response = new HttpResponse
+        //Enter your code handling each incoming Http request here.
+
+        // Example
+        System.Console.WriteLine($"Remote Address: {request.RemoteAddress}");
+        System.Console.WriteLine($"Remote Port: {request.RemotePort}");
+        System.Console.WriteLine("--------------***-------------");
+
+        // Example responding back to the Http Request with telling the time:
+        if (request.RequestType == RequestType.TCP)
         {
-            StatusCode = (int)HttpStatusCode.OK,
-            ResponseReason = HttpStatusCode.OK.ToString(),
-            Headers = new Dictionary<string, string>
-                    {
-                        {"Date", DateTime.UtcNow.ToString("r")},
-                        {"Content-Type", "text/html; charset=UTF-8" },
-                    },
-            Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
-        };
+            
+            var response = new HttpResponse
+            {
+                StatusCode = (int)HttpStatusCode.OK,
+                ResponseReason = HttpStatusCode.OK.ToString(),
+                Headers = new Dictionary<string, string>
+                        {
+                            {"Date", DateTime.UtcNow.ToString("r")},
+                            {"Content-Type", "text/html; charset=UTF-8" },
+                        },
+                Body = new MemoryStream(Encoding.UTF8.GetBytes($"<html>\r\n<body>\r\n<h1>Hello, World! {DateTime.Now}</h1>\r\n</body>\r\n</html>"))
+            };
 
-        await _httpListener.HttpSendReponseAsync(request, response).ConfigureAwait(false);
-    }
-
-});
+            await _httpListener.HttpSendReponseAsync(request, response).ConfigureAwait(false);
+        }
+    },
+    ex =>
+    {
+        // Handle exceptions here
+    }, 
+    () => 
+    {
+        // Handle complete here. 
+    });
 ```
 You need to create you own implementation of the `HttpResponse` class. You can call it whatever you want, but it MUST implement the `IHttpResponse` interface. It can look like this:
 
