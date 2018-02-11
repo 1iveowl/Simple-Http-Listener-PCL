@@ -42,7 +42,7 @@ class Program
 
         System.Console.WriteLine("Start Listener");
 
-        var listenerConfig = Initializer.GetListener("192.168.0.36", 8000);
+        var listenerConfig = Initializer.GetListener("192.168.0.59", 8000);
         _httpListener = listenerConfig.httpListener;
 
         var observerListener = await _httpListener.TcpHttpRequestObservable(

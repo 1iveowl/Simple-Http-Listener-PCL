@@ -1,5 +1,6 @@
 ﻿using System;
 using HttpMachine;
+using IHttpMachine;
 using ISimpleHttpServer.Model;
 using SimpleHttpServer.Model;
 
@@ -11,43 +12,43 @@ namespace SimpleHttpServer.Parser
 
         public MessageType MessageType { get; internal set; }
 
-        public void OnMessageBegin(HttpCombinedParser parser)
+        public void OnMessageBegin(IHttpCombinedParser parser)
         {
         }
 
-        public void OnRequestType(HttpCombinedParser combinedParser)
+        public void OnRequestType(IHttpCombinedParser combinedParser)
         {
             HttpRequestReponse.MessageType = MessageType.Request;
             MessageType = MessageType.Request;
         }
 
-        public void OnResponseType(HttpCombinedParser combinedParser)
+        public void OnResponseType(IHttpCombinedParser combinedParser)
         {
             HttpRequestReponse.MessageType = MessageType.Response;
             MessageType = MessageType.Response;
         }
 
-        public void OnMethod(HttpCombinedParser parser, string method)
+        public void OnMethod(IHttpCombinedParser parser, string method)
         {
             HttpRequestReponse.Method = method;
         }
 
-        public void OnRequestUri(HttpCombinedParser parser, string requestUri)
+        public void OnRequestUri(IHttpCombinedParser parser, string requestUri)
         {
             HttpRequestReponse.RequestUri = requestUri;
         }
 
-        public void OnPath(HttpCombinedParser parser, string path)
+        public void OnPath(IHttpCombinedParser parser, string path)
         {
             HttpRequestReponse.Path = path;
         }
 
-        public void OnFragment(HttpCombinedParser parser, string fragment)
+        public void OnFragment(IHttpCombinedParser parser, string fragment)
         {
             HttpRequestReponse.Fragment = fragment;
         }
 
-        public void OnQueryString(HttpCombinedParser parser, string queryString)
+        public void OnQueryString(IHttpCombinedParser parser, string queryString)
         {
             HttpRequestReponse.QueryString = queryString;
         }
@@ -57,7 +58,7 @@ namespace SimpleHttpServer.Parser
         //protected IHttpHeaders HeaderDictionary;
 
         //http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        public void OnHeaderName(HttpCombinedParser parser, string name)
+        public void OnHeaderName(IHttpCombinedParser parser, string name)
         {
 
             if (HttpRequestReponse.Headers.ContainsKey(name.ToUpper()))
@@ -68,7 +69,7 @@ namespace SimpleHttpServer.Parser
             _headerName = name.ToUpper();
         }
 
-        public void OnHeaderValue(HttpCombinedParser parser, string value)
+        public void OnHeaderValue(IHttpCombinedParser parser, string value)
         {
             if (_headerAlreadyExist)
             {
@@ -82,38 +83,38 @@ namespace SimpleHttpServer.Parser
             }
         }
 
-        public void OnTransferEncodingChunked(HttpCombinedParser combinedParser, bool isChunked)
+        public void OnTransferEncodingChunked(IHttpCombinedParser combinedParser, bool isChunked)
         {
 
             HttpRequestReponse.IsChunked = isChunked;
         }
 
-        public void OnChunkedLength(HttpCombinedParser combinedParser, int length)
+        public void OnChunkedLength(IHttpCombinedParser combinedParser, int length)
         {
             
         }
 
-        public void OnChunkReceived(HttpCombinedParser combinedParser)
+        public void OnChunkReceived(IHttpCombinedParser combinedParser)
         {
             
         }
 
-        public void OnHeadersEnd(HttpCombinedParser parser)
+        public void OnHeadersEnd(IHttpCombinedParser parser)
         {
             //throw new NotImplementedException();
         }
 
-        public void OnBody(HttpCombinedParser parser, ArraySegment<byte> data)
+        public void OnBody(IHttpCombinedParser parser, ArraySegment<byte> data)
         {
             HttpRequestReponse.Body.Write(data.Array, 0, data.Array.Length);
         }
 
-        public void OnMessageEnd(HttpCombinedParser parser)
+        public void OnMessageEnd(IHttpCombinedParser parser)
         {
             HttpRequestReponse.IsEndOfRequest = true;
         }
 
-        public void OnResponseCode(HttpCombinedParser parser, int statusCode, string statusReason)
+        public void OnResponseCode(IHttpCombinedParser parser, int statusCode, string statusReason)
         {
             HttpRequestReponse.StatusCode = statusCode;
             HttpRequestReponse.ResponseReason = statusReason;

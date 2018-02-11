@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{88E62699-9893-442B-9F27-C83818726C28}"
 EndProject
@@ -20,13 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{83DC400F
 		..\build\SimpleHttpServer.nuspec = ..\build\SimpleHttpServer.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpClient.Test", "..\test\UwpClient.Test\UwpClient.Test.csproj", "{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.NETCore.Test", "..\test\Console.NETCore.Test\Console.NETCore.Test.csproj", "{F1946BA2-2928-4D48-B4B6-3323B0CA805F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISimpleHttpServer.Netstandard", "ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj", "{33FC8B0A-CEE1-4873-957F-66B66ACDA699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISimpleHttpServer.Netstandard", "ISimpleHttpServer.Netstandard\ISimpleHttpServer.Netstandard.csproj", "{33FC8B0A-CEE1-4873-957F-66B66ACDA699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleHttpServer.Netstandard", "SimpleHttpServer.Netstandard\SimpleHttpServer.Netstandard.csproj", "{7CD2818D-86FC-4C09-8A1A-F84318CE4AC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleHttpServer.Netstandard", "SimpleHttpServer.Netstandard\SimpleHttpServer.Netstandard.csproj", "{7CD2818D-86FC-4C09-8A1A-F84318CE4AC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{2360632D-7853-40AB-BFC7-2F8E69C858B3}"
 EndProject
@@ -62,80 +60,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|Any CPU.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|Any CPU.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|Any CPU.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|ARM.ActiveCfg = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|ARM.Build.0 = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|ARM.Deploy.0 = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|iPhone.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|iPhone.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|iPhone.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|iPhoneSimulator.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|Mixed Platforms.Build.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|Mixed Platforms.Deploy.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|x64.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|x64.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|x64.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|x86.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|x86.Build.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Ad-Hoc|x86.Deploy.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|Any CPU.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|Any CPU.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|Any CPU.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|ARM.ActiveCfg = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|ARM.Build.0 = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|ARM.Deploy.0 = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|iPhone.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|iPhone.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|iPhone.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|iPhoneSimulator.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|iPhoneSimulator.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|iPhoneSimulator.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|Mixed Platforms.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|Mixed Platforms.Build.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|Mixed Platforms.Deploy.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|x64.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|x64.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|x64.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|x86.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|x86.Build.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.AppStore|x86.Deploy.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|Any CPU.Build.0 = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|Any CPU.Deploy.0 = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|ARM.ActiveCfg = Debug|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|ARM.Build.0 = Debug|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|ARM.Deploy.0 = Debug|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|iPhone.ActiveCfg = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|x64.ActiveCfg = Debug|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|x64.Build.0 = Debug|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|x64.Deploy.0 = Debug|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|x86.ActiveCfg = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|x86.Build.0 = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Debug|x86.Deploy.0 = Debug|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|Any CPU.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|ARM.ActiveCfg = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|ARM.Build.0 = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|ARM.Deploy.0 = Release|ARM
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|iPhone.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|iPhoneSimulator.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|Mixed Platforms.Build.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|Mixed Platforms.Deploy.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|x64.ActiveCfg = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|x64.Build.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|x64.Deploy.0 = Release|x64
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|x86.ActiveCfg = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|x86.Build.0 = Release|x86
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9}.Release|x86.Deploy.0 = Release|x86
 		{F1946BA2-2928-4D48-B4B6-3323B0CA805F}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1946BA2-2928-4D48-B4B6-3323B0CA805F}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
 		{F1946BA2-2928-4D48-B4B6-3323B0CA805F}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
@@ -309,8 +233,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5B7F14EB-014B-4044-B7F5-A46B7D8458B9} = {88E62699-9893-442B-9F27-C83818726C28}
 		{F1946BA2-2928-4D48-B4B6-3323B0CA805F} = {88E62699-9893-442B-9F27-C83818726C28}
 		{33FC8B0A-CEE1-4873-957F-66B66ACDA699} = {2360632D-7853-40AB-BFC7-2F8E69C858B3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {995E2AA5-847C-4D88-BC3E-6CE636985976}
 	EndGlobalSection
 EndGlobal
