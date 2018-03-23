@@ -30,7 +30,7 @@ Updated to .NET Standard 1.3 (from .NET Standard 1.2)
     </metadata>
     
     <files>
-        <file src="..\main\SimpleHttpServer.Netstandard\bin\Release\netstandard1.2\SimpleHttpServer.*" target="lib\netstandard1.2\" />
-      <file src="..\main\ISimpleHttpServer.Netstandard\bin\Release\netstandard1.2\ISimpleHttpServer.*" target="lib\netstandard1.2\" />
+        <file src="..\main\SimpleHttpServer.Netstandard\bin\Release\netstandard1.3\SimpleHttpServer.*" target="lib\netstandard1.3\" />
+      <file src="..\main\ISimpleHttpServer.Netstandard\bin\Release\netstandard1.3\ISimpleHttpServer.*" target="lib\netstandard1.3\" />
     </files>
 </package>
