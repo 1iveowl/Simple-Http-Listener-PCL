@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
-using HttpListener = SimpleHttpServer.Service.HttpListener;
 using System.Text;
 using System.Threading.Tasks;
 using ISimpleHttpServer.Model;
 using Console.NETcore.Test.Model;
 using ISimpleHttpServer.Service;
 using SimpleHttpServer.Helper;
-using Console = System.Console;
 
 
 class Program
@@ -37,9 +34,6 @@ class Program
 
     private static async void StartTcpListener()
     {
-
-
-
         System.Console.WriteLine("Start Listener");
 
         var listenerConfig = Initializer.GetListener("192.168.0.59", 8000);
