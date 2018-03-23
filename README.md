@@ -2,7 +2,7 @@
 
 [![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
 
-[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v1.2-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
+[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v1.3-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
 
 *Please star this project if you find it useful. Thank you.*
 
