@@ -9,28 +9,28 @@
         <projectUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL</projectUrl>
         <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Simple Http Listener - Cross Platform PCL/.NET Standard Library
+        <description>Simple Http Listener -.NET Standard Library
     
 Great for a simple http implementation. For example as a building block for UPnP device or client implementation.</description>
         <releaseNotes>
-Updated to SocketLite 4.2.1
-Updated to .NET Standard 1.3 (from .NET Standard 1.2)
+[.NET Standard] Only .NET Standard 2.0 and later is supporting from this version and forward.
+
         </releaseNotes>
-        <copyright>Copyright 1iveowl 2017</copyright>
-        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android netcore
+        <copyright>Copyright 1iveowl 2018</copyright>
+        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android netcore netstandard netstandard20 netstandard21
         </tags>
         
         <dependencies>
-          <dependency id="System.Reactive" version="3.1.1"/>
-          <dependency id="SocketLite.PCL" version="4.2.1"/>
+          <dependency id="System.Reactive" version="4.0.0"/>
+          <dependency id="SocketLite.PCL" version="5.0.0"/>
           <dependency id="HttpMachine.PCL" version="3.1.0"/>
-          <dependency id="System.ValueTuple" version="4.4.0"/>
+          <dependency id="System.ValueTuple" version="4.5.0"/>
         </dependencies>
 
     </metadata>
     
     <files>
-        <file src="..\main\SimpleHttpServer.Netstandard\bin\Release\netstandard1.3\SimpleHttpServer.*" target="lib\netstandard1.3\" />
-      <file src="..\main\ISimpleHttpServer.Netstandard\bin\Release\netstandard1.3\ISimpleHttpServer.*" target="lib\netstandard1.3\" />
+        <file src="..\main\SimpleHttpServer.Netstandard\bin\Release\netstandard2.0\SimpleHttpServer.*" target="lib\netstandard2.0\" />
+      <file src="..\main\ISimpleHttpServer.Netstandard\bin\Release\netstandard2.0\ISimpleHttpServer.*" target="lib\netstandard2.0\" />
     </files>
 </package>
