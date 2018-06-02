@@ -2,7 +2,7 @@
 
 [![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
 
-[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v1.3-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
+[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v2.0-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
 
 *Please star this project if you find it useful. Thank you.*
 
@@ -15,6 +15,9 @@ This project is based on [SocketLite.PCL](https://github.com/1iveowl/sockets-for
 IMPORTANT: SocketList.PCL utilizes the "Bait and Switch" pattern and the SocketLite.PCL nuget must be part of any project using Simple Http Listner PCL.
 
 The Http Listener also requires Microsoft [Reactive Extensions](https://www.nuget.org/packages/Rx-Main). 
+
+## Version 5.0
+From version 5.0 and onwards, only .NET Standard 2.0 and later is supported.
 
 ## Version 4.0
 Version 4.0 represents a major overhaul of this library. Version 4.0 is still backwards compatible, but many of the methods have been marked as deprecated to inspire developers to use the newer versions of this library. In previous versions you had to subscribe to an observable and then start the action. In version 4.0 you just subscribe, that's it. Much more clean and better aligned with the Rx patterns.
