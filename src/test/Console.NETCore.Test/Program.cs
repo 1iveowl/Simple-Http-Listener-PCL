@@ -23,7 +23,7 @@ class Program
 
     private static async Task StartMultiCast()
     {
-        var mcastListener = await _httpListener.UdpMulticastHttpRequestObservable("239.255.255.250", 1900, false);
+        var mcastListener = await _httpListener.UdpMulticastHttpRequestObservable("239.255.255.250", 1900, true);
 
         mcastListener.Subscribe(msg =>
         {
