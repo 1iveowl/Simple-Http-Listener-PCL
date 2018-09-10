@@ -29,17 +29,17 @@ namespace SimpleHttpServer.Service
 
         private IObservable<IHttpRequestReponse> _udpMulticastRequestResponseObservable;
 
-        private async Task<IObservable<IHttpRequestReponse>> GetTcpRequestResponseObservable(
+        private IObservable<IHttpRequestReponse> GetTcpRequestResponseObservable(
             int port,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = false)
         {
             var tcpListener = new TcpSocketListener();
 
-            var observeTcpRequest = await tcpListener.CreateObservableListener(
-                port,
-                communicationInterface,
-                allowMultipleBindToSamePort);
+            //var observeTcpRequest = await tcpListener.CreateObservableListener(
+            //    port,
+            //    communicationInterface,
+            //    allowMultipleBindToSamePort);
 
             var observable = Observable.Create<IHttpRequestReponse>(
                 obs =>
@@ -86,7 +86,7 @@ namespace SimpleHttpServer.Service
             return observable;
         }
 
-        private async Task<IObservable<IHttpRequestReponse>> GetUdpRequestResponseObservable(
+        private async IObservable<IHttpRequestReponse> GetUdpRequestResponseObservable(
             int port,
             ICommunicationInterface communicationInterface = null,
             bool allowMultipleBindToSamePort = false)
@@ -205,7 +205,7 @@ namespace SimpleHttpServer.Service
             Timeout = timeout;
         }
 
-        public async Task<IObservable<IHttpRequest>> TcpHttpRequestObservable(
+        public IObservable<IHttpRequest> TcpHttpRequestObservable(
             int port, 
             bool allowMultipleBindToSamePort = false)
         {
@@ -213,8 +213,8 @@ namespace SimpleHttpServer.Service
             return observableRequestResponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task<IObservable<IHttpResponse>> TcpHttpResponseObservable(
-            int port, 
+        public async IObservable<IHttpResponse> TcpHttpResponseObservable(
+            int port,
             bool allowMultipleBindToSamePort = false)
         {
             var observableRequestReponse = await ManageTcpListenerInterfaceState(port, allowMultipleBindToSamePort);
@@ -222,7 +222,7 @@ namespace SimpleHttpServer.Service
         }
 
         private async Task<IObservable<IHttpRequestReponse>> ManageTcpListenerInterfaceState(
-            int port, 
+            int port,
             bool allowMultipleBindToSamePort = false)
         {
             if (_tcpListenerPortToObservable.ContainsKey(port))
@@ -237,7 +237,7 @@ namespace SimpleHttpServer.Service
             }
         }
 
-        public async Task<IObservable<IHttpRequest>> UdpHttpRequestObservable(
+        public async IObservable<IHttpRequest> UdpHttpRequestObservable(
             int port, 
             bool allowMultipleBindToSamePort = false)
         {
@@ -245,15 +245,15 @@ namespace SimpleHttpServer.Service
             return observableRequestResponse.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task<IObservable<IHttpResponse>> UdpHttpResponseObservable(
-            int port, 
+        public IObservable<IHttpResponse> UdpHttpResponseObservable(
+            int port,
             bool allowMultipleBindToSamePort = false)
         {
             var observableRequestResponse = await ManageUnicastInterfaceState(port, allowMultipleBindToSamePort);
             return observableRequestResponse.Where(res => res.MessageType == MessageType.Response);
         }
 
-        private async Task<IObservable<IHttpRequestReponse>> ManageUnicastInterfaceState(
+        private async IObservable<IHttpRequestReponse> ManageUnicastInterfaceState(
             int port, 
             bool allowMultipleBindToSamePort = false)
         {
@@ -269,7 +269,7 @@ namespace SimpleHttpServer.Service
             }
         }
 
-        public async Task<IObservable<IHttpRequest>> UdpMulticastHttpRequestObservable(
+        public async IObservable<IHttpRequest> UdpMulticastHttpRequestObservable(
             string ipAddr, 
             int port, 
             bool allowMultipleBindToSamePort = false)
@@ -280,9 +280,9 @@ namespace SimpleHttpServer.Service
             return _udpMulticastRequestResponseObservable.Where(req => req.MessageType == MessageType.Request);
         }
 
-        public async Task<IObservable<IHttpResponse>> UdpMulticastHttpResponseObservable(
-            string ipAddr, 
-            int port, 
+        public async IObservable<IHttpResponse> UdpMulticastHttpResponseObservable(
+            string ipAddr,
+            int port,
             bool allowMultipleBindToSamePort = false)
         {
             await ManageMulticastInterfaceState(ipAddr, port, allowMultipleBindToSamePort);
@@ -314,7 +314,7 @@ namespace SimpleHttpServer.Service
             }
         }
 
-        public async Task SendOnMulticast(byte[] data)
+        public async Task SendOnMulticastAsync(byte[] data)
         {
             await _udpMultiCastListener.SendMulticastAsync(data);
         }

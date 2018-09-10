@@ -13,11 +13,11 @@ using SimpleHttpServer.Helper;
 class Program
 {
     private static IHttpListener _httpListener;
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         //_httpListener = new HttpListener(timeout: TimeSpan.FromSeconds(30));
 
-        StartTcpListener();
+        await StartTcpListener();
         System.Console.ReadKey();
     }
 
@@ -32,7 +32,7 @@ class Program
         
     }
 
-    private static async void StartTcpListener()
+    private static async Task StartTcpListener()
     {
         System.Console.WriteLine("Start Listener");
 

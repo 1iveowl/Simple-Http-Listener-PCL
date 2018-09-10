@@ -16,7 +16,7 @@ using SocketLite.Services;
 
 namespace SimpleHttpServer.Service
 {
-    public partial class HttpListener : ComposeBase, IHttpListener
+    public partial class HttpListener : ComposeBase
     {
         private ITcpSocketListener _tcpListener;
         private IUdpSocketReceiver _udpListener;
