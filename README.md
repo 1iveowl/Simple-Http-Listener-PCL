@@ -1,9 +1,10 @@
 # Simple Http Listener
 
 
-[![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener.Rx/)
+[![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener.Rx)](https://www.nuget.org/packages/SimpleHttpListener.Rx/)
 
 Previous versions:
+
 [![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
 
 *Please star this project if you find it useful. Thank you.*
