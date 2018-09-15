@@ -9,16 +9,13 @@
         <projectUrl>https://github.com/1iveowl/Simple-Http-Listener-PCL</projectUrl>
         <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Simple Http Listener -.NET Standard Library
-    
-Great for a simple http implementation. For example as a building block for UPnP device or client implementation.</description>
+        <description>Simple Http Listener
+This is the legacy version of Simple HTTP Listener. Please see project web site for a new version.</description>
         <releaseNotes>
-          [Rx] Updated to System.Reative 4.1.0
-          [.NET Standard] Only .NET Standard 2.0 and later is supporting from this version and forward.
-
+[All] There is a newer version of this library. Please use the newer version.
         </releaseNotes>
         <copyright>Copyright 1iveowl 2018</copyright>
-        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android netcore netstandard netstandard20 netstandard21
+        <tags>http, listerner, udp, tcp, upnp, xamarin, ios, uwp, .net, android netcore netstandard
         </tags>
         
         <dependencies>
