@@ -1,5 +1,7 @@
 # Important
-This library have been replaced with version 6.0: [Simple Http Listener Rx](https://github.com/1iveowl/SimpleHttpListener.Rx/blob/master/README.md).
+This library has been replaced with version 6.0: [Simple Http Listener Rx](https://github.com/1iveowl/SimpleHttpListener.Rx/blob/master/README.md). Please use this newer and better version. 
+
+Thank you.
 
 # Simple Http Listener
 
