@@ -1,20 +1,15 @@
-# Important
-This library has been replaced with version 6.0: [Simple Http Listener Rx](https://github.com/1iveowl/SimpleHttpListener.Rx/blob/master/README.md). Please use this newer and better version. 
-
-Thank you.
-
 # Simple Http Listener
 
+[![NuGet](https://img.shields.io/nuget/v/SimpleHttpListener?logo=nuget&label=SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
+[![Downloads](https://img.shields.io/nuget/dt/SimpleHttpListener?logo=nuget&color=blue)](https://www.nuget.org/packages/SimpleHttpListener)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENCE)
 
-[![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener.Rx)](https://www.nuget.org/packages/SimpleHttpListener.Rx/)
+[![.NET Standard](https://img.shields.io/badge/.NET%20Standard-2.0-5C2D91?logo=dotnet&logoColor=white)](https://learn.microsoft.com/dotnet/standard/net-standard)
 
-Previous versions:
-
-[![NuGet Badge](https://buildstats.info/nuget/SimpleHttpListener)](https://www.nuget.org/packages/SimpleHttpListener)
+> **Important**
+> This library has been replaced with version 6.0: [Simple Http Listener Rx](https://github.com/1iveowl/SimpleHttpListener.Rx/blob/master/README.md). Please use this newer and better version.
 
 *Please star this project if you find it useful. Thank you.*
-
-[![.NET Standard](http://img.shields.io/badge/.NET_Standard-v2.0-green.svg)](https://docs.microsoft.com/da-dk/dotnet/articles/standard/library)
 
 Version 6.0 has breaking change but is also a great improvement to previous versions. Using version 6.0 is highly recommended. 
 
